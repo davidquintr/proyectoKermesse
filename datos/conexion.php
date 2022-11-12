@@ -14,12 +14,13 @@ class Conexion
     public function conectar()
 	{
         $serverName = 'localhost';
-        $dbName = 'dbkermesse';
+        $dbName = 'hr';
         $userName = 'root';
         $pwd = 'Usuario123.!';
 
 		try
-		{   
+		{
+            
 			$this->pdo = new PDO("mysql:host={$serverName};dbname={$dbName}",$userName,$pwd);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Se conecto a HR exitosamente!";

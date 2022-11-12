@@ -12,9 +12,36 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
+        <!-- jQuery -->
+        <script src="js/scripts.js"></script>
+        <script src="DataTables/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+       
+        <!-- Descargar el bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+       
+        <!-- JS DATATABLES -->
+        <script src="./DataTables/datatables.min.js"></script>
+        <!--<script src="./DataTables/Responsive-2.3.0/js/responsive.bootstrap5.min.js"></script>-->
+        <script src="./DataTables/Responsive-2.3.0/js/dataTables.responsive.min.js"></script>
+        <script src="./DataTables/Responsive-2.3.0/js/responsive.dataTables.min.js"></script>
+        <script src="./DataTables/Buttons-2.2.3/js/dataTables.buttons.min.js"></script>
+        <script src="./DataTables/Buttons-2.2.3/js/buttons.bootstrap5.min.js"></script>
+        <script src="./DataTables/JSZip-2.5.0/jszip.min.js"></script>
+        <script src="./DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+        <script src="./DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+        <script src="./DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
+        <script src="./DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
+        <script src="./DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
+
+        <!--script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>-->
+        <script src="fontawesome-free-6.2.0/js/all.min.js"></script>
+
+    
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand ps-3" href="index.html">Kermesse</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
