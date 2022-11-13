@@ -23,6 +23,11 @@ class Dt_tbl_usuario extends Conexion
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('id_usuario', $r->id_usuario);
 				$c->__SET('usuario', $r->usuario);
+				$c->__SET('pwd', $r->pwd);
+				$c->__SET('nombres', $r->nombres);
+				$c->__SET('apellidos', $r->apellidos);
+				$c->__SET('email', $r->email);
+				$c->__SET('estado', $r->estado);
 				$result[] = $c;
 			}
 			$this->myCon = parent::desconectar();
@@ -33,14 +38,18 @@ class Dt_tbl_usuario extends Conexion
 		}
 	}
 }
-
+/*
 $prueba = new Dt_tbl_usuario();
-
 $element = $prueba->listarUsuarios();
 
 foreach($element as $value){
     echo "<br>";
     echo $value->id_usuario;
     echo $value->usuario;
+    echo $value->pwd;
+    echo $value->nombres;
+    echo $value->apellidos;
+    echo $value->email;
+    echo $value->estado;
 }
-
+*/

@@ -18,17 +18,13 @@ class Conexion
         $userName = 'root';
         $pwd = 'Usuario123.!';
 
-		try
-		{
+		try{
             
 			$this->pdo = new PDO("mysql:host={$serverName};dbname={$dbName}",$userName,$pwd);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Se conecto a HR exitosamente!";
             return $this->pdo; 		        
 		}
-		catch(PDOException $e)
-		{
-            echo "La conexion fallo!";
+		catch(PDOException $e){
 			die($e->getMessage());
 		}
     }
@@ -38,7 +34,6 @@ class Conexion
         try
 		{
             $pdo = null;
-            echo "Se desconecto de HR exitosamente!";
             return $pdo; 		        
         }
         catch(PDOException $e)

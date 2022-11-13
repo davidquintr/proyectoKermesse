@@ -5,7 +5,7 @@
 
 ***
 
-## Tecnologías ocupadas
+## Tecnologías usadas
 
 - PHP
 - CSS

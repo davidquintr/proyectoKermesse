@@ -1,5 +1,12 @@
 <?php
+error_reporting(0);
 include 'partials/top.php';
+include_once 'datos/Dt_tbl_usuario.php';
+include_once 'entidades/tbl_usuario.php';
+
+$dtUsuario = new Dt_tbl_usuario();
+$usuarios = $dtUsuario->listarUsuarios();
+
 ?>
 <html>
 <div class="container-fluid px-4">
@@ -24,23 +31,39 @@ include 'partials/top.php';
                                 <table id="tbl_usuarios" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>ID</th>
+                                            <th>Usuario</th>
+                                            <th>Password</th>
+                                            <th>Nombres</th>
+                                            <th>Apellido</th>
+                                            <th>Email</th>
+                                            <th>Estado</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+
+                                        <?php 
+                                        foreach($usuarios as $value):
+                                            echo "<tr>";
+                                            echo "<td>$value->id_usuario</td>";
+                                            echo "<td>$value->usuario</td>";
+                                            echo "<td>$value->pwd</td>";
+                                            echo "<td>$value->nombres</td>";
+                                            echo "<td>$value->apellidos</td>";
+                                            echo "<td>$value->email</td>";
+                                            switch($value->estado){
+                                                case 1:
+                                                    echo "<td>Activo</td>";
+                                                break;
+                                                case 2:
+                                                    echo "<td>Modificado</td>";
+                                                break;
+                                                case 3:
+                                                    echo "<td>Inactivo/Eliminado</td>";
+                                                break;
+                                            }
+                                        ?>
                                             <td>
                                                 <a href="#" target="_blank" title="Visualizar los datos de un usuario">
                                                     <i class="fa-solid fa-eye"></i>
@@ -52,16 +75,20 @@ include 'partials/top.php';
                                                     <i class="fa-solid fa-user-minus"></i> 
                                                 </a>
                                             </td>
-                                        </tr>
+                                            </tr>
+                                        <?php
+                                            endforeach;
+                                        ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>ID</th>
+                                            <th>Usuario</th>
+                                            <th>Password</th>
+                                            <th>Nombres</th>
+                                            <th>Apellido</th>
+                                            <th>Email</th>
+                                            <th>Estado</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </tfoot>
