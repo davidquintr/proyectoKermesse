@@ -1,13 +1,14 @@
 <?php
 $title = "Gestionar usuarios";
 $direct = "../../";
-error_reporting(0);
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_usuario.php';
-include_once '../../entidades/tbl_usuario.php';
+include_once ('../../datos/Dt_tbl_usuario.php');
+include_once ('../../entidades/tbl_usuario.php');
 
 $dtUsuario = new Dt_tbl_usuario();
 $usuarios = $dtUsuario->listarUsuarios();
+
+error_reporting(0);
 
 ?>
 <div class="container-fluid px-4">
