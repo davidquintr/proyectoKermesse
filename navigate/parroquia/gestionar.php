@@ -33,9 +33,8 @@ $parroquia = $dtParroquia->listarParroquia();
                             <th>Direccion</th>
                             <th>Telefono</th>
                             <th>Parroco</th>
-                            <th>Email</th>
                             <th>Logo</th>
-                            <th>sitio_web</th>
+                            <th>Sitio web</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
@@ -48,8 +47,8 @@ $parroquia = $dtParroquia->listarParroquia();
                             echo "<td>$value->direccion</td>";
                             echo "<td>$value->telefono</td>";
                             echo "<td>$value->parroco</td>";
+                            echo "<td>$value->logo</td>";
                             echo "<td>$value->sitio_web</td>";
-
                         ?>
                         <td>
                             <a href="#" target="_blank" title="Visualizar los datos de parroquia">
@@ -74,7 +73,6 @@ $parroquia = $dtParroquia->listarParroquia();
                             <th>Direccion</th>
                             <th>Telefono</th>
                             <th>Parroco</th>
-                            <th>Email</th>
                             <th>Logo</th>
                             <th>sitio_web</th>
                             <th>Opciones</th>

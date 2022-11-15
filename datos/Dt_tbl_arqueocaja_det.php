@@ -19,7 +19,7 @@ class Dt_Tbl_arqueocaja_det extends Conexion{
 				$c = new Tbl_Arqueocaja_Det();
 
 				//_SET(CAMPOBD, atributoEntidad)			
-				$c->__SET('id_tasaCambio_det', $r->idArqueoCaja_Det);
+				$c->__SET('idArqueoCaja_Det', $r->idArqueoCaja_Det);
                 $c->__SET('idArqueoCaja', $r->idArqueoCaja);
                 $c->__SET('idMoneda', $r->idMoneda);
                 $c->__SET('idDenominacion', $r->idDenominacion);
