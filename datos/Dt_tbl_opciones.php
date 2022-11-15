@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_opciones.php");
+include_once("../../entidades/tbl_opciones.php");
 
 
 class Dt_tbl_opciones extends Conexion
@@ -34,7 +34,7 @@ class Dt_tbl_opciones extends Conexion
 		}
 	}
 }
-
+/*
 $prueba = new Dt_tbl_opciones();
 $element = $prueba->listarOpciones();
 
@@ -44,3 +44,4 @@ foreach($element as $value){
     echo $value->opcion_descripcion;
     echo $value->estado;
 }
+*/

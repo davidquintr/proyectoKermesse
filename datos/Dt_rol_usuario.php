@@ -1,13 +1,13 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/rol_Usuario.php");
+include_once("../../entidades/rol_usuario.php");
 
 
 class Dt_rol_usuario extends Conexion
 {
     private $myCon;
 
-    public function listarRolUsuario(){
+    public function listarRolUsuarios(){
 		
         try{
             $this->myCon = parent::conectar();
@@ -18,7 +18,7 @@ class Dt_rol_usuario extends Conexion
 			$stm->execute();
 
 			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-				$c = new Rol_usuario();
+				$c = new Rol_Usuario();
 
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('id_rol_usuario', $r->id_rol_usuario);
@@ -34,7 +34,7 @@ class Dt_rol_usuario extends Conexion
 		}
 	}
 }
-
+/*
 $prueba = new Dt_rol_usuario();
 $element = $prueba->listarRolUsuario();
 
@@ -44,3 +44,4 @@ foreach($element as $value){
     echo $value->tbl_usuario_id_usuario;
     echo $value->tbl_rol_id_rol;
 }
+*/

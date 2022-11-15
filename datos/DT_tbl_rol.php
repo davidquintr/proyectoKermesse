@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_rol.php");
+include_once("../../entidades/tbl_rol.php");
 
 
 class Dt_tbl_rol extends Conexion
@@ -34,7 +34,7 @@ class Dt_tbl_rol extends Conexion
 		}
 	}
 }
-
+/*
 $prueba = new Dt_tbl_rol();
 $element = $prueba->listarRoles();
 
@@ -44,3 +44,4 @@ foreach($element as $value){
 	echo $value->rol_descripcion;
 	echo $value->estado;
 }
+*/

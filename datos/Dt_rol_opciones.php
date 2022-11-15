@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/rol_opciones.php");
+include_once("../../entidades/rol_opciones.php");
 
 
 class Dt_rol_opciones extends Conexion
@@ -34,7 +34,7 @@ class Dt_rol_opciones extends Conexion
 		}
 	}
 }
-
+/*
 $prueba = new Dt_rol_opciones();
 $element = $prueba->listarRolOpciones();
 
@@ -44,3 +44,4 @@ foreach($element as $value){
     echo $value->tbl_rol_id_rol;
     echo $value->tbl_opciones_id_opciones;
 }
+*/
