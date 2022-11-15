@@ -39,7 +39,7 @@ $catGastos = $dtCatGastos->listarCatGastos();
                         foreach($catGastos as $value):
                             echo "<tr>";
                             echo "<td>$value->id_categoria_gastos</td>";
-                            echo "<td>$value->nombre</td>";
+                            echo "<td>$value->nombre_categoria</td>";
                             echo "<td>$value->descripcion</td>";
                             switch($value->estado){
                                 case 1:

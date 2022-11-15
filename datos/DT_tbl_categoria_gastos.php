@@ -35,7 +35,7 @@ class Dt_tbl_categoria_gastos extends Conexion
 		}
 	}
 }
-/*
+
 $prueba = new Dt_tbl_categoria_gastos();
 $element = $prueba->listarCatGastos();
 
@@ -46,4 +46,3 @@ foreach($element as $value){
     echo $value->descripcion;
     echo $value->estado;
 }
-*/
