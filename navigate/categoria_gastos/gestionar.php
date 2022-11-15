@@ -25,7 +25,7 @@ $catGastos = $dtCatGastos->listarCatGastos();
                 categoria gastos Activos
             </div>
             <div class="card-body">
-                <table id="tbl_categoria_gastos" class="table table-bordered table-striped">
+                <table id="generic" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>

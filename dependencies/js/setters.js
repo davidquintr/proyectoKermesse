@@ -7,6 +7,8 @@ $(document).ready( function (){
         "sortAscending": "Activar para ordenar la columna de manera ascendente",
         "sortDescending": "Activar para ordenar la columna de manera descendente"
     },
+
+    
     "buttons": {
         "collection": "Colección",
         "colvis": "Visibilidad",
@@ -95,3 +97,4 @@ $(document).ready( function (){
     }).buttons().container().appendTo('#tbl_usuarios_wrapper .col-md-6:eq(0)');
 
 });
+
