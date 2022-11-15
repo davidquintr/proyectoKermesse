@@ -1,7 +1,7 @@
 <?php
 $title = "Ingreso comunidad";
 $direct = "../../";
-error_reporting(0);
+
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_ingreso_comunidad.php';
 include_once '../../entidades/tbl_ingreso_comunidad.php';

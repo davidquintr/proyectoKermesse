@@ -1,7 +1,7 @@
 <?php
 $title = "Gestionar usuarios";
 $direct = "../../";
-error_reporting(0);
+
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_control_bonos.php';
 include_once '../../entidades/tbl_control_bonos.php';

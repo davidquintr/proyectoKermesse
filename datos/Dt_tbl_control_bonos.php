@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_usuario.php");
+include_once("../../entidades/tbl_usuario.php");
 
 
 class Dt_tbl_control_bonos extends Conexion
