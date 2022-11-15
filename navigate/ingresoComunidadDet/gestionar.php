@@ -34,6 +34,7 @@ $ingresosComunidadDet = $dtIngresoComunidadDet->listarIngresoComunidadDet();
                             <th>Denominacion</th>
                             <th>Cantidad</th>
                             <th>Subtotal bono</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,6 +72,7 @@ $ingresosComunidadDet = $dtIngresoComunidadDet->listarIngresoComunidadDet();
                             <th>Denominacion</th>
                             <th>Cantidad</th>
                             <th>Subtotal bono</th>
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>

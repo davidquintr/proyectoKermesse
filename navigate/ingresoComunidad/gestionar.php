@@ -38,6 +38,7 @@ $ingresosComunidad = $dtIngresoComunidad->listarIngresoComunidad();
                             <th>Usuario creacion</th>
                             <th>Fecha Creacion</th>
                             <th>Usuario Modificacion</th> 
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,6 +94,7 @@ $ingresosComunidad = $dtIngresoComunidad->listarIngresoComunidad();
                             <th>Usuario creacion</th>
                             <th>Fecha Creacion</th>
                             <th>Usuario Modificacion</th> 
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>

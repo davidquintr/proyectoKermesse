@@ -32,6 +32,7 @@ $bonos = $dtControlBonos->listarControlBonos();
                             <th>Nombre</th>
                             <th>Valor</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,6 +76,7 @@ $bonos = $dtControlBonos->listarControlBonos();
                             <th>Nombre</th>
                             <th>Valor</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>

@@ -33,6 +33,7 @@ $comunidades = $dtComunidad->listarComunidad();
                             <th>Responsable</th>
                             <th>Desc_contribucion</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                    </thead>
                     <tbody>
@@ -78,6 +79,7 @@ $comunidades = $dtComunidad->listarComunidad();
                             <th>Responsable</th>
                             <th>Desc_contribucion</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>
