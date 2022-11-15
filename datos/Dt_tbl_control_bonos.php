@@ -3,30 +3,27 @@ include_once("conexion.php");
 include_once("../../entidades/tbl_usuario.php");
 
 
-class Dt_tbl_usuario extends Conexion
+class Dt_tbl_control_bonos extends Conexion
 {
     private $myCon;
 
-    public function listarUsuarios(){
+    public function listarControlBonos(){
 		
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "select * from dbkermesse.tbl_usuario;";
+			$querySQL = "select * from dbkermesse.tbl_control_bonos;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();
 
 			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-				$c = new tbl_usuario();
+				$c = new Tbl_Control_Bonos();
 
 				//_SET(CAMPOBD, atributoEntidad)			
-				$c->__SET('id_usuario', $r->id_usuario);
-				$c->__SET('usuario', $r->usuario);
-				$c->__SET('pwd', $r->pwd);
-				$c->__SET('nombres', $r->nombres);
-				$c->__SET('apellidos', $r->apellidos);
-				$c->__SET('email', $r->email);
+				$c->__SET('id_bono', $r->id_bono);
+				$c->__SET('nombre', $r->nombre);
+				$c->__SET('valor', $r->valor);
 				$c->__SET('estado', $r->estado);
 				$result[] = $c;
 			}
