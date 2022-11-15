@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_denominacion.php");
+include_once("../../entidades/tbl_denominacion.php");
 
 
 class Dt_tbl_Denominacion extends Conexion{

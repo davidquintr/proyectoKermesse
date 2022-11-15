@@ -2,22 +2,21 @@
 $title = "Gestionar usuarios";
 $direct = "../../";
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_arqueocaja.php';
-include_once '../../entidades/tbl_arqueocaja.php';
+include_once '../../datos/Dt_tbl_denominacion.php';
+include_once '../../entidades/tbl_denominacion.php';
 
-
-$dtArqueocaja = new Dt_tbl_Arqueocaja;
-$arqueocaja = $dtArqueocaja->listarArqueoCaja();
+$dtDenominacion= new Dt_tbl_Denominacion();
+$denominacion =  $dtDenominacion->listarDenominaciones();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Arqueo Caja</h1>
+        <h1 class="mt-4">Gestionar Denominaciones</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
-            <li class="breadcrumb-item active">Gestión de Arqueo Caja</li>
+            <li class="breadcrumb-item active">Gestión de Usuarios</li>
         </ol>
         <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los arqueo caja.
+            En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
         </div>
         <div class="card mb-4">
             <div class="card-header">
@@ -25,37 +24,25 @@ $arqueocaja = $dtArqueocaja->listarArqueoCaja();
                 Usuarios Activos
             </div>
             <div class="card-body">
-                <table id="generic" class="table table-bordered table-striped">
+                <table id="tbl_usuarios" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>idKermesse</th>
-                            <th>Fecha Arqueo</th>
-                            <th>Gran total</th>
-                            <th>Usuario creación</th>
-                            <th>Fecha de creación</th>
-                            <th>Usuario modificación</th>
-                            <th>Fecha de moodificación</th>
-                            <th>Usuario eliminación</th>
-                            <th>Fecha de eliminación</th>
-                            <th>Estado</th>
+                            <th>idMoneda</th>
+                            <th>Valor</th>
+                            <th>Valor Letras</th>
+                            <th>SubTotal</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($arqueocaja as $value):
+                        foreach($denominacion as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_ArqueoCaja</td>";
-                            echo "<td>$value->idKermesse</td>";
-                            echo "<td>$value->fechaArqueo</td>";
-                            echo "<td>$value->granTotal</td>";
-                            echo "<td>$value->usuario_creacion</td>";
-                            echo "<td>$value->fecha_creacion</td>";
-                            echo "<td>$value->usuario_modificacion</td>";
-                            echo "<td>$value->fecha_modificacion</td>";
-                            echo "<td>$value->usuario_eliminacion</td>";
-                            echo "<td>$value->fecha_eliminacion</td>";
+                            echo "<td>$value->id_denominacion</td>";
+                            echo "<td>$value->idMoneda</td>";
+                            echo "<td>$value->valor</td>";
+                            echo "<td>$value->valor_letras</td>";
                             switch($value->estado){
                                 case 1:
                                     echo "<td>Activo</td>";
@@ -86,17 +73,11 @@ $arqueocaja = $dtArqueocaja->listarArqueoCaja();
                     </tbody>
                     <tfoot>
                         <tr>
-                        <th>ID</th>
-                            <th>idKermesse</th>
-                            <th>Fecha Arqueo</th>
-                            <th>Gran total</th>
-                            <th>Usuario creación</th>
-                            <th>Fecha de creación</th>
-                            <th>Usuario modificación</th>
-                            <th>Fecha de moodificación</th>
-                            <th>Usuario eliminación</th>
-                            <th>Fecha de eliminación</th>
-                            <th>Estado</th>
+                            <th>ID</th>
+                            <th>idMoneda</th>
+                            <th>Valor</th>
+                            <th>Valor Letras</th>
+                            <th>SubTotal</th>
                             <th>Opciones</th>
                         </tr>
                     </tfoot>
@@ -104,7 +85,7 @@ $arqueocaja = $dtArqueocaja->listarArqueoCaja();
             </div>
         </div>
     </div>
-    <script src="../../dependencies/js/setters.js"></script>    
+    <script src="../../dependencies/js/setters.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>

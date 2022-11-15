@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_moneda.php");
+include_once("../../entidades/tbl_moneda.php");
 
 
 class Dt_tbl_Moneda extends Conexion{

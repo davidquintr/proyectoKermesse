@@ -2,15 +2,15 @@
 $title = "Gestionar usuarios";
 $direct = "../../";
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_usuario.php';
-include_once '../../entidades/tbl_usuario.php';
+include_once '../../datos/Dt_tbl_arqueocaja_det.php';
+include_once '../../entidades/tbl_arqueocaja_det.php';
 
-$dtUsuario = new Dt_tbl_usuario();
-$usuarios = $dtUsuario->listarUsuarios();
+$dtArqueoDet = new Dt_Tbl_arqueocaja_det();
+$arqueoDet = $dtArqueoDet->listarArqueoCaja_det();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Datos de Usuarios</h1>
+        <h1 class="mt-4">Gestionar Arqueo Caja Det</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de Usuarios</li>
@@ -28,36 +28,24 @@ $usuarios = $dtUsuario->listarUsuarios();
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Estado</th>
+                            <th>ID ArqueooCaja</th>
+                            <th>idMoneda</th>
+                            <th>idDenominaciones</th>
+                            <th>Cantidad</th>
+                            <th>SubTotal</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($usuarios as $value):
+                        foreach($arqueoDet as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_usuario</td>";
-                            echo "<td>$value->usuario</td>";
-                            echo "<td>$value->pwd</td>";
-                            echo "<td>$value->nombres</td>";
-                            echo "<td>$value->apellidos</td>";
-                            echo "<td>$value->email</td>";
-                            switch($value->estado){
-                                case 1:
-                                    echo "<td>Activo</td>";
-                                break;
-                                case 2:
-                                    echo "<td>Modificado</td>";
-                                break;
-                                case 3:
-                                    echo "<td>Inactivo/Eliminado</td>";
-                                break;
-                            }
+                            echo "<td>$value->idArqueoCaja_Det</td>";
+                            echo "<td>$value->idArqueoCaja</td>";
+                            echo "<td>$value->idMoneda</td>";
+                            echo "<td>$value->idDenominacion</td>";
+                            echo "<td>$value->cantidad</td>";
+                            echo "<td>$value->subtotal</td>";
                         ?>
                         <td>
                             <a href="#" target="_blank" title="Visualizar los datos de un usuario">
@@ -77,13 +65,12 @@ $usuarios = $dtUsuario->listarUsuarios();
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Estado</th>
+                        <th>ID</th>
+                            <th>ID ArqueooCaja</th>
+                            <th>idMoneda</th>
+                            <th>idDenominaciones</th>
+                            <th>Cantidad</th>
+                            <th>SubTotal</th>
                             <th>Opciones</th>
                         </tr>
                     </tfoot>

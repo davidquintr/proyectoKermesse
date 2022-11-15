@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_arqueocaja_det.php");
+include_once("../../entidades/tbl_arqueocaja_det.php");
 
 
 class Dt_Tbl_arqueocaja_det extends Conexion{

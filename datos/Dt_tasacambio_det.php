@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tasacambio_det.php");
+include_once("../../entidades/tasacambio_det.php");
 
 
 class Dt_Tasacambio_det extends Conexion{
