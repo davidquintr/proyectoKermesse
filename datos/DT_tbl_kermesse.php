@@ -22,7 +22,7 @@ class Dt_tbl_kermesse extends Conexion
 
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('id_kermesse', $r->id_kermesse);
-                $c->__SET('idParroquia', $r->idParroquia)
+                $c->__SET('idParroquia', $r->idParroquia);
 				$c->__SET('nombre', $r->nombre);
 				$c->__SET('fInicio', $r->fInicio);
 				$c->__SET('fFinal', $r->fFinal);
@@ -31,9 +31,9 @@ class Dt_tbl_kermesse extends Conexion
                 $c->__SET('usuario_creacion', $r->usuario_creacion);
 				$c->__SET('fecha_creacion', $r->fecha_creacion);
                 $c->__SET('usuario_modificacion', $r->usuario_modificacion);
-                $c->__SET('fecha_modificacion', $r->fecha_modificacion)
+                $c->__SET('fecha_modificacion', $r->fecha_modificacion);
                 $c->__SET('usuario_eliminacion', $r->usuario_eliminacion);
-                $c->__SET('fecha_eliminacion', $r->fecha_eliminacion)
+                $c->__SET('fecha_eliminacion', $r->fecha_eliminacion);
 				$result[] = $c;
 			}
 			$this->myCon = parent::desconectar();

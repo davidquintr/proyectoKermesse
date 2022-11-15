@@ -22,18 +22,18 @@ class Dt_tbl_gastos extends Conexion
 
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('id_registro_gastos', $r->id_registro_gastos);
-                $c->__SET('idKermesse', $r->idKermesse)
-				$c->__SET('idCatGastos', $r->idCatGasto);
+                $c->__SET('idKermesse', $r->idKermesse);
+				$c->__SET('idCatGastos', $r->idCatGastos);
 				$c->__SET('fechaGasto', $r->fechaGasto);
 				$c->__SET('concepto', $r->concepto);
 				$c->__SET('monto', $r->monto);
 				$c->__SET('usuario_creacion', $r->usuario_creacion);
 				$c->__SET('fecha_creacion', $r->fecha_creacion);
                 $c->__SET('usuario_modificacion', $r->usuario_modificacion);
-                $c->__SET('fecha_modificacion', $r->fecha_modificacion)
+                $c->__SET('fecha_modificacion', $r->fecha_modificacion);
                 $c->__SET('usuario_eliminacion', $r->usuario_eliminacion);
-                $c->__SET('fecha_eliminacion', $r->fecha_eliminacion)
-                $c->__SET('estado', $r->estado)
+                $c->__SET('fecha_eliminacion', $r->fecha_eliminacion);
+                $c->__SET('estado', $r->estado);
 				$result[] = $c;
 			}
 			$this->myCon = parent::desconectar();
