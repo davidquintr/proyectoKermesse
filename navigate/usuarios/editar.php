@@ -68,5 +68,5 @@ $usuarios = $dtUsuario->listarUsuarios();
         </div>
 </div>
 <?php
-include 'partials/bottom.php';
+include '../../partials/bottom.php';
 ?>

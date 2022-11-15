@@ -85,5 +85,5 @@ $bonos = $dtControlBonos->listarControlBonos();
     </div>
     <script src="../../dependencies/js/setters.js"></script>
 <?php
-include 'partials/bottom.php';
+include '../../partials/bottom.php';
 ?>
