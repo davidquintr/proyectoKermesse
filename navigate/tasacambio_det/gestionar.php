@@ -2,15 +2,15 @@
 $title = "Gestionar usuarios";
 $direct = "../../";
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_moneda.php';
-include_once '../../entidades/tbl_moneda.php';
+include_once '../../datos/Dt_tasacambio_det.php';
+include_once '../../entidades/tasacambio_det.php';
 
-$dtMoneda = new Dt_tbl_Moneda();
-$monedas =  $dtMoneda->listarMonedas();
+$dtTasaCambio_Det = new Dt_Tasacambio_det();
+$tasasCambio_Det =  $dtTasaCambio_Det->listarTasaCambio_det();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Monedas</h1>
+        <h1 class="mt-4">Gestionar Tasas de Cambio Det</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de Usuarios</li>
@@ -28,30 +28,20 @@ $monedas =  $dtMoneda->listarMonedas();
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Símbolo</th>
-                            <th>Estado</th>
+                            <th>idTasaCambio</th>
+                            <th>Fecha</th>
+                            <th>Tipo de Cambio</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($monedas as $value):
+                        foreach($tasasCambio_Det as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_moneda</td>";
-                            echo "<td>$value->nombre</td>";
-                            echo "<td>$value->simbolo</td>";
-                            switch($value->estado){
-                                case 1:
-                                    echo "<td>Activo</td>";
-                                break;
-                                case 2:
-                                    echo "<td>Modificado</td>";
-                                break;
-                                case 3:
-                                    echo "<td>Inactivo/Eliminado</td>";
-                                break;
-                            }
+                            echo "<td>$value->id_tasaCambio_det</td>";
+                            echo "<td>$value->id_tasaCambio</td>";
+                            echo "<td>$value->fecha</td>";
+                            echo "<td>$value->tipoCambio</td>";
                         ?>
                         <td>
                             <a href="#" target="_blank" title="Visualizar los datos de un usuario">
@@ -72,9 +62,9 @@ $monedas =  $dtMoneda->listarMonedas();
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Símbolo</th>
-                            <th>Estado</th>
+                            <th>idTasaCambio</th>
+                            <th>Fecha</th>
+                            <th>Tipo de Cambio</th>
                             <th>Opciones</th>
                         </tr>
                     </tfoot>

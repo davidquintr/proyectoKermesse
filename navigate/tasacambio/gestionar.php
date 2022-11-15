@@ -2,15 +2,15 @@
 $title = "Gestionar usuarios";
 $direct = "../../";
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_moneda.php';
-include_once '../../entidades/tbl_moneda.php';
+include_once '../../datos/Dt_tbl_tasacambio.php';
+include_once '../../entidades/tbl_tasacambio.php';
 
-$dtMoneda = new Dt_tbl_Moneda();
-$monedas =  $dtMoneda->listarMonedas();
+$dtTasaCambio = new Dt_tbl_Tasacambio();
+$tasasCambio =  $dtTasaCambio->listarTasaCambio();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Monedas</h1>
+        <h1 class="mt-4">Gestionar Tasas de Cambio</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de Usuarios</li>
@@ -28,19 +28,23 @@ $monedas =  $dtMoneda->listarMonedas();
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Símbolo</th>
+                            <th>MonedaO</th>
+                            <th>MonedaC</th>
+                            <th>Mes</th>
+                            <th>Año</th>
                             <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($monedas as $value):
+                        foreach($tasasCambio as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_moneda</td>";
-                            echo "<td>$value->nombre</td>";
-                            echo "<td>$value->simbolo</td>";
+                            echo "<td>$value->id_tasaCambio</td>";
+                            echo "<td>$value->id_monedaO</td>";
+                            echo "<td>$value->id_monedaC</td>";
+                            echo "<td>$value->mes</td>";
+                            echo "<td>$value->anio</td>";
                             switch($value->estado){
                                 case 1:
                                     echo "<td>Activo</td>";
@@ -72,8 +76,10 @@ $monedas =  $dtMoneda->listarMonedas();
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Símbolo</th>
+                            <th>MonedaO</th>
+                            <th>MonedaC</th>
+                            <th>Mes</th>
+                            <th>Año</th>
                             <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
