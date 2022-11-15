@@ -25,7 +25,7 @@ $catGastos = $dtCatGastos->listarCatGastos();
                 categoria gastos Activos
             </div>
             <div class="card-body">
-                <table id="tbl_usuarios" class="table table-bordered table-striped">
+                <table id="tbl_categoria_gastos" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -36,10 +36,10 @@ $catGastos = $dtCatGastos->listarCatGastos();
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($usuarios as $value):
+                        foreach($catGastos as $value):
                             echo "<tr>";
                             echo "<td>$value->id_categoria_gastos</td>";
-                            echo "<td>$value->usuario</td>";
+                            echo "<td>$value->nombre</td>";
                             echo "<td>$value->descripcion</td>";
                             switch($value->estado){
                                 case 1:

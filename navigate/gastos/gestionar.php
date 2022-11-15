@@ -25,7 +25,7 @@ $gastos = $dtGastos->listarGastos();
                 gastos Activos
             </div>
             <div class="card-body">
-                <table id="tbl_usuarios" class="table table-bordered table-striped">
+                <table id="tbl_gastos" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>

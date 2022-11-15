@@ -25,7 +25,7 @@ $parroquia = $dtParroquia->listarParroquia();
                 Parroquias
             </div>
             <div class="card-body">
-                <table id="tbl_usuarios" class="table table-bordered table-striped">
+                <table id="tbl_parroquia" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
