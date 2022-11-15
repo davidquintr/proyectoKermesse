@@ -1,5 +1,5 @@
 $(document).ready( function (){
-    $("#tbl_usuarios").DataTable({
+    $("#generic").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["excel", "pdf", "print"],
       "language": {
@@ -7,8 +7,6 @@ $(document).ready( function (){
         "sortAscending": "Activar para ordenar la columna de manera ascendente",
         "sortDescending": "Activar para ordenar la columna de manera descendente"
     },
-
-    
     "buttons": {
         "collection": "Colección",
         "colvis": "Visibilidad",
@@ -94,7 +92,6 @@ $(document).ready( function (){
     },
     "infoEmpty": "No hay datos para mostrar"
         }
-    }).buttons().container().appendTo('#tbl_usuarios_wrapper .col-md-6:eq(0)');
+    }).buttons().container().appendTo('#generic_wrapper .col-md-6:eq(0)');
 
 });
-
