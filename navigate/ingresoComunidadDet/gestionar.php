@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar usuarios";
+$title = "Ingreso comunidad det";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';

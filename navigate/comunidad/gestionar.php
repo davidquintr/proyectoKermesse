@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar Comunidad";
+$title = "Control de bonos";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
