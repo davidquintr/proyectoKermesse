@@ -21,7 +21,7 @@ class Dt_tbl_categoria_gastos extends Conexion
 				$c = new tbl_categoria_gastos();
 
 				//_SET(CAMPOBD, atributoEntidad)			
-				$c->__SET('id_categoria_producto', $r->id_categoria_producto);
+				$c->__SET('id_categoria_gastos', $r->id_categoria_gastos);
 				$c->__SET('nombre_categoria', $r->nombre_categoria);
 				$c->__SET('descripcion', $r->descripcion);
 				$c->__SET('estado', $r->estado);
@@ -35,7 +35,7 @@ class Dt_tbl_categoria_gastos extends Conexion
 		}
 	}
 }
-
+/*
 $prueba = new Dt_tbl_categoria_gastos();
 $element = $prueba->listarCatGastos();
 
@@ -46,3 +46,4 @@ foreach($element as $value){
     echo $value->descripcion;
     echo $value->estado;
 }
+*/
