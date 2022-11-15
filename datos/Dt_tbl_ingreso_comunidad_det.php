@@ -3,31 +3,30 @@ include_once("conexion.php");
 include_once("../../entidades/tbl_usuario.php");
 
 
-class Dt_tbl_usuario extends Conexion
+class Dt_tbl_ingreso_comunidad_det extends Conexion
 {
     private $myCon;
 
-    public function listarUsuarios(){
+    public function listarIngresoComunidadDet(){
 		
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "select * from dbkermesse.tbl_usuario;";
+			$querySQL = "select * from dbkermesse.tbl_ingreso_comunidad_det;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();
 
 			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-				$c = new tbl_usuario();
+				$c = new Tbl_Ingreso_Comunidad_Det();
 
 				//_SET(CAMPOBD, atributoEntidad)			
-				$c->__SET('id_usuario', $r->id_usuario);
-				$c->__SET('usuario', $r->usuario);
-				$c->__SET('pwd', $r->pwd);
-				$c->__SET('nombres', $r->nombres);
-				$c->__SET('apellidos', $r->apellidos);
-				$c->__SET('email', $r->email);
-				$c->__SET('estado', $r->estado);
+				$c->__SET('id_ingreso_comunidad_det', $r->id_ingreso_comunidad_det);
+				$c->__SET('id_ingreso_comunidad', $r->id_ingreso_comunidad);
+				$c->__SET('id_bono', $r->id_bono);
+				$c->__SET('denominacion', $r->denominacion);
+				$c->__SET('cantidad', $r->cantidad);
+				$c->__SET('subtotal_bono', $r->subtotal_bono);
 				$result[] = $c;
 			}
 			$this->myCon = parent::desconectar();
@@ -38,8 +37,10 @@ class Dt_tbl_usuario extends Conexion
 		}
 	}
 }
+/*
 $prueba = new Dt_tbl_usuario();
 $element = $prueba->listarUsuarios();
+
 foreach($element as $value){
     echo "<br>";
     echo $value->id_usuario;
@@ -50,3 +51,4 @@ foreach($element as $value){
     echo $value->email;
     echo $value->estado;
 }
+*/

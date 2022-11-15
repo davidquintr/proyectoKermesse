@@ -1,7 +1,7 @@
 <?php
 $title = "Gestionar usuarios";
 $direct = "../../";
-error_reporting(0);
+
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_usuario.php';
 include_once '../../entidades/tbl_usuario.php';
@@ -68,5 +68,5 @@ $usuarios = $dtUsuario->listarUsuarios();
         </div>
 </div>
 <?php
-include 'partials/bottom.php';
+include '../../partials/bottom.php';
 ?>
