@@ -35,6 +35,7 @@ class Dt_tbl_Denominacion extends Conexion{
 	}
 }
 
+/*
 $prueba = new Dt_tbl_Denominacion();
 $element = $prueba->listarDenominaciones();
 
@@ -50,3 +51,4 @@ foreach($element as $value){
     echo "<br>";
     echo $value->estado ;
 }
+*/

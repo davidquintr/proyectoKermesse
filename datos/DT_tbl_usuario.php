@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../../entidades/tbl_usuario.php");
+include_once("../entidades/tbl_usuario.php");
 
 
 class Dt_tbl_usuario extends Conexion
@@ -18,7 +18,7 @@ class Dt_tbl_usuario extends Conexion
 			$stm->execute();
 
 			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-				$c = new Tbl_Usuario();
+				$c = new tbl_usuario();
 
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('id_usuario', $r->id_usuario);
@@ -41,7 +41,6 @@ class Dt_tbl_usuario extends Conexion
 /*
 $prueba = new Dt_tbl_usuario();
 $element = $prueba->listarUsuarios();
-
 foreach($element as $value){
     echo "<br>";
     echo $value->id_usuario;

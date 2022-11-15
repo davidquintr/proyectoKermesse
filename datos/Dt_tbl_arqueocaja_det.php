@@ -16,7 +16,7 @@ class Dt_Tbl_arqueocaja_det extends Conexion{
 			$stm->execute();
 
 			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-				$c = new Tasacambio_Det();
+				$c = new Tbl_Arqueocaja_Det();
 
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('id_tasaCambio_det', $r->idArqueoCaja_Det);
@@ -36,6 +36,7 @@ class Dt_Tbl_arqueocaja_det extends Conexion{
 	}
 }
 
+/*
 $prueba = new Dt_Tbl_arqueocaja_det();
 $element = $prueba->listarArqueoCaja_det();
 
@@ -52,4 +53,4 @@ foreach($element as $value){
     echo $value->cantidad;
     echo "<br>";
     echo $value->subtotal;
-}
+}*/

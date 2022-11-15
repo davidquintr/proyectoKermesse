@@ -4,8 +4,8 @@ include_once("../entidades/tasacambio_det.php");
 
 
 class Dt_Tasacambio_det extends Conexion{
-    private $myCon;
-
+	private $myCon;
+	
     public function listarTasaCambio_det(){
         try{
             $this->myCon = parent::conectar();
@@ -37,6 +37,7 @@ class Dt_Tasacambio_det extends Conexion{
 $prueba = new Dt_Tasacambio_det();
 $element = $prueba->listarTasaCambio_det();
 
+/*
 foreach($element as $value){
     echo "<br>";
     echo $value->id_tasaCambio_det;
@@ -46,4 +47,4 @@ foreach($element as $value){
     echo $value->fecha;
     echo "<br>";
     echo $value->tipoCambio;
-}
+}*/

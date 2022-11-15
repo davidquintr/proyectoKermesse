@@ -34,6 +34,7 @@ class Dt_tbl_Moneda extends Conexion{
 	}
 }
 
+/*
 $prueba = new Dt_tbl_Moneda();
 $element = $prueba->listarMonedas();
 
@@ -47,3 +48,4 @@ foreach($element as $value){
     echo "<br>";
     echo $value->estado;
 }
+*/

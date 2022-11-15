@@ -36,6 +36,7 @@ class Dt_tbl_Tasacambio extends Conexion{
 	}
 }
 
+/*
 $prueba = new Dt_tbl_Tasacambio();
 $element = $prueba->listarTasaCambio();
 
@@ -52,4 +53,4 @@ foreach($element as $value){
     echo $value->anio;
     echo "<br>";
     echo $value->estado;
-}
+}*/
