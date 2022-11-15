@@ -3,21 +3,22 @@ $title = "Gestionar usuarios";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_usuario.php';
-include_once '../../entidades/tbl_usuario.php';
+include_once '../../datos/Dt_tbl_arqueocaja.php';
+include_once '../../entidades/tbl_arqueocaja.php';
 
-$dtUsuario = new Dt_tbl_usuario();
-$usuarios = $dtUsuario->listarUsuarios();
+
+$dtArqueocaja = new Dt_tbl_Arqueocaja;
+$arqueocaja = $dtArqueocaja->listarArqueoCaja();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Datos de Usuarios</h1>
+        <h1 class="mt-4">Gestionar Arqueo Caja</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
-            <li class="breadcrumb-item active">Gestión de Usuarios</li>
+            <li class="breadcrumb-item active">Gestión de Arqueo Caja</li>
         </ol>
         <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
+            En esta pantalla se pueden visualizar y gestionar los arqueo caja.
         </div>
         <div class="card mb-4">
             <div class="card-header">
@@ -25,29 +26,37 @@ $usuarios = $dtUsuario->listarUsuarios();
                 Usuarios Activos
             </div>
             <div class="card-body">
-                <table id="tbl_usuarios" class="table table-bordered table-striped">
+                <table id="generic" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
+                            <th>idKermesse</th>
+                            <th>Fecha Arqueo</th>
+                            <th>Gran total</th>
+                            <th>Usuario creación</th>
+                            <th>Fecha de creación</th>
+                            <th>Usuario modificación</th>
+                            <th>Fecha de moodificación</th>
+                            <th>Usuario eliminación</th>
+                            <th>Fecha de eliminación</th>
                             <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($usuarios as $value):
+                        foreach($arqueocaja as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_usuario</td>";
-                            echo "<td>$value->usuario</td>";
-                            echo "<td>$value->pwd</td>";
-                            echo "<td>$value->nombres</td>";
-                            echo "<td>$value->apellidos</td>";
-                            echo "<td>$value->email</td>";
+                            echo "<td>$value->id_ArqueoCaja</td>";
+                            echo "<td>$value->idKermesse</td>";
+                            echo "<td>$value->fechaArqueo</td>";
+                            echo "<td>$value->granTotal</td>";
+                            echo "<td>$value->usuario_creacion</td>";
+                            echo "<td>$value->fecha_creacion</td>";
+                            echo "<td>$value->usuario_modificacion</td>";
+                            echo "<td>$value->fecha_modificacion</td>";
+                            echo "<td>$value->usuario_eliminacion</td>";
+                            echo "<td>$value->fecha_eliminacion</td>";
                             switch($value->estado){
                                 case 1:
                                     echo "<td>Activo</td>";
@@ -78,12 +87,16 @@ $usuarios = $dtUsuario->listarUsuarios();
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
+                        <th>ID</th>
+                            <th>idKermesse</th>
+                            <th>Fecha Arqueo</th>
+                            <th>Gran total</th>
+                            <th>Usuario creación</th>
+                            <th>Fecha de creación</th>
+                            <th>Usuario modificación</th>
+                            <th>Fecha de moodificación</th>
+                            <th>Usuario eliminación</th>
+                            <th>Fecha de eliminación</th>
                             <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
@@ -92,7 +105,7 @@ $usuarios = $dtUsuario->listarUsuarios();
             </div>
         </div>
     </div>
-    <script src="../../dependencies/js/setters.js"></script>
+    <script src="../../dependencies/js/setters.js"></script>    
 <?php
-include 'partials/bottom.php';
+include '../../partials/bottom.php';
 ?>
