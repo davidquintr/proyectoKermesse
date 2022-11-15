@@ -2,15 +2,15 @@
 $title = "Gestionar usuarios";
 $direct = "../../";
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_usuario.php';
-include_once '../../entidades/tbl_usuario.php';
+include_once '../../datos/Dt_tbl_denominacion.php';
+include_once '../../entidades/tbl_denominacion.php';
 
-$dtUsuario = new Dt_tbl_usuario();
-$usuarios = $dtUsuario->listarUsuarios();
+$dtDenominacion= new Dt_tbl_Denominacion();
+$denominacion =  $dtDenominacion->listarDenominaciones();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Datos de Usuarios</h1>
+        <h1 class="mt-4">Gestionar Denominaciones</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de Usuarios</li>
@@ -24,29 +24,25 @@ $usuarios = $dtUsuario->listarUsuarios();
                 Usuarios Activos
             </div>
             <div class="card-body">
-                <table id="tbl_usuarios" class="table table-bordered table-striped">
+                <table id="generic" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Estado</th>
+                            <th>idMoneda</th>
+                            <th>Valor</th>
+                            <th>Valor Letras</th>
+                            <th>SubTotal</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($usuarios as $value):
+                        foreach($denominacion as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_usuario</td>";
-                            echo "<td>$value->usuario</td>";
-                            echo "<td>$value->pwd</td>";
-                            echo "<td>$value->nombres</td>";
-                            echo "<td>$value->apellidos</td>";
-                            echo "<td>$value->email</td>";
+                            echo "<td>$value->id_denominacion</td>";
+                            echo "<td>$value->idMoneda</td>";
+                            echo "<td>$value->valor</td>";
+                            echo "<td>$value->valor_letras</td>";
                             switch($value->estado){
                                 case 1:
                                     echo "<td>Activo</td>";
@@ -78,12 +74,10 @@ $usuarios = $dtUsuario->listarUsuarios();
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Estado</th>
+                            <th>idMoneda</th>
+                            <th>Valor</th>
+                            <th>Valor Letras</th>
+                            <th>SubTotal</th>
                             <th>Opciones</th>
                         </tr>
                     </tfoot>

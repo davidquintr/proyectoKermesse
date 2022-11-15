@@ -40,7 +40,6 @@ class Dt_tbl_usuario extends Conexion
 }
 $prueba = new Dt_tbl_usuario();
 $element = $prueba->listarUsuarios();
-
 foreach($element as $value){
     echo "<br>";
     echo $value->id_usuario;
