@@ -3,18 +3,18 @@ $title = "Ingreso comunidad det";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_usuario.php';
-include_once '../../entidades/tbl_usuario.php';
+include_once '../../datos/Dt_tbl_ingreso_comunidad_det.php';
+include_once '../../entidades/tbl_ingreso_comunidad_det.php';
 
-$dtUsuario = new Dt_tbl_usuario();
-$usuarios = $dtUsuario->listarUsuarios();
+$dtIngresoComunidadDet = new Dt_tbl_ingreso_comunidad_det();
+$ingresosComunidadDet = $dtIngresoComunidadDet->listarIngresoComunidadDet();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Datos de Usuarios</h1>
+        <h1 class="mt-4">Gestionar Datos de Ingresos comunidad det</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
-            <li class="breadcrumb-item active">Gestión de Usuarios</li>
+            <li class="breadcrumb-item active">Gestión de Ingresos comunidad det</li>
         </ol>
         <div class="alert alert-primary text-center">
             En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
@@ -29,36 +29,23 @@ $usuarios = $dtUsuario->listarUsuarios();
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Estado</th>
-                            <th>Opciones</th>
+                            <th>ID Ingreso comunidad</th>
+                            <th>ID Bono</th>
+                            <th>Denominacion</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal bono</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($usuarios as $value):
+                        foreach($ingresosComunidadDet as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_usuario</td>";
-                            echo "<td>$value->usuario</td>";
-                            echo "<td>$value->pwd</td>";
-                            echo "<td>$value->nombres</td>";
-                            echo "<td>$value->apellidos</td>";
-                            echo "<td>$value->email</td>";
-                            switch($value->estado){
-                                case 1:
-                                    echo "<td>Activo</td>";
-                                break;
-                                case 2:
-                                    echo "<td>Modificado</td>";
-                                break;
-                                case 3:
-                                    echo "<td>Inactivo/Eliminado</td>";
-                                break;
-                            }
+                            echo "<td>$value->id_ingreso_comunidad_det</td>";
+                            echo "<td>$value->id_ingrso_comunidad</td>";
+                            echo "<td>$value->id_bono</td>";
+                            echo "<td>$value->denominacion</td>";
+                            echo "<td>$value->cantidad</td>";
+                            echo "<td>$value->subtotal_bono</td>";
                         ?>
                         <td>
                             <a href="#" target="_blank" title="Visualizar los datos de un usuario">
@@ -79,13 +66,11 @@ $usuarios = $dtUsuario->listarUsuarios();
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Estado</th>
-                            <th>Opciones</th>
+                            <th>ID Ingreso comunidad</th>
+                            <th>ID Bono</th>
+                            <th>Denominacion</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal bono</th>
                         </tr>
                     </tfoot>
                 </table>

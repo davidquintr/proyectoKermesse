@@ -3,18 +3,18 @@ $title = "Gestionar usuarios";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
-include_once '../../datos/Dt_tbl_usuario.php';
-include_once '../../entidades/tbl_usuario.php';
+include_once '../../datos/Dt_tbl_control_bonos.php';
+include_once '../../entidades/tbl_control_bonos.php';
 
-$dtUsuario = new Dt_tbl_usuario();
-$usuarios = $dtUsuario->listarUsuarios();
+$dtControlBonos = new Dt_tbl_control_bonos();
+$bonos = $dtControlBonos->listarControlBonos();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Datos de Usuarios</h1>
+        <h1 class="mt-4">Gestionar Datos de Bonos</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
-            <li class="breadcrumb-item active">Gestión de Usuarios</li>
+            <li class="breadcrumb-item active">Gestión de Bonos</li>
         </ol>
         <div class="alert alert-primary text-center">
             En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
@@ -29,25 +29,18 @@ $usuarios = $dtUsuario->listarUsuarios();
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
+                            <th>Nombre</th>
+                            <th>Valor</th>
                             <th>Estado</th>
-                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        foreach($usuarios as $value):
+                        foreach($bonos as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_usuario</td>";
-                            echo "<td>$value->usuario</td>";
-                            echo "<td>$value->pwd</td>";
-                            echo "<td>$value->nombres</td>";
-                            echo "<td>$value->apellidos</td>";
-                            echo "<td>$value->email</td>";
+                            echo "<td>$value->id_bono</td>";
+                            echo "<td>$value->nombre</td>";
+                            echo "<td>$value->valor</td>";
                             switch($value->estado){
                                 case 1:
                                     echo "<td>Activo</td>";
@@ -79,13 +72,9 @@ $usuarios = $dtUsuario->listarUsuarios();
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Password</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
+                            <th>Nombre</th>
+                            <th>Valor</th>
                             <th>Estado</th>
-                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>
