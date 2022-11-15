@@ -41,6 +41,7 @@ $gastos = $dtGastos->listarGastos();
                             <th>usuario_eliminacion</th>
                             <th>Fecha de eliminacion</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,6 +103,7 @@ $gastos = $dtGastos->listarGastos();
                             <th>usuario_eliminacion</th>
                             <th>Fecha de eliminacion</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>

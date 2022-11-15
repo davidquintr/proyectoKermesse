@@ -41,6 +41,7 @@ $kermesse = $dtKermesse->listarKermesse();
                             <th>Fecha de modificacion</th>
                             <th>usuario_eliminacion</th>
                             <th>Fecha de eliminacion</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,6 +103,7 @@ $kermesse = $dtKermesse->listarKermesse();
                             <th>Fecha de modificacion</th>
                             <th>usuario_eliminacion</th>
                             <th>Fecha de eliminacion</th>
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>

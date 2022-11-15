@@ -32,6 +32,7 @@ $catGastos = $dtCatGastos->listarCatGastos();
                             <th>Nombre Categoria</th>
                             <th>Descripcion</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,6 +76,7 @@ $catGastos = $dtCatGastos->listarCatGastos();
                             <th>Nombre Categoria</th>
                             <th>Descripcion</th>
                             <th>Estado</th>
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>

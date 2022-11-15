@@ -36,6 +36,7 @@ $parroquia = $dtParroquia->listarParroquia();
                             <th>Email</th>
                             <th>Logo</th>
                             <th>sitio_web</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,6 +77,7 @@ $parroquia = $dtParroquia->listarParroquia();
                             <th>Email</th>
                             <th>Logo</th>
                             <th>sitio_web</th>
+                            <th>Opciones</th>
                         </tr>
                     </tfoot>
                 </table>
