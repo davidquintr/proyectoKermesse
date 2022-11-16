@@ -165,6 +165,26 @@
                                 Tasa de cambio Det
                             </a>
 
+                            <a class="nav-link" href="<?php echo $direct?>navigate/productos/gestionar.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Producto
+                            </a>
+
+                            <a class="nav-link" href="<?php echo $direct?>navigate/categoria_producto/gestionar.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Categoria de producto
+                            </a>
+
+                            <a class="nav-link" href="<?php echo $direct?>navigate/listaPrecios/gestionar.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Lista de Precios
+                            </a>
+
+                            <a class="nav-link" href="<?php echo $direct?>navigate/listaprecio_det/gestionar.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Lista de precio Det
+                            </a>
+
                             <a class="nav-link" href="<?php echo $direct?>navigate/usuarios/gestionar.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Usuarios
