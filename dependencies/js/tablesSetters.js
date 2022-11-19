@@ -1,3 +1,5 @@
+
+
 $(document).ready( function (){
     $("#generic").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,

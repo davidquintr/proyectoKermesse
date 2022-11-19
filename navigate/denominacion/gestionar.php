@@ -85,7 +85,8 @@ $denominacion =  $dtDenominacion->listarDenominaciones();
             </div>
         </div>
     </div>
-    <script src="../../dependencies/js/setters.js"></script>
+    <script src="../../dependencies/js/messageSetters.js"></script>
+    <script src="../../dependencies/js/tablesSetters.js"></script> 
 <?php
 include '../../partials/bottom.php';
 ?>

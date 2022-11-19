@@ -24,7 +24,7 @@ $usuarios = $dtUsuario->listarUsuarios();
                 Usuarios Activos
             </div>
             <div class="card-body">
-                <table id="tbl_usuarios" class="table table-bordered table-striped">
+                <table id="generic" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -91,7 +91,8 @@ $usuarios = $dtUsuario->listarUsuarios();
             </div>
         </div>
     </div>
-    <script src="../../dependencies/js/setters.js"></script>
+    <script src="../../dependencies/js/messageSetters.js"></script>
+    <script src="../../dependencies/js/tablesSetters.js"></script> 
 <?php
 include '../../partials/bottom.php';
 ?>

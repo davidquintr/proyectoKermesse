@@ -10,6 +10,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo $direct;?>css/styles.css" rel="stylesheet"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="<?php echo $direct;?>dependencies/jAlert/dist/jAlert.css" />
     </head>
     <body class="sb-nav-fixed">
             <!-- jQuery -->
@@ -32,10 +33,14 @@
             <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
+            <!--jAlert-->
+
             <!--script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
             <script src="js/datatables-simple-demo.js"></script>-->
             <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>-->
             <script src="<?php echo $direct;?>dependencies/fontawesome-free-6.2.0/js/all.min.js"></script>
+            <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert.min.js"></script>
+            <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
             
             <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
             <!-- Navbar Brand-->
@@ -185,7 +190,7 @@
                                 Lista de precio Det
                             </a>
 
-                            <a class="nav-link" href="<?php echo $direct?>navigate/usuarios/gestionar.php">
+                            <a class="nav-link" href="<?php echo $direct?>navigate/usuarios/gestionar.php?msj=1">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Usuarios
                             </a>
