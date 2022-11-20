@@ -1,4 +1,5 @@
 <?php
+error_reporting(1);
 $title = "Gestionar usuarios";
 $direct = "../../";
 include '../../partials/top.php';
@@ -9,6 +10,9 @@ $dtUsuario = new Dt_tbl_usuario();
 $usuarios = $dtUsuario->listarUsuarios();
 
 ?>
+<div class="d-flex flex-row justify-content-center align-items-center">
+    <img src="../../assets/img/gestionUsuarios.png" class="img-fluid" alt="Responsive image">
+</div>
 <div class="container-fluid px-4">
         <h1 class="mt-4">Gestionar Datos de Usuarios</h1>
         <ol class="breadcrumb mb-4">
@@ -18,6 +22,10 @@ $usuarios = $dtUsuario->listarUsuarios();
         <div class="alert alert-primary text-center">
             En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
         </div>
+        <div class="alert alert-secondary">
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Crear un nuevo usuario</button></a>
+        </div>
+
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>

@@ -190,7 +190,7 @@
                                 Lista de precio Det
                             </a>
 
-                            <a class="nav-link" href="<?php echo $direct?>navigate/usuarios/gestionar.php?msj=1">
+                            <a class="nav-link" href="<?php echo $direct?>navigate/usuarios/gestionar.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Usuarios
                             </a>
@@ -215,4 +215,4 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>/
+                <main>

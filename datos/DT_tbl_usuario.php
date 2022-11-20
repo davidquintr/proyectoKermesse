@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../../entidades/tbl_usuario.php");
+include_once("../entidades/tbl_usuario.php");
 
 
 class Dt_tbl_usuario extends Conexion
@@ -37,7 +37,29 @@ class Dt_tbl_usuario extends Conexion
 			die($e->getMessage());
 		}
 	}
-}
+
+	public function insertarUsuario(tbl_usuario $usr){
+		try{
+			$this->myCon = parent::conectar();
+			$sql = "INSERT INTO dbkermesse.tbl_usuario (usuario, pwd, nombres, apellidos, email, estado)
+					VALUES(?,?,?,?,?,?)";
+			
+			$this->myCon->prepare($sql)->execute(array(
+				$usr->__GET('usuario'),
+				$usr->__GET('pwd'),
+				$usr->__GET('nombres'),
+				$usr->__GET('apellidos'),
+				$usr->__GET('email'),
+				$usr->__GET('estado')));
+			
+			$this->myCon = parent::desconectar();
+
+		}catch (Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+	}
 /*
 $prueba = new Dt_tbl_usuario();
 $element = $prueba->listarUsuarios();

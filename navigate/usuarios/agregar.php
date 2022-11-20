@@ -1,5 +1,5 @@
 <?php
-$title = "Agregar un Usuario";
+$title = "Agregar un usuario";
 $direct = "../../";
 include '../../partials/top.php';
 ?>
@@ -17,42 +17,31 @@ include '../../partials/top.php';
                 <div class="col-lg-7">
                     <div class="card shadow p-3 border-0 rounded-lg mt-5">
                         <div class="card-body">
-                            <form>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3 mb-md-0">
-                                            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
-                                            <label for="inputFirstName">Nombres</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
-                                            <label for="inputLastName">Apellidos</label>
-                                        </div>
-                                    </div>
+                            <form method="POST" action="../../negocio/Ng_tbl_usuario.php">
+                                <input type="hidden" value="1" name="txtaccion" id="txtaccion"/>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="username" name="username" type="text" title="Nombre de usuario" required/>
+                                    <label for="pwd">Nombre de usuario</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                    <label for="inputEmail">Correo elecrónico</label>
+                                    <input class="form-control" id="names" name="names" type="text" title="Nombres" required/>
+                                    <label for="pwd">Nombres</label>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3 mb-md-0">
-                                            <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
-                                            <label for="inputPassword">Contraseña</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3 mb-md-0">
-                                            <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
-                                            <label for="inputPasswordConfirm">Confirmar contraseña</label>
-                                        </div>
-                                    </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="secnames" name="secnames" type="text" title="Apellidos" required/>
+                                    <label for="pwd">Apellidos</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="email" name="email" type="text" title="Correo" required/>
+                                    <label for="pwd">Correo electrónico</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="pass" name="pass" type="password" title="Contraseña" required/>
+                                    <label for="pwd">Contraseña</label>
                                 </div>
                                 <div class="mt-4 mb-0 row">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block">Agregar usuario</button>
-                                    <button type="button" class="btn btn-secondary btn-lg btn-danger my-2">Descartar usuario</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Agregar usuario</button>
+                                    <button type="reset" class="btn btn-outline-danger my-2">Descartar usuario</button> 
                                 </div>
                             </form>
                         </div>
