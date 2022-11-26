@@ -13,10 +13,10 @@ class Conexion
     // Metodos
     public function conectar()
 	{
-        $serverName = '192.168.0.12';
+        $serverName = 'localhost';
         $dbName = 'dbkermesse';
-        $userName = 'myuser';                      
-        $pwd = 'mypass';
+        $userName = 'root';                      
+        $pwd = 'Usuario123.!';
 
 		try{
             

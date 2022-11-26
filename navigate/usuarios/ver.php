@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-$title = "Editar usuario";
+$title = "Ver usuario";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_usuario.php';

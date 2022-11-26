@@ -16,4 +16,8 @@ function showCustomAlert(index){
         warningAlert('Alerta','Algo salió mal...')
     else if(index == 3)
         successAlert('Éxito','Se ha editado exitosamente')
+    else if(index == 5)
+        warningAlert('Alerta','Las contraseñas no coinciden...')
+    else if(index == 3)
+        successAlert('Éxito','Se ha eliminado exitosamente')
 }   

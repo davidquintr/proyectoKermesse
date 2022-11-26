@@ -30,12 +30,18 @@ if($_POST){
         
         case 2:
             try{
+
+                if($_POST['confpass'] != $_POST['pass']){
+                    header("Location: /proyectoKermesse/navigate/usuarios/editar.php?msj=5&varEnter={$_POST['idU']}");
+                    die();
+                }
+
                 $usr->__SET('id_usuario', $_POST['idU']);
                 $usr->__SET('pwd', $_POST['pass']);
                 $usr->__SET('nombres', $_POST['names']);
                 $usr->__SET('apellidos', $_POST['secnames']);
                 $usr->__SET('email', $_POST['email']);
-                $usr->__SET('estado', 2);
+                $usr->__SET('estado',   2);
                 $dtUsr->editUser($usr);
 
                 header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=3");
@@ -50,4 +56,18 @@ if($_POST){
             break;
     }
 
+}
+
+if ($_GET){
+    
+    try{
+        $usr->__SET('id_usuario', $_GET['delU']);
+        $dtUsr->deleteUser($usr->__GET('id_usuario'));
+        header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=6");
+    
+    }catch(Exception $e){
+        header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=4");
+        die($e->getMessage());
+
+    }
 }

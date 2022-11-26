@@ -74,8 +74,8 @@ $usuarios = $dtUsuario->listarUsuarios();
                             <a href="editar.php?varEnter=<?php echo $value->id_usuario;?>" title="Modificar los datos de un usuario">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="" target="_blank" title="Dar de baja al usuario">
-                                <i class="fa-solid fa-user-minus"></i> 
+                            <a onclick="deleteUser('<?php echo $value->id_usuario;?>');" title="Dar de baja al usuario">
+                                <i class="fa-solid fa-user-minus link-primary"></i> 
                             </a>
                         </td>
                         </tr>
@@ -101,6 +101,7 @@ $usuarios = $dtUsuario->listarUsuarios();
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
     <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/deleteScripts.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>

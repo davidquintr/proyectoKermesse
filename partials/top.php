@@ -33,11 +33,7 @@
             <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
-            <!--jAlert-->
-
-            <!--script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-            <script src="js/datatables-simple-demo.js"></script>-->
-            <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>-->
+        
             <script src="<?php echo $direct;?>dependencies/fontawesome-free-6.2.0/js/all.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert-functions.min.js"> //optional!!</script>

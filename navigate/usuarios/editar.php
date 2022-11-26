@@ -61,6 +61,10 @@ $usuarios = $dtUsuario->listarUsuarios();
                                     <input class="form-control" id="pass" name="pass" type="password" title="Contraseña" required/>
                                     <label for="pass">Contraseña</label>
                                 </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="confpass" name="confpass" type="password" title="Confirmar Contraseña" required/>
+                                    <label for="confpass">Confirme su contraseña</label>
+                                </div>
                                 <div class="mt-4 mb-0 row">
                                     <button type="submit" class="btn btn-primary btn-block">Finalizar edición</button>
                                     <button type="reset" class="btn btn-outline-danger my-2">Descartar edición</button> 
@@ -73,7 +77,7 @@ $usuarios = $dtUsuario->listarUsuarios();
         </div>
     </div>
 </div>
-<script></script>
+<script src="../../dependencies/js/messageSetters.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>

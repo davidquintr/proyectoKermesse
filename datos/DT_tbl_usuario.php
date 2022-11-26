@@ -116,6 +116,25 @@ class Dt_tbl_usuario extends Conexion
 		}
 	}
 
+	public function deleteUser($id){
+		
+		try{
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_usuario SET
+						estado = 3
+				    WHERE id_usuario = ?";
+
+			$stm = $this->myCon->prepare($sql);
+			$stm->execute(array($id));
+
+			$this->myCon = parent::desconectar();
+		
+		}catch (Exception $e){
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
 
 	}
 /*

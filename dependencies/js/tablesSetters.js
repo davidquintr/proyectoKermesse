@@ -96,4 +96,8 @@ $(document).ready( function (){
         }
     }).buttons().container().appendTo('#generic_wrapper .col-md-6:eq(0)');
 
+
+    $('.dataTables_filter').addClass('d-flex')
+    $('.dataTables_filter').addClass('flex-row-reverse')
+
 });
