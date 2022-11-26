@@ -30,14 +30,14 @@ if($_POST){
         
         case 2:
             try{
-                $usr->__SET('id_usuario', $_POST['userID']);
+                $usr->__SET('id_usuario', $_POST['idU']);
                 $usr->__SET('pwd', $_POST['pass']);
                 $usr->__SET('nombres', $_POST['names']);
                 $usr->__SET('apellidos', $_POST['secnames']);
                 $usr->__SET('email', $_POST['email']);
                 $usr->__SET('estado', 2);
-        
                 $dtUsr->editUser($usr);
+
                 header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=3");
             } 
             catch (Exception $e){

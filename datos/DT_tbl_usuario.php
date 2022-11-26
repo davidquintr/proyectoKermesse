@@ -86,7 +86,6 @@ class Dt_tbl_usuario extends Conexion
 	}
 
 	public function editUser(tbl_usuario $tu){
-		
 		try{
 			$this->myCon = parent::conectar();
 			$sql = "UPDATE dbkermesse.tbl_usuario SET
@@ -100,7 +99,6 @@ class Dt_tbl_usuario extends Conexion
 				$this->myCon->prepare($sql)
 			     ->execute(
 				array(
-					//$tu->__GET('usuario'), 
 					$tu->__GET('pwd'), 
 					$tu->__GET('nombres'),
 					$tu->__GET('apellidos'),
@@ -109,6 +107,7 @@ class Dt_tbl_usuario extends Conexion
 					$tu->__GET('id_usuario')
 					)
 				);
+					
 				$this->myCon = parent::desconectar();
 		
 			} catch (Exception $e){

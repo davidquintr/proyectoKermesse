@@ -38,6 +38,7 @@ $usuarios = $dtUsuario->listarUsuarios();
 
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="userID" name="userID" type="text" title="ID de usuario" value="<?php echo $user->id_usuario;?>" disabled/>
+                                    <input class="form-control" id="idU" name="idU" type="hidden" title="ID de usuario" value="<?php echo $user->id_usuario;?>"/>
                                     <label for="userID">userID</label>
                                 </div>
                                 <div class="form-floating mb-3">
