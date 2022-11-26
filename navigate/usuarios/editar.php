@@ -31,31 +31,34 @@ $usuarios = $dtUsuario->listarUsuarios();
                 <div class="col-lg-7">
                     <div class="card shadow p-3 border-0 rounded-lg mt-5">
                         <div class="card-body">
+                            
                             <form method="POST" action="../../negocio/Ng_tbl_usuario.php">
+                                
                                 <input type="hidden" value="2" name="txtaccion" id="txtaccion"/>
+
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="idUser" name="idUser" type="text" title="ID de usuario" value="<?php echo $user->id_usuario;?>" disabled/>
-                                    <label for="pwd">ID</label>
+                                    <input class="form-control" id="userID" name="userID" type="text" title="ID de usuario" value="<?php echo $user->id_usuario;?>" disabled/>
+                                    <label for="userID">userID</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="username" name="username" type="text" title="Nombre de usuario" value="<?php echo $user->usuario;?>" disabled/>
-                                    <label for="pwd">Nombre de usuario</label>
+                                    <label for="username">Nombre de usuario</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="names" name="names" type="text" title="Nombres" value="<?php echo $user->nombres;?>" required/>
-                                    <label for="pwd">Nombres</label>
+                                    <label for="names">Nombres</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="secnames" name="secnames" type="text" title="Apellidos" value="<?php echo $user->apellidos;?>" required/>
-                                    <label for="pwd">Apellidos</label>
+                                    <label for="secnames">Apellidos</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="email" name="email" type="text" title="Correo" value="<?php echo $user->email;?>" required/>
-                                    <label for="pwd">Correo electrónico</label>
+                                    <label for="email">Correo electrónico</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="pass" name="pass" type="password" title="Contraseña" required/>
-                                    <label for="pwd">Contraseña</label>
+                                    <label for="pass">Contraseña</label>
                                 </div>
                                 <div class="mt-4 mb-0 row">
                                     <button type="submit" class="btn btn-primary btn-block">Finalizar edición</button>

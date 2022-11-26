@@ -21,23 +21,23 @@ include '../../partials/top.php';
                                 <input type="hidden" value="1" name="txtaccion" id="txtaccion"/>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="username" name="username" type="text" title="Nombre de usuario" required/>
-                                    <label for="pwd">Nombre de usuario</label>
+                                    <label for="username">Nombre de usuario</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="names" name="names" type="text" title="Nombres" required/>
-                                    <label for="pwd">Nombres</label>
+                                    <label for="names">Nombres</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="secnames" name="secnames" type="text" title="Apellidos" required/>
-                                    <label for="pwd">Apellidos</label>
+                                    <label for="secnames">Apellidos</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="email" name="email" type="text" title="Correo" required/>
-                                    <label for="pwd">Correo electrónico</label>
+                                    <label for="email">Correo electrónico</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="pass" name="pass" type="password" title="Contraseña" required/>
-                                    <label for="pwd">Contraseña</label>
+                                    <label for="pass">Contraseña</label>
                                 </div>
                                 <div class="mt-4 mb-0 row">
                                     <button type="submit" class="btn btn-primary btn-block">Agregar usuario</button>

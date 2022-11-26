@@ -85,6 +85,38 @@ class Dt_tbl_usuario extends Conexion
 		}
 	}
 
+	public function editUser(tbl_usuario $tu){
+		
+		try{
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_usuario SET
+						pwd = ?,
+						nombres = ?, 
+						apellidos = ?, 
+						email = ?, 
+						estado = ?
+				    WHERE id_usuario = ?";
+
+				$this->myCon->prepare($sql)
+			     ->execute(
+				array(
+					//$tu->__GET('usuario'), 
+					$tu->__GET('pwd'), 
+					$tu->__GET('nombres'),
+					$tu->__GET('apellidos'),
+					$tu->__GET('email'),
+					$tu->__GET('estado'),
+					$tu->__GET('id_usuario')
+					)
+				);
+				$this->myCon = parent::desconectar();
+		
+			} catch (Exception $e){
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
 
 	}
 /*

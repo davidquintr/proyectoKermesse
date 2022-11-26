@@ -57,10 +57,6 @@ $usuarios = $dtUsuario->listarUsuarios();
                                     <input class="form-control" id="pass" name="pass" type="password" title="Contraseña" disabled/>
                                     <label for="pwd">Contraseña</label>
                                 </div>
-                                <div class="mt-4 mb-0 row">
-                                    <button type="submit" class="btn btn-primary btn-block">Finalizar edición</button>
-                                    <button type="reset" class="btn btn-outline-danger my-2">Descartar edición</button> 
-                                </div>
                             </form>
                         </div>
                     </div>

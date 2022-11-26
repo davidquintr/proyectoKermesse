@@ -12,10 +12,8 @@ function showCustomAlert(index){
 
     if(index == 1)
         successAlert('Éxito', 'Se ha guardado exitosamente');
-    else if(index == 2)
+    else if(index == 2 || index == 4)
         warningAlert('Alerta','Algo salió mal...')
     else if(index == 3)
-        errorAlert('Error','Algo salió fatal, matate mi loco')
-
-
-} 
+        successAlert('Éxito','Se ha editado exitosamente')
+}   
