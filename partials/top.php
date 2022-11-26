@@ -33,7 +33,7 @@
             <script src="<?php echo $direct;?>dependencies/fontawesome-free-6.2.0/js/all.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
-            <script src="<?php echo $direct;?>assets/js/sb-admin-2.js"></script>
+
             <script src="<?php echo $direct;?>assets/js/Chart.min.js   "></script>
             
             <div id="wrapper">
@@ -157,17 +157,22 @@
     <!-- Main Content -->
     <div id="content">
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 shadow-sm">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
                 
+                <li class="nav-item">
+                    <a class="nav-link toggletoggle" role="button" >
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                </li>
+
                 <div class="topbar-divider d-none d-sm-block"></div>
 
-                <!-- Nav Item - User Information -->
-                <li class="nav-item dropdown no-arrow">
+                <li class="nav-item dropdown no-arrow flex-row-reverse" >
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                        <img class="img-profile rounded-circle"
-                            src="https://cdn-icons-png.flaticon.com/512/64/64572.png">
+                            <img class="img-profile rounded-circle"
+                                src="https://cdn-icons-png.flaticon.com/512/64/64572.png">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -184,3 +189,4 @@
         </nav>
 
         <div class="container-fluid">
+        <script src="<?php echo $direct;?>assets/js/sb-admin-2.js"></script>
