@@ -1,5 +1,5 @@
 <?php
-error_reporting(1);
+error_reporting(0);
 $title = "Gestionar usuarios";
 $direct = "../../";
 include '../../partials/top.php';
@@ -68,13 +68,13 @@ $usuarios = $dtUsuario->listarUsuarios();
                             }
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de un usuario">
+                            <a href="ver.php?varEnter=<?php echo $value->id_usuario;?>" target="_blank" title="Visualizar los datos de un usuario">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de un usuario">
+                            <a href="editar.php?varEnter=<?php echo $value->id_usuario;?>" title="Modificar los datos de un usuario">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja al usuario">
+                            <a href="" target="_blank" title="Dar de baja al usuario">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>

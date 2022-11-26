@@ -59,11 +59,37 @@ class Dt_tbl_usuario extends Conexion
 		}
 	}
 
+	public function getUserByID($id){
+		try{
+			$this->myCon = parent::conectar();
+			$querySQL = "SELECT * FROM dbkermesse.tbl_usuario WHERE id_usuario = ?;";
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($id));
+
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+			$u = new tbl_usuario();
+
+			$u->__SET('id_usuario', $r->id_usuario);
+			$u->__SET('usuario', $r->usuario);
+			$u->__SET('pwd', $r->pwd);
+			$u->__SET('nombres', $r->nombres);
+			$u->__SET('apellidos', $r->apellidos);
+			$u->__SET('email', $r->email);
+			$u->__SET('estado', $r->estado);
+
+			$this->myCon = parent::desconectar();
+			return $u;
+		} 
+		catch (Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+
 	}
 /*
 $prueba = new Dt_tbl_usuario();
-$element = $prueba->listarUsuarios();
-foreach($element as $value){
+$value = $prueba->getUserByID(1);
     echo "<br>";
     echo $value->id_usuario;
     echo $value->usuario;
@@ -72,5 +98,4 @@ foreach($element as $value){
     echo $value->apellidos;
     echo $value->email;
     echo $value->estado;
-}
 */

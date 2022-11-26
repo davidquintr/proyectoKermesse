@@ -19,11 +19,11 @@ $usuarios = $dtUsuario->listarUsuarios();
 
 ?>
     <div class="container-fluid px-4">
-    <h1 class="mt-4">Editar usuario</h1>
+    <h1 class="mt-4">Ver usuario</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href= "<?php echo $direct;?>index.php">Index</a></li>
         <li class="breadcrumb-item">Gestión de Usuarios</li>
-        <li class="breadcrumb-item active">Editar usuario</li>
+        <li class="breadcrumb-item active">Ver usuario</li>
     </ol>
     <div id="layoutAuthentication_content">
         <div class="container">
@@ -42,19 +42,19 @@ $usuarios = $dtUsuario->listarUsuarios();
                                     <label for="pwd">Nombre de usuario</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="names" name="names" type="text" title="Nombres" value="<?php echo $user->nombres;?>" required/>
+                                    <input class="form-control" id="names" name="names" type="text" title="Nombres" value="<?php echo $user->nombres;?>" disabled/>
                                     <label for="pwd">Nombres</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="secnames" name="secnames" type="text" title="Apellidos" value="<?php echo $user->apellidos;?>" required/>
+                                    <input class="form-control" id="secnames" name="secnames" type="text" title="Apellidos" value="<?php echo $user->apellidos;?>" disabled/>
                                     <label for="pwd">Apellidos</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="email" name="email" type="text" title="Correo" value="<?php echo $user->email;?>" required/>
+                                    <input class="form-control" id="email" name="email" type="text" title="Correo" value="<?php echo $user->email;?>" disabled/>
                                     <label for="pwd">Correo electrónico</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="pass" name="pass" type="password" title="Contraseña" required/>
+                                    <input class="form-control" id="pass" name="pass" type="password" title="Contraseña" disabled/>
                                     <label for="pwd">Contraseña</label>
                                 </div>
                                 <div class="mt-4 mb-0 row">
