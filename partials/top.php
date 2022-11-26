@@ -33,7 +33,7 @@
             <script src="<?php echo $direct;?>dependencies/fontawesome-free-6.2.0/js/all.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert.min.js"></script>
             <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
-            <script src="<?php echo $direct;?>assets/js/sb-admin-2.min.js"></script>
+            <script src="<?php echo $direct;?>assets/js/sb-admin-2.js"></script>
             <script src="<?php echo $direct;?>assets/js/Chart.min.js   "></script>
             
             <div id="wrapper">
