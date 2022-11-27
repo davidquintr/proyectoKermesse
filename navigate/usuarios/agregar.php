@@ -1,10 +1,10 @@
 <?php
-$title = "Agregar un usuario";
+$title = "Agregar Usuario";
 $direct = "../../";
 include '../../partials/top.php';
 ?>
     <div class="container-fluid px-4">
-    <h1 class="mt-4">Agregar usuario</h1>
+    <h1 class="mt-4">Agregar Usuario</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="index.php">Index</a></li>
         <li class="breadcrumb-item">Gestión de Usuarios</li>
@@ -41,7 +41,7 @@ include '../../partials/top.php';
                                 </div>
                                 <div class="mt-4 mb-0 row">
                                     <button type="submit" class="btn btn-primary btn-block">Agregar usuario</button>
-                                    <button type="reset" class="btn btn-outline-danger my-2">Descartar usuario</button> 
+                                    <button type="reset" class="btn btn-danger btn-block my-2">Descartar usuario</button> 
                                 </div>
                             </form>
                         </div>

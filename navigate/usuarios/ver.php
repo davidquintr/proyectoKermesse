@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-$title = "Ver usuario";
+$title = "Ver Usuario";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_usuario.php';

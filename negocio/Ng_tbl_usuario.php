@@ -54,11 +54,9 @@ if ($_POST) {
 
             break;
     }
-
 }
 
 if ($_GET) {
-
     try {
         $usr->__SET('id_usuario', $_GET['delU']);
         $dtUsr->deleteUser($usr->__GET('id_usuario'));

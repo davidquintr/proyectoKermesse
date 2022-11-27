@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-$title = "Editar usuario";
+$title = "Editar Usuario";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_usuario.php';
@@ -67,7 +67,7 @@ $usuarios = $dtUsuario->listarUsuarios();
                                 </div>
                                 <div class="mt-4 mb-0 row">
                                     <button type="submit" class="btn btn-primary btn-block">Finalizar edición</button>
-                                    <button type="reset" class="btn btn-outline-danger my-2">Descartar edición</button> 
+                                    <button type="reset" class="btn btn-danger btn-block my-2">Descartar edición</button> 
                                 </div>
                             </form>
                         </div>

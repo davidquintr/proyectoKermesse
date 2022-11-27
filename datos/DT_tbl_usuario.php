@@ -5,19 +5,20 @@ include_once("../entidades/tbl_usuario.php");
 
 class Dt_tbl_usuario extends Conexion
 {
-    private $myCon;
+	private $myCon;
 
-    public function listarUsuarios(){
-		
-        try{
-            $this->myCon = parent::conectar();
+	public function listarUsuarios()
+	{
+
+		try {
+			$this->myCon = parent::conectar();
 			$result = array();
 			$querySQL = "select * from dbkermesse.tbl_usuario;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();
 
-			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
+			foreach ($stm->fetchAll(PDO::FETCH_OBJ) as $r) {
 				$c = new tbl_usuario();
 
 				//_SET(CAMPOBD, atributoEntidad)			
@@ -32,35 +33,39 @@ class Dt_tbl_usuario extends Conexion
 			}
 			$this->myCon = parent::desconectar();
 			return $result;
-		}
-		catch(Exception $e){
+		} catch (Exception $e) {
 			die($e->getMessage());
 		}
 	}
 
-	public function insertarUsuario(tbl_usuario $usr){
-		try{
+	public function insertarUsuario(tbl_usuario $usr)
+	{
+		try {
 			$this->myCon = parent::conectar();
 			$sql = "INSERT INTO dbkermesse.tbl_usuario (usuario, pwd, nombres, apellidos, email, estado)
 					VALUES(?,?,?,?,?,?)";
-			
-			$this->myCon->prepare($sql)->execute(array(
-				$usr->__GET('usuario'),
-				$usr->__GET('pwd'),
-				$usr->__GET('nombres'),
-				$usr->__GET('apellidos'),
-				$usr->__GET('email'),
-				$usr->__GET('estado')));
-			
+
+			$this->myCon->prepare($sql)->execute(
+				array(
+					$usr->__GET('usuario'),
+					$usr->__GET('pwd'),
+					$usr->__GET('nombres'),
+					$usr->__GET('apellidos'),
+					$usr->__GET('email'),
+					$usr->__GET('estado')
+				)
+			);
+
 			$this->myCon = parent::desconectar();
 
-		}catch (Exception $e){
+		} catch (Exception $e) {
 			die($e->getMessage());
 		}
 	}
 
-	public function getUserByID($id){
-		try{
+	public function getUserByID($id)
+	{
+		try {
 			$this->myCon = parent::conectar();
 			$querySQL = "SELECT * FROM dbkermesse.tbl_usuario WHERE id_usuario = ?;";
 			$stm = $this->myCon->prepare($querySQL);
@@ -79,14 +84,14 @@ class Dt_tbl_usuario extends Conexion
 
 			$this->myCon = parent::desconectar();
 			return $u;
-		} 
-		catch (Exception $e){
+		} catch (Exception $e) {
 			die($e->getMessage());
 		}
 	}
 
-	public function editUser(tbl_usuario $tu){
-		try{
+	public function editUser(tbl_usuario $tu)
+	{
+		try {
 			$this->myCon = parent::conectar();
 			$sql = "UPDATE dbkermesse.tbl_usuario SET
 						pwd = ?,
@@ -96,29 +101,30 @@ class Dt_tbl_usuario extends Conexion
 						estado = ?
 				    WHERE id_usuario = ?";
 
-				$this->myCon->prepare($sql)
-			     ->execute(
-				array(
-					$tu->__GET('pwd'), 
-					$tu->__GET('nombres'),
-					$tu->__GET('apellidos'),
-					$tu->__GET('email'),
-					$tu->__GET('estado'),
-					$tu->__GET('id_usuario')
+			$this->myCon->prepare($sql)
+				->execute(
+					array(
+						$tu->__GET('pwd'),
+						$tu->__GET('nombres'),
+						$tu->__GET('apellidos'),
+						$tu->__GET('email'),
+						$tu->__GET('estado'),
+						$tu->__GET('id_usuario')
 					)
 				);
-					
-				$this->myCon = parent::desconectar();
-		
-			} catch (Exception $e){
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
 			var_dump($e);
 			die($e->getMessage());
 		}
 	}
 
-	public function deleteUser($id){
-		
-		try{
+	public function deleteUser($id)
+	{
+
+		try {
 			$this->myCon = parent::conectar();
 			$sql = "UPDATE dbkermesse.tbl_usuario SET
 						estado = 3
@@ -128,24 +134,42 @@ class Dt_tbl_usuario extends Conexion
 			$stm->execute(array($id));
 
 			$this->myCon = parent::desconectar();
-		
-		}catch (Exception $e){
+
+		} catch (Exception $e) {
 			var_dump($e);
 			die($e->getMessage());
 		}
 	}
 
+	public function validarUser($user, $pwd){
+		try {
+			$this->myCon = parent::conectar();
 
+			$querySQL = "SELECT * FROM dbkermesse.tbl_usuario WHERE usuario=? AND pwd=? AND estado<>3;";
+
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($user, $pwd));
+
+			$resultado = $stm->fetchAll(PDO::FETCH_CLASS, "tbl_usuario");
+
+			$this->myCon = parent::desconectar();
+			return $resultado;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
 	}
+
+
+}
 /*
 $prueba = new Dt_tbl_usuario();
 $value = $prueba->getUserByID(1);
-    echo "<br>";
-    echo $value->id_usuario;
-    echo $value->usuario;
-    echo $value->pwd;
-    echo $value->nombres;
-    echo $value->apellidos;
-    echo $value->email;
-    echo $value->estado;
+echo "<br>";
+echo $value->id_usuario;
+echo $value->usuario;
+echo $value->pwd;
+echo $value->nombres;
+echo $value->apellidos;
+echo $value->email;
+echo $value->estado;
 */
