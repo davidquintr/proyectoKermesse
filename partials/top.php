@@ -1,13 +1,29 @@
 <?php
 include_once "{$direct}entidades/tbl_usuario.php";
+include_once "{$direct}datos/Dt_rol_usuario.php";
+include_once "{$direct}datos/Dt_rol_opciones.php";
+
 $usuario = new Tbl_Usuario();
+$dtRolUsr = new Dt_rol_usuario();
+$dtRolOpc = new Dt_rol_opciones();
 
 session_start();
-if (empty($_SESSION['acceso'])) { 
-    header("Location: {$direct}Login.php"); 
+if (empty($_SESSION['acceso'])) {
+    header("Location: {$direct}Login.php");
+}
+$usuario = $_SESSION['acceso'];
+$titleBd =  str_replace(' ','',$title);
+
+//if(empty($resp))
+
+
+$resp = $dtRolUsr->getIdRol($usuario[0]->id_usuario);
+$respRol = $dtRolOpc->getOpc($resp, $titleBd);
+
+if(empty($respRol)){
+    header("Location: {$direct}403.php");
 }
 
-$usuario = $_SESSION['acceso']; 
 
 ?>
 
@@ -25,18 +41,14 @@ $usuario = $_SESSION['acceso'];
     </title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="<?php echo $direct; ?>css/sb-admin-2.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo $direct; ?>dependencies/jAlert/dist/jAlert.css" />
 </head>
 
 <body id="page-top">
     <script src="<?php echo $direct; ?>dependencies/DataTables/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
-    <!-- Descargar el bootstrap -->
     <script src="<?php echo $direct; ?>assets/js/bootstrap.bundle.min.js"></script>
-    <!-- JS DATATABLES -->
     <script src="<?php echo $direct; ?>dependencies/DataTables/datatables.min.js"></script>
-    <!--<script src="./DataTables/Responsive-2.3.0/js/responsive.bootstrap5.min.js"></script>-->
     <script
         src="<?php echo $direct; ?>dependencies/DataTables/Responsive-2.3.0/js/dataTables.responsive.min.js"></script>
     <script
@@ -54,7 +66,7 @@ $usuario = $_SESSION['acceso'];
     <script src="<?php echo $direct; ?>dependencies/jAlert/dist/jAlert.min.js"></script>
     <script src="<?php echo $direct; ?>dependencies/jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 
-    <script src="<?php echo $direct; ?>assets/js/Chart.min.js   "></script>
+    <script src="<?php echo $direct; ?>assets/js/Chart.min.js"></script>
 
     <div id="wrapper">
 
@@ -191,14 +203,16 @@ $usuario = $_SESSION['acceso'];
                         <li class="nav-item dropdown no-arrow flex-row-reverse">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $usuario[0]->usuario?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    <?php echo $usuario[0]->usuario ?>
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="https://cdn-icons-png.flaticon.com/512/64/64572.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?php echo "{$direct}Login.php?logout=1";?>">
+                                <a class="dropdown-item" href="<?php echo "{$direct}Login.php?logout=1"; ?>">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Cerrar Sesión
                                 </a>

@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../../entidades/rol_opciones.php");
+include_once("{$direct}entidades/rol_opciones.php");
 
 
 class Dt_rol_opciones extends Conexion
@@ -30,6 +30,26 @@ class Dt_rol_opciones extends Conexion
 			return $result;
 		}
 		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+	public function getOpc($idRol, $opcion){
+		try{
+			$this->myCon = parent::conectar();
+			$result = array();
+			$querySQL = "SELECT * FROM dbkermesse.vw_rolopcion where IdRol = :idRol and opcion = :opcion;";
+
+			$stm = $this->myCon->prepare($querySQL);
+            $stm->bindParam(':idRol', $idRol, PDO::PARAM_INT);
+			$stm->bindParam(':opcion', $opcion, PDO::PARAM_STR,40);
+			$stm->execute();
+            $result = $stm->fetchColumn(0);
+			$this->myCon = parent::desconectar();
+			return $result;
+		}
+		catch(Exception $e)
+		{
 			die($e->getMessage());
 		}
 	}

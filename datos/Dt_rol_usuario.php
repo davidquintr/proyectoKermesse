@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../../entidades/rol_usuario.php");
+include_once("{$direct}entidades/rol_usuario.php");
 
 
 class Dt_rol_usuario extends Conexion
@@ -30,6 +30,27 @@ class Dt_rol_usuario extends Conexion
 			return $result;
 		}
 		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+	public function getIdRol($userId){
+		try{
+			$this->myCon = parent::conectar();
+			$result = array();
+			$querySQL = "SELECT tbl_rol_id_rol FROM dbkermesse.rol_usuario Where tbl_usuario_id_usuario = :idUser;";
+
+			$stm = $this->myCon->prepare($querySQL);
+            $stm->bindParam(':idUser', $userId, PDO::PARAM_INT);
+			$stm->execute();
+
+            $result = $stm->fetchColumn(0);
+
+			$this->myCon = parent::desconectar();
+			return $result;
+		}
+		catch(Exception $e)
+		{
 			die($e->getMessage());
 		}
 	}
