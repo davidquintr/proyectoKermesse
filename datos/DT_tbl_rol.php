@@ -33,6 +33,10 @@ class Dt_tbl_rol extends Conexion
 			die($e->getMessage());
 		}
 	}
+
+
+
+	
 }
 /*
 $prueba = new Dt_tbl_rol();

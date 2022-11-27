@@ -1,214 +1,227 @@
+<?php
+include_once "{$direct}entidades/tbl_usuario.php";
+include_once "{$direct}datos/Dt_rol_usuario.php";
+include_once "{$direct}datos/Dt_rol_opciones.php";
+
+$usuario = new Tbl_Usuario();
+$dtRolUsr = new Dt_rol_usuario();
+$dtRolOpc = new Dt_rol_opciones();
+
+session_start();
+if (empty($_SESSION['acceso'])) {
+    header("Location: {$direct}Login.php");
+}
+$usuario = $_SESSION['acceso'];
+$titleBd =  str_replace(' ','',$title);
+
+//if(empty($resp))
+
+
+$resp = $dtRolUsr->getIdRol($usuario[0]->id_usuario);
+$respRol = $dtRolOpc->getOpc($resp, $titleBd);
+
+if(empty($respRol)){
+    header("Location: {$direct}403.php");
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title><?php echo $title; ?></title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="<?php echo $direct;?>css/styles.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="<?php echo $direct;?>dependencies/jAlert/dist/jAlert.css" />
-    </head>
-    <body class="sb-nav-fixed">
-            <!-- jQuery -->
-            <script src="<?php echo $direct;?>dependencies/js/scripts.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
-            <!-- Descargar el bootstrap -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-            <!-- JS DATATABLES -->
-            <script src="<?php echo $direct;?>dependencies/DataTables/datatables.min.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>
+        <?php echo $title; ?>
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="<?php echo $direct; ?>css/sb-admin-2.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo $direct; ?>dependencies/jAlert/dist/jAlert.css" />
+</head>
 
-            <!--<script src="./DataTables/Responsive-2.3.0/js/responsive.bootstrap5.min.js"></script>-->
-            <script src="<?php echo $direct;?>dependencies/DataTables/Responsive-2.3.0/js/dataTables.responsive.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/Responsive-2.3.0/js/responsive.dataTables.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/dataTables.buttons.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.bootstrap5.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/JSZip-2.5.0/jszip.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
-        
-            <script src="<?php echo $direct;?>dependencies/fontawesome-free-6.2.0/js/all.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert.min.js"></script>
-            <script src="<?php echo $direct;?>dependencies/jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
-            
-            <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="<?php echo $direct?>index.php">Kermesse</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+<body id="page-top">
+    <script src="<?php echo $direct; ?>dependencies/DataTables/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo $direct; ?>assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/datatables.min.js"></script>
+    <script
+        src="<?php echo $direct; ?>dependencies/DataTables/Responsive-2.3.0/js/dataTables.responsive.min.js"></script>
+    <script
+        src="<?php echo $direct; ?>dependencies/DataTables/Responsive-2.3.0/js/responsive.dataTables.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/Buttons-2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/Buttons-2.2.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
+
+    <script src="<?php echo $direct; ?>dependencies/fontawesome-free-6.2.0/js/all.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/jAlert/dist/jAlert.min.js"></script>
+    <script src="<?php echo $direct; ?>dependencies/jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
+    <script src="<?php echo $direct; ?>assets/js/Chart.min.js"></script>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion h-100 position-sticky sticky-top"
+            id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Inicio</div>
-                            <a class="nav-link" href="<?php echo $direct?>index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Panel de control
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Navegación</div>
+                <div class="sidebar-brand-text mx-3">Proyecto Kermesse</div>
+            </a>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-                            <a class="nav-link" href="<?php echo $direct?>navigate/arqueocaja/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Arqueo caja
-                            </a>
-                            
-                            <a class="nav-link" href="<?php echo $direct?>navigate/arqueocaja_det/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Arqueo caja det
-                            </a>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-                            <a class="nav-link" href="<?php echo $direct?>navigate/categoria_gastos/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Categoría Gastos
-                            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                            <a class="nav-link" href="<?php echo $direct?>navigate/comunidad/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Comunidad
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/controlBonos/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Control Bonos
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/denominacion/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Denominación
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/gastos/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Gastos
-                            </a>
-                            
-                            <a class="nav-link" href="<?php echo $direct?>navigate/ingresoComunidad/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Ingreso Comunidad
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/ingresoComunidadDet/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Ingreso Comunidad Det
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/kermesse/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Kermesse
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/moneda/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Moneda
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/opciones/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Opciones
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/parroquia/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Parroquia
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/rol/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Rol
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/rolOpciones/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Rol Opciones
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/rolUsuario/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Rol Usuario
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/tasacambio/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Tasa de cambio
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/tasacambio_det/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Tasa de cambio Det
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/productos/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Producto
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/categoria_producto/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Categoria de producto
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/listaPrecios/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Lista de Precios
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/listaprecio_det/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Lista de precio Det
-                            </a>
-
-                            <a class="nav-link" href="<?php echo $direct?>navigate/usuarios/gestionar.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Usuarios
-                            </a>
-
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Just Example
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div>
-                </nav>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
             </div>
-            <div id="layoutSidenav_content">
-                <main>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Components</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        <a class="collapse-item" href="cards.html">Cards</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Utilities</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 shadow-sm">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link toggletoggle" role="button">
+                                <i class="fa-solid fa-bars"></i>
+                            </a>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <li class="nav-item dropdown no-arrow flex-row-reverse">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    <?php echo $usuario[0]->usuario ?>
+                                </span>
+                                <img class="img-profile rounded-circle"
+                                    src="https://cdn-icons-png.flaticon.com/512/64/64572.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="<?php echo "{$direct}Login.php?logout=1"; ?>">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Cerrar Sesión
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <div class="container-fluid">
+                    <script src="<?php echo $direct; ?>assets/js/sb-admin-2.js"></script>

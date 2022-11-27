@@ -2,7 +2,7 @@
 
 $(document).ready( function (){
     $("#generic").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": false, "lengthChange": false, "autoWidth": false,
       "buttons": ["excel", "pdf", "print"],
       "language": {
         "aria": {
@@ -95,7 +95,6 @@ $(document).ready( function (){
     "infoEmpty": "No hay datos para mostrar"
         }
     }).buttons().container().appendTo('#generic_wrapper .col-md-6:eq(0)');
-
 
     $('.dataTables_filter').addClass('d-flex')
     $('.dataTables_filter').addClass('flex-row-reverse')
