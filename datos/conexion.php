@@ -13,7 +13,7 @@ class Conexion
     // Metodos
     public function conectar()
 	{
-        $serverName = '4.tcp.ngrok.io:12081';
+        $serverName = '4.tcp.ngrok.io:17498';
         $dbName = 'dbkermesse';
         $userName = 'root';                      
         $pwd = 'Usuario123.';

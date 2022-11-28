@@ -3,10 +3,10 @@ $title = "Gestionar Rol Usuario";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_rol_usuario.php';
-include_once '../../entidades/rol_usuario.php';
+include_once '../../entidades/vw_rolusuario.php';
 
 $dtRolUsuario = new Dt_rol_usuario();
-$rolUsuarios = $dtRolUsuario->listarRolUsuarios();
+$rolUsuarios = $dtRolUsuario->listarVwRolUsuario();
 
 ?>
 <div class="container-fluid px-4">
@@ -29,6 +29,7 @@ $rolUsuarios = $dtRolUsuario->listarRolUsuarios();
                         <tr>
                             <th>ID</th>
                             <th>Usuario</th>
+                            <th>Nombre y Apellido</th>
                             <th>Rol</th>
                             <th>Opciones</th>
                         </tr>
@@ -37,15 +38,16 @@ $rolUsuarios = $dtRolUsuario->listarRolUsuarios();
                         <?php 
                         foreach($rolUsuarios as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_rol_usuario</td>";
-                            echo "<td>$value->tbl_usuario_id_usuario</td>";
-                            echo "<td>$value->tbl_rol_id_rol</td>";
+                            echo "<td>$value->id</td>";
+                            echo "<td>$value->usuario</td>";
+                            echo "<td>$value->nombre</td>";
+                            echo "<td>$value->rol</td>";
                         ?>
                         <td>
                             <a href="#" target="_blank" title="Visualizar los datos de un rol-usuario">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de un rol-usuario">
+                            <a href="editar.php?varEnter=<?php echo $value->id;?>" target="_blank" title="Modificar los datos de un rol-usuario">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
                             <a href="#" target="_blank" title="Dar de baja al rol-usuario">
@@ -61,6 +63,7 @@ $rolUsuarios = $dtRolUsuario->listarRolUsuarios();
                         <tr>
                             <th>ID</th>
                             <th>Usuario</th>
+                            <th>Nombre y Apellido</th>
                             <th>Rol</th>
                             <th>Opciones</th>
                         </tr>

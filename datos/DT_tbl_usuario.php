@@ -1,14 +1,12 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_usuario.php");
+include_once("{$direct}entidades/tbl_usuario.php");
 
 
-class Dt_tbl_usuario extends Conexion
-{
+class Dt_tbl_usuario extends Conexion{
 	private $myCon;
 
-	public function listarUsuarios()
-	{
+	public function listarUsuarios(){
 
 		try {
 			$this->myCon = parent::conectar();
@@ -38,8 +36,7 @@ class Dt_tbl_usuario extends Conexion
 		}
 	}
 
-	public function insertarUsuario(tbl_usuario $usr)
-	{
+	public function insertarUsuario(tbl_usuario $usr){
 		try {
 			$this->myCon = parent::conectar();
 			$sql = "INSERT INTO dbkermesse.tbl_usuario (usuario, pwd, nombres, apellidos, email, estado)
@@ -113,6 +110,7 @@ class Dt_tbl_usuario extends Conexion
 				);
 
 			$this->myCon = parent::desconectar();
+		
 
 		} catch (Exception $e) {
 			var_dump($e);
@@ -157,7 +155,6 @@ class Dt_tbl_usuario extends Conexion
 			die($e->getMessage());
 		}
 	}
-
 
 }
 /*
