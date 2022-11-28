@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar rol-usuarios";
+$title = "Gestionar Rol Usuario";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_rol_usuario.php';

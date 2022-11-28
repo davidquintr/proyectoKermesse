@@ -63,8 +63,7 @@ class Dt_tbl_usuario extends Conexion
 		}
 	}
 
-	public function getUserByID($id)
-	{
+	public function getUserByID($id){
 		try {
 			$this->myCon = parent::conectar();
 			$querySQL = "SELECT * FROM dbkermesse.tbl_usuario WHERE id_usuario = ?;";

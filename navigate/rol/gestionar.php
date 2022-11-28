@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar roles";
+$title = "Gestionar Roles";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_rol.php';
@@ -10,7 +10,7 @@ $roles = $dtRol->listarRoles();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Datos de Roles</h1>
+        <h1 class="mt-4">Gestionar Roles</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de Roles</li>
@@ -18,6 +18,11 @@ $roles = $dtRol->listarRoles();
         <div class="alert alert-primary text-center">
             En esta pantalla se pueden visualizar y gestionar los datos de los roles activos/inactivos.
         </div>
+
+        <div class="alert alert-secondary">
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar un nuevo rol</button></a>
+        </div>
+
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -52,13 +57,13 @@ $roles = $dtRol->listarRoles();
                             }
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de un usuario">
+                            <a href="ver.php?varEnter=<?php echo $value->id_rol;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de un usuario">
+                            <a href="editar.php?varEnter=<?php echo $value->id_rol;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja al usuario">
+                            <a onclick="deleteObject('<?php echo $value->id_rol;?>','3');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -81,6 +86,7 @@ $roles = $dtRol->listarRoles();
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
     <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/deleteScripts.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>

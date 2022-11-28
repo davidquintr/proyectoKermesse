@@ -10,12 +10,8 @@ $varIdU = 0;
 if(isset($varIdU)){ 
   $varIdU = $_GET['varEnter'];
 }
-
 $dtUsuario = new Dt_tbl_usuario();
 $user = $dtUsuario->getUserByID($varIdU);
-
-$dtUsuario = new Dt_tbl_usuario();
-$usuarios = $dtUsuario->listarUsuarios();
 
 ?>
     <div class="container-fluid px-4">
