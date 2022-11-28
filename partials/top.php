@@ -8,14 +8,14 @@ $dtRolUsr = new Dt_rol_usuario();
 $dtRolOpc = new Dt_rol_opciones();
 
 session_start();
+
 if (empty($_SESSION['acceso'])) {
     header("Location: {$direct}Login.php");
+    die();
 }
+
 $usuario = $_SESSION['acceso'];
 $titleBd =  str_replace(' ','',$title);
-
-//if(empty($resp))
-
 
 $resp = $dtRolUsr->getIdRol($usuario[0]->id_usuario);
 $respRol = $dtRolOpc->getOpc($resp, $titleBd);
@@ -23,7 +23,6 @@ $respRol = $dtRolOpc->getOpc($resp, $titleBd);
 if(empty($respRol)){
     header("Location: {$direct}403.php");
 }
-
 
 ?>
 

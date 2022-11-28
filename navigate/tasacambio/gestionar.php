@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar usuarios";
+$title = "Gestionar Tasa Cambio";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_tasacambio.php';

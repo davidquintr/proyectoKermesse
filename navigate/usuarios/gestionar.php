@@ -74,7 +74,7 @@ $usuarios = $dtUsuario->listarUsuarios();
                             <a href="editar.php?varEnter=<?php echo $value->id_usuario;?>" title="Modificar los datos de un usuario">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a onclick="deleteUser('<?php echo $value->id_usuario;?>');" title="Dar de baja al usuario">
+                            <a onclick="deleteObject('<?php echo $value->id_usuario;?>','1');" title="Dar de baja al usuario">
                                 <i class="fa-solid fa-user-minus link-primary"></i> 
                             </a>
                         </td>
