@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar Moneda";
+$title = "Gestionar Monedas";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_moneda.php';

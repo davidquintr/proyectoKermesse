@@ -1,11 +1,11 @@
 <?php
-$title = "Gestionar usuarios";
+$title = "Gestionar Denominaciones";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_denominacion.php';
 include_once '../../entidades/tbl_denominacion.php';
 
-$dtDenominacion= new Dt_tbl_Denominacion();
+$dtDenominacion= new Dt_tbl_denominacion();
 $denominacion =  $dtDenominacion->listarVwDenominaciones();
 
 ?>
@@ -20,7 +20,7 @@ $denominacion =  $dtDenominacion->listarVwDenominaciones();
         </div>
 
         <div class="alert alert-secondary">
-            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar una nueva moneda</button></a>
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar una nueva Denominación</button></a>
         </div>
 
         <div class="card mb-4">
@@ -36,7 +36,7 @@ $denominacion =  $dtDenominacion->listarVwDenominaciones();
                             <th>Moneda</th>
                             <th>Valor</th>
                             <th>Valor Letras</th>
-                            <th>SubTotal</th>
+                            <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
@@ -44,20 +44,20 @@ $denominacion =  $dtDenominacion->listarVwDenominaciones();
                         <?php 
                         foreach($denominacion as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_denominacion</td>";
+                            echo "<td>$value->id</td>";
                             echo "<td>$value->moneda</td>";
                             echo "<td>$value->valor</td>";
                             echo "<td>$value->valor_letras</td>";
                             echo "<td>$value->estado</td>";
                         ?>
                         <td>
-                            <a href="ver.php?varEnter=<?php echo $value->id_moneda;?>" target="_blank" title="Visualizar">
+                            <a href="ver.php?varEnter=<?php echo $value->id;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="editar.php?varEnter=<?php echo $value->id_moneda;?>" target="_blank" title="Modificar">
+                            <a href="editar.php?varEnter=<?php echo $value->id;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a onclick="deleteObject('<?php echo $value->id_moneda;?>','3');" target="_blank" title="Dar de baja">
+                            <a onclick="deleteObject('<?php echo $value->id;?>','3');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -72,7 +72,7 @@ $denominacion =  $dtDenominacion->listarVwDenominaciones();
                             <th>Moneda</th>
                             <th>Valor</th>
                             <th>Valor Letras</th>
-                            <th>SubTotal</th>
+                            <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
                     </tfoot>

@@ -1,6 +1,7 @@
 <?php
 include_once("conexion.php");
 include_once("../../entidades/tbl_denominacion.php");
+include_once("../../entidades/vw_denominacion.php");
 
 
 class Dt_tbl_Denominacion extends Conexion{
@@ -44,7 +45,7 @@ class Dt_tbl_Denominacion extends Conexion{
             $stm->execute();
 
             foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-                $c = new Vw_Denominacion();
+                $c = new Vw_denominacion();
 
                 //_SET(CAMPOBD, atributoEntidad)          
                 $c->__SET('id', $r->id);
@@ -145,21 +146,3 @@ class Dt_tbl_Denominacion extends Conexion{
         }
     }
 }
-
-/*
-$prueba = new Dt_tbl_Denominacion();
-$element = $prueba->listarDenominaciones();
-
-foreach($element as $value){
-    echo "<br>";
-    echo $value->id_denominacion;
-    echo "<br>";
-    echo $value->idMoneda;
-    echo "<br>";
-    echo $value->valor;
-    echo "<br>";
-    echo $value->valor_letras;
-    echo "<br>";
-    echo $value->estado ;
-}
-*/
