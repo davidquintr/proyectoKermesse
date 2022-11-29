@@ -42,6 +42,37 @@ class Dt_tbl_kermesse extends Conexion
 			die($e->getMessage());
 		}
 	}
+
+    public function getKermByID($id){
+		try {
+			$this->myCon = parent::conectar();
+			$querySQL = "SELECT * FROM dbkermesse.tbl_kermesse WHERE id_kermesse = ?;";
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($id));
+
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+			$u = new Tbl_Kermesse();
+
+            $u->__SET('id_kermesse', $r->id_kermesse);
+            $u->__SET('idParroquia', $r->idParroquia);
+            $u->__SET('nombre', $r->nombre);
+            $u->__SET('fInicio', $r->fInicio);
+            $u->__SET('fFinal', $r->fFinal);
+            $u->__SET('descripcion', $r->descripcion);
+            $u->__SET('estado', $r->estado);
+            $u->__SET('usuario_creacion', $r->usuario_creacion);
+            $u->__SET('fecha_creacion', $r->fecha_creacion);
+            $u->__SET('usuario_modificacion', $r->usuario_modificacion);
+            $u->__SET('fecha_modificacion', $r->fecha_modificacion);
+            $u->__SET('usuario_eliminacion', $r->usuario_eliminacion);
+            $u->__SET('fecha_eliminacion', $r->fecha_eliminacion);
+
+			$this->myCon = parent::desconectar();
+			return $u;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
 /*
 $prueba = new Dt_tbl_kermesse();

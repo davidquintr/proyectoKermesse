@@ -1,0 +1,20 @@
+<?php
+
+class Vw_IngresoComunidad
+{
+    //Atributos
+    private $id;
+    private $kermesse;
+    private $comunidad;
+    private $producto;
+    private $bono;
+    private $denominacion;
+    private $cantidad;
+    private $subtotal_bono;
+    private $cant_productos;
+    private $total_bonos;
+    private $estado;
+    //Metodos
+    public function __GET($k){ return $this->$k; }
+    public function __SET($k, $v){ return $this->$k = $v;}
+}
