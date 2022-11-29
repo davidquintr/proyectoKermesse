@@ -124,10 +124,11 @@ class Dt_tbl_kermesse extends Conexion
 		}
 	}
 
-	public function editKermesse(Vw_Kermesse $tr){
+	public function editKermesse(Tbl_kermesse $tr){
 		try {
 			$this->myCon = parent::conectar();
 			$sql = "UPDATE dbkermesse.tbl_kermesse SET
+						idParroquia = ?,
 						nombre = ?,
                         fInicio = ?,
                         fFinal = ?,
@@ -143,7 +144,7 @@ class Dt_tbl_kermesse extends Conexion
 						$tr->fFinal,
 						$tr->descripcion,
 						$tr->estado,
-						$tr->id_kermesse
+						$tr->id
 					)
 				);
 				

@@ -35,7 +35,7 @@ $kermesse = $dtKermesse->getKermesseByID($varIdK);
 
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="kerm" name="kerm" type="text" title="ID" value="<?php echo $kermesse->id_kermesse;?>" disabled/>
-                                    <input class="form-control" id="idKermesse" name="idKermesse" type="hidden" title="ID" value="<?php echo $kermesse->id_kermesse;?>"/>
+                                    <input class="form-control" id="id_Kermesse" name="id_Kermesse" type="hidden" title="ID" value="<?php echo $kermesse->id_kermesse;?>"/>
                                     <label for="kermesseID">ID</label>
                                 </div>
                                 <input class="form-control" id="kermessename" name="kermessename" type="text" title="Nombre de la kermesse" value="<?php echo $kermesse->nombre ?>" required/>
