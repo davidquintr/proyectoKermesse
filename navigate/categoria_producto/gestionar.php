@@ -19,6 +19,9 @@ $catProd = $dtCatProd->listarCatProducto();
         <div class="alert alert-primary text-center">
             En esta pantalla se pueden visualizar y gestionar los datos de las categorias de productos activos/inactivos.
         </div>
+        <div class="alert alert-secondary">
+        <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar una nueva Catgoria</button></a>
+        </div>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>

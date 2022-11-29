@@ -66,8 +66,8 @@ $dtCatProd = new Dt_tbl_categoria_producto();
                                     <input class="form-control" id="precioS" name="precioS" type="number" title="PrecioS" placeholder="Ingrese un precio" min="0" required/>
                                 </div>
                                 <div class="mt-4 mb-0 row">
-                                    <button type="submit" class="btn btn-primary btn-block">Agregar usuario</button>
-                                    <button type="reset" class="btn btn-danger btn-block my-2">Descartar usuario</button> 
+                                    <button type="submit" class="btn btn-primary btn-block">Agregar Producto</button>
+                                    <button type="reset" class="btn btn-danger btn-block my-2">Descartar Producto</button> 
                                 </div>
                             </form>
                         </div>

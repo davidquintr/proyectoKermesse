@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_productos.php");
+include_once("../../entidades/tbl_productos.php");
 
 
 class Dt_tbl_productos extends Conexion
@@ -133,9 +133,9 @@ class Dt_tbl_productos extends Conexion
 			nombre = ?, 
 			descripcion = ?, 
 			cantidad = ?, 
-			preciov_sugerido = ? 
+			preciov_sugerido = ?, 
 			estado = ?
-			WHERE ; id_producto = ?";
+			WHERE id_producto = ?";
 
 			$this->myCon->prepare($sql)
 				->execute(

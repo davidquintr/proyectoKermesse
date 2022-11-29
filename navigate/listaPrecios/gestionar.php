@@ -7,7 +7,7 @@ include_once '../../datos/Dt_tbl_lista_precio.php';
 include_once '../../entidades/tbl_lista_precio.php';
 
 $dtListPrecio = new Dt_tbl_lista_precio();
-$ListPrecio = $dtListPrecio->listarPrecio();
+$ListPrecio = $dtListPrecio->listarVwPrecio();
 
 ?>
 <div class="container-fluid px-4">
@@ -17,8 +17,11 @@ $ListPrecio = $dtListPrecio->listarPrecio();
             <li class="breadcrumb-item active">Gestión de Lista de precios</li>
         </ol>
         <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los datos de los precios activos/inactivos.
+            En esta pantalla se pueden visualizar y gestionar los datos de los precios activos.
         </div>
+        <div class="alert alert-secondary">
+        <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Crear una nueva lista</button></a>
+    </div>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -29,9 +32,11 @@ $ListPrecio = $dtListPrecio->listarPrecio();
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>ID Kermesse</th>
+                            <th>Kermesse</th>
+                            <th>Producto</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
+                            <th>Precio Venta</th>
                             <th>Estado</th> 
                             <th>Opciones</th>
                         </tr>
@@ -40,27 +45,20 @@ $ListPrecio = $dtListPrecio->listarPrecio();
                         <?php 
                         foreach($ListPrecio as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_lista_precio</td>";
-                            echo "<td>$value->id_kermesse</td>";
+                            echo "<td>$value->id</td>";
+                            echo "<td>$value->kermesse</td>";
+                            echo "<td>$value->producto</td>";
                             echo "<td>$value->nombre</td>";
                             echo "<td>$value->descripcion</td>";
-                            switch($value->estado){
-                                case 1:
-                                    echo "<td>Activo</td>";
-                                break;
-                                case 2:
-                                    echo "<td>Modificado</td>";
-                                break;
-                                case 3:
-                                    echo "<td>Inactivo/Eliminado</td>";
-                                break;
-                            }
+                            echo "<td>$value->precio_venta</td>";
+                            echo "<td>$value->estado</td>";
+                            
                         ?>
                         <td>
                             <a href="#" target="_blank" title="Visualizar los datos de una lista de productos">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de una lista de productos">
+                            <a href="editar.php?varEnter=<?php echo $value->id?>" target="_blank" title="Modificar los datos de una lista de productos">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
                             <a href="#" target="_blank" title="Dar de baja a una lista de productos">
@@ -74,10 +72,12 @@ $ListPrecio = $dtListPrecio->listarPrecio();
                     </tbody>
                     <tfoot>
                     <tr>
-                            <th>ID</th>
-                            <th>ID Kermesse</th>
+                    <th>ID</th>
+                            <th>Kermesse</th>
+                            <th>Producto</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
+                            <th>Precio Venta</th>
                             <th>Estado</th> 
                             <th>Opciones</th>
                         </tr>
