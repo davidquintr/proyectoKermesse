@@ -1,7 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_kermesse.php");
-
+include_once("{$direct}entidades/tbl_kermesse.php");
 
 class Dt_tbl_kermesse extends Conexion
 {
@@ -12,7 +11,7 @@ class Dt_tbl_kermesse extends Conexion
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "select * from dbkermesse.tbl_kermesse;";
+			$querySQL = "select * from dbkermesse.tbl_kermesse where estado <> 3;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();

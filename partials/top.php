@@ -19,10 +19,6 @@ $titleBd =  str_replace(' ','',$title);
 
 $resp = $dtRolUsr->getIdRol($usuario[0]->id_usuario);
 
-if(empty($resp)){
-    header("Location: {$direct}Login.php");
-}
-
 $respRol = $dtRolOpc->getOpc($resp, $titleBd);
 
 if(empty($respRol)){

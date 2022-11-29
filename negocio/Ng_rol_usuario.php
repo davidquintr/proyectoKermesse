@@ -44,7 +44,7 @@ if ($_POST) {
 if ($_GET) {
     try {
         $rolUsr->__SET('id_rol_usuario', $_GET['delRu']);
-        $dtRolUsr->deleteRolUsr($rolUsr->__GET('id_rol_usuario'));
+        $dtRolUsr->deleteRolUsr($rolUsr->id_rol_usuario);
         echo $rolUsr->id_rol_usuario;
         header("Location: /proyectoKermesse/navigate/rolUsuario/gestionar.php?msj=6");
 
