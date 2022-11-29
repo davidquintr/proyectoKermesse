@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar kermesse";
+$title = "Gestionar Kermesse";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
@@ -76,7 +76,7 @@ $kermesse = $dtKermesse->listarKermesse();
                             <a href="#" target="_blank" title="Visualizar los datos de la kermesse">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de la kermesse">
+                            <a href="editar.php?varEnter=<?php echo $value->id_kermesse;?>" title="Modificar los datos de un usuario">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
                             <a href="#" target="_blank" title="Dar de baja la kermesse">

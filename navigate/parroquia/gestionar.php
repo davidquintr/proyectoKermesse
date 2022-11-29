@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar parroquia";
+$title = "Gestionar Parroquia";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';

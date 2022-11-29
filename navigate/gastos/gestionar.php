@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar gastos";
+$title = "Gestionar Gastos";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';

@@ -1,6 +1,5 @@
 <?php
 include_once("conexion.php");
-include_once("../entidades/tbl_parroquia.php");
 
 
 class Dt_tbl_parroquia extends Conexion
@@ -18,7 +17,7 @@ class Dt_tbl_parroquia extends Conexion
 			$stm->execute();
 
 			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-				$c = new tbl_parroquia();
+				$c = new Tbl_parroquia();
 
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('idParroquia', $r->idParroquia);
@@ -34,6 +33,108 @@ class Dt_tbl_parroquia extends Conexion
 			return $result;
 		}
 		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+	public function insertarParroquia(Tbl_parroquia $parroquia){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "INSERT INTO dbkermesse.tbl_parroquia (nombre, direccion, telefono, parroco, logo, sitio_web)
+					VALUES(?,?,?,?,?,?)";
+
+			$this->myCon->prepare($sql)->execute(
+				array(
+                    $parroquia->__GET('nombre'),
+					$parroquia->__GET('direccion'),
+                    $parroquia->__GET('telefono'),
+                    $parroquia->__GET('parroco'),
+                    $parroquia->__GET('logo'),
+					$parroquia->__GET('sitio_web'),
+				)
+			);
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getParroquiaByID($id)
+	{
+		try {
+			$this->myCon = parent::conectar();
+			$querySQL = "SELECT * FROM dbkermesse.tbl_parroquia WHERE id_parroquia = ?;";
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($id));
+
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+			$u = new Tbl_parroquia();
+
+			$u->__SET('id_parroquia', $r->id_parroquia);
+			$u->__SET('nombre', $r->nombre);
+            $u->__GET('direccion', $r->direccion);
+            $u->__GET('telefono', $r->ftelefono);
+            $u->__GET('parroco', $r->parroco);
+            $u->__GET('logo', $r->logo); 
+			$u->__SET('sitio_web', $r->sitio_web);
+
+			$this->myCon = parent::desconectar();
+			return $u;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function editParroquia(Tbl_parroquia $tr){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_parroquia SET
+						nombre = ?,
+                        direccion = ?,
+                        telefono = ?,
+						parroco = ?,
+						logo = ?,
+						sitio_web = ?
+				    WHERE id_parroquia = ?";
+
+			$this->myCon->prepare($sql)
+				->execute(
+					array(
+						$tr->nombre,
+						$tr->direccion,
+						$tr->telefono,
+						$tr->parroco,
+						$tr->logo,
+						$tr->sitio_web,
+						$tr->id_parroquia
+					)
+				);
+				
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
+	public function deleteParroquia($id){
+
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_parroquia SET
+						estado = 3
+				    WHERE id_parroquia = ?";
+
+			$stm = $this->myCon->prepare($sql);
+			$stm->execute(array($id));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
 			die($e->getMessage());
 		}
 	}
