@@ -2,7 +2,6 @@
 function deleteObject(idObj, option){
     confirm(function(e,btn){
         e.preventDefault();
-
         switch(option){
             case '1':
                 window.location.href = "../../negocio/Ng_tbl_usuario.php?delU="+idObj;
@@ -15,6 +14,9 @@ function deleteObject(idObj, option){
             break;
             case '4':
                 window.location.href = "../../negocio/Ng_rol_usuario.php?delRu="+idObj;
+            break;
+            case 'arqc':
+                window.location.href = "../../negocio/Ng_tbl_arqueocaja.php?delAc="+idObj;
             break;
         }
     }, 

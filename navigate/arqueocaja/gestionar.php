@@ -64,7 +64,7 @@ $arqueocaja = $dtArqueocaja->listarVwArqueoCaja();
                         <a href="editar.php?varEnter=<?php echo $value->id?>" target="_blank" title="Modificar">
                             <i class="fa-solid fa-user-pen"></i>
                         </a>&nbsp;
-                        <a href="" target="_blank" title="Dar de baja">
+                        <a onclick="deleteObject('<?php echo $value->id;?>','arqc');" target="_blank" title="Dar de baja">
                             <i class="fa-solid fa-user-minus"></i>
                         </a>
                     </td>
@@ -93,6 +93,7 @@ $arqueocaja = $dtArqueocaja->listarVwArqueoCaja();
 </div>
 <script src="../../dependencies/js/messageSetters.js"></script>
 <script src="../../dependencies/js/tablesSetters.js"></script>
+<script src="../../dependencies/js/deleteScripts.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>

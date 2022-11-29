@@ -153,6 +153,25 @@ class Dt_tbl_Arqueocaja extends Conexion
 		}
 	}
 
+    public function deleteArqueo($id){
+
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_arqueocaja SET
+						estado = 3
+				    WHERE id_ArqueoCaja = ?";
+
+			$stm = $this->myCon->prepare($sql);
+			$stm->execute(array($id));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
 }
 
 /*
