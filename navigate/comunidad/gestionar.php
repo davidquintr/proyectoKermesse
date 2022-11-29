@@ -1,5 +1,5 @@
 <?php
-$title = "Control de comunidad";
+$title = "Gestionar Comunidad";
 $direct = "../../";
 
 include '../../partials/top.php';
@@ -16,9 +16,7 @@ $comunidades = $dtComunidad->listarComunidad();
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de comunidad</li>
         </ol>
-        <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
-        </div>
+    
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -57,15 +55,16 @@ $comunidades = $dtComunidad->listarComunidad();
                             }
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de un usuario">
+                            <a href="ver.php?varEnter=<?php echo $value->id_comunidad;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de un usuario">
+                            <a href="editar.php?varEnter=<?php echo $value->id_comunidad;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja al usuario">
+                            <a onclick="deleteObject('<?php echo $value->id_comunidad;?>','3');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
+
                         </td>
                         </tr>
                         <?php

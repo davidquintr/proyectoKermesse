@@ -1,5 +1,5 @@
 <?php
-$title = "Agregar Ingreso Comunidad";
+$title = "Editar Ingreso Comunidad";
 $direct = "../../";
 include '../../partials/top.php';
 include_once("{$direct}entidades/tbl_kermesse.php");
@@ -17,11 +17,24 @@ include_once("{$direct}datos/Dt_tbl_comunidad.php");
 include_once("{$direct}entidades/tbl_denominacion.php");
 include_once("{$direct}datos/Dt_tbl_denominacion.php");
 
+
+$varIdU = 0;
+if(isset($varIdU)){ 
+  $varIdU = $_GET['varEnter'];
+}
+
 $dtKerm = new Dt_tbl_kermesse();
 $dtProd = new Dt_tbl_productos();
 $dtConBonos = new Dt_tbl_control_bonos();
-$dtComunidad = new Dt_tbl_comunidad();
+
 $dtDenom = new Dt_tbl_Denominacion();
+
+$dtComunidad = new Dt_tbl_comunidad();
+
+
+$comunidad = $dtComunidad->getRolByID($varIdU);
+
+
 
 
 ?>
@@ -41,7 +54,15 @@ $dtDenom = new Dt_tbl_Denominacion();
                         <div class="card-body">
                             
                             <form method="POST" action="../../negocio/Ng_tbl_ingreso_comunidad.php">
-                                <input type="hidden" value="1" name="txtaccion" id="txtaccion"/>
+                            
+                            <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="id" name="id" type="text" title="ID de Ingreso Comunidad" value="<?php echo $varIdU?>" disabled/>
+                                    <input class="form-control" id="idIng" name="idIng" type="hidden" title="ID de Ingreso Comunidad" value="<?php echo $varIdU?>"/>
+                                </div>
+                                
+                                <input type="hidden" value="2" name="txtaccion" id="txtaccion"/>
+
                                 <div class="form-floating mb-3">
                                     <select class="form-control" id="kermesse" name="kermesse" title="Seleccione una Kermesse" required>
                                         <option value="">Seleccione una Kermesse</option>
@@ -120,8 +141,8 @@ $dtDenom = new Dt_tbl_Denominacion();
                                 </div>
                                 
                                 <div class="mt-4 mb-0 row">
-                                    <button type="submit" class="btn btn-primary btn-block">Agregar Ingreso Comunidad</button>
-                                    <button type="reset" class="btn btn-danger btn-block my-2">Descartar Ingreso Comunidad</button> 
+                                    <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
+                                    <button type="reset" class="btn btn-danger btn-block my-2">Descartar cambios</button> 
                                 </div>
                             </form>
                         </div>

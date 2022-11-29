@@ -33,7 +33,7 @@ if ($_POST) {
                 $arqueoCajaDet->__SET('idArqueoCaja',$allArq[count($allArq) - 1]->__GET('id_ArqueoCaja'));
                 $arqueoCajaDet->__SET('idMoneda', $_POST['moneda']);
                 $arqueoCajaDet->__SET('idDenominacion', $_POST['denom']);
-                $arqueoCajaDet->__SET('cantidad', $_POST['cantidad']);
+                $arqueoCajaDet->__SET('cantidad', $_POST['totalBonos']);
                 $arqueoCajaDet->__SET('subtotal', 0.0);
                 $dtArqDet->insertarArqCajaDet($arqueoCajaDet);
 
