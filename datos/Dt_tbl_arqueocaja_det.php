@@ -1,6 +1,6 @@
 <?php
 include_once("conexion.php");
-include_once("../../entidades/tbl_arqueocaja_det.php");
+include_once("{$direct}entidades/tbl_arqueocaja_det.php");
 
 
 class Dt_Tbl_arqueocaja_det extends Conexion{
@@ -56,6 +56,62 @@ class Dt_Tbl_arqueocaja_det extends Conexion{
 			die($e->getMessage());
 		}
 	}
+
+    public function getArqueoDetByID($id){
+		try {
+			$this->myCon = parent::conectar();
+			$querySQL = "SELECT * FROM dbkermesse.tbl_arqueocaja_det WHERE idArqueoCaja = ?;";
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($id));
+
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+			$u = new Tbl_Arqueocaja_Det();
+
+			$u->__SET('idArqueoCaja_Det', $r->idArqueoCaja_Det);
+			$u->__SET('idArqueoCaja', $r->idArqueoCaja);
+			$u->__SET('idMoneda', $r->idMoneda);
+			$u->__SET('idDenominacion', $r->idDenominacion);
+			$u->__SET('cantidad', $r->cantidad);
+			$u->__SET('subtotal', $r->subtotal);
+  
+			$this->myCon = parent::desconectar();
+			return $u;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function editArqueoCajaDet(Tbl_Arqueocaja_Det $ac){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_arqueocaja_det SET
+						idMoneda = ?,
+						idDenominacion = ?, 
+						cantidad = ?, 
+						subtotal = ?
+				    WHERE idArqueoCaja_Det = ?";
+
+			$this->myCon->prepare($sql)
+				->execute(
+					array(
+						$ac->__GET('idMoneda'),
+						$ac->__GET('idDenominacion'),
+						$ac->__GET('cantidad'),
+						$ac->__GET('subtotal'),
+						$ac->__GET('idArqueoCaja_Det')
+					)
+				);
+
+			$this->myCon = parent::desconectar();
+		
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
+	
 }
 
 /*

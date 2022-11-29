@@ -58,13 +58,13 @@ $arqueocaja = $dtArqueocaja->listarVwArqueoCaja();
                             echo "<td>$value->estado</td>";
                         ?>
                     <td>
-                        <a href="#" target="_blank" title="Visualizar los datos de un usuario">
+                        <a href="ver.php?varEnter=<?php echo $value->id?>" title="Visualizar los datos de un usuario">
                             <i class="fa-solid fa-eye"></i>
                         </a>&nbsp;
-                        <a href="#" target="_blank" title="Modificar los datos de un usuario">
+                        <a href="editar.php?varEnter=<?php echo $value->id?>" target="_blank" title="Modificar">
                             <i class="fa-solid fa-user-pen"></i>
                         </a>&nbsp;
-                        <a href="#" target="_blank" title="Dar de baja al usuario">
+                        <a href="" target="_blank" title="Dar de baja">
                             <i class="fa-solid fa-user-minus"></i>
                         </a>
                     </td>

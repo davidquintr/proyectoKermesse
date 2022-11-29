@@ -1,10 +1,10 @@
 <?php
+$direct = "../";
+
 include_once("../entidades/tbl_arqueocaja.php");
 include_once("../datos/Dt_tbl_arqueocaja.php");
 include_once("../entidades/tbl_arqueocaja_det.php");
 include_once("../datos/Dt_tbl_arqueocaja_det.php");
-
-$direct = "../";
 
 $arqueoCaja = new Tbl_Arqueocaja();
 $arqueoCajaDet = new Tbl_Arqueocaja_Det();
@@ -44,32 +44,29 @@ if ($_POST) {
             }
 
             break;
-/*
         case 2:
             try {
+                $arqueoCaja->__SET('id_ArqueoCaja',$_POST['idArq']);
+                $arqueoCaja->__SET('idKermesse', $_POST['kermesse']);
+                $arqueoCaja->__SET('estado',2);
+                $arqueoCaja->__SET('usuario_modificacion', 1);
+                $arqueoCaja->__SET('fecha_modificacion', $date);
+                $dtArq->editArqueoCaja($arqueoCaja);
 
-                if ($_POST['confpass'] != $_POST['pass']) {
-                    header("Location: /proyectoKermesse/navigate/usuarios/editar.php?msj=5&varEnter={$_POST['idU']}");
-                    die();
-                }
+                $arqueoCajaDet = $dtArqDet->getArqueoDetByID($arqueoCaja->id_ArqueoCaja);
+                $arqueoCajaDet->__SET('idMoneda', $_POST['moneda']);
+                $arqueoCajaDet->__SET('idDenominacion', $_POST['denom']);
+                $arqueoCajaDet->__SET('cantidad', $_POST['cantidad']);
+                $arqueoCajaDet->__SET('subtotal', 0.0);
+                $dtArqDet->editArqueoCajaDet($arqueoCajaDet);               
 
-                $usr->__SET('id_usuario', $_POST['idU']);
-                $usr->__SET('pwd', $_POST['pass']);
-                $usr->__SET('nombres', $_POST['names']);
-                $usr->__SET('apellidos', $_POST['secnames']);
-                $usr->__SET('email', $_POST['email']);
-                $usr->__SET('estado', 2);
-                $dtUsr->editUser($usr);
-
-                header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=3");
+                header("Location: /proyectoKermesse/navigate/arqueocaja/gestionar.php?msj=3");
             } catch (Exception $e) {
 
-                header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=4");
+                header("Location: /proyectoKermesse/navigate/arqueocaja/gestionar.php?msj=4");
                 die($e->getMessage());
-
             }
-
-            break;*/
+            break;
     }
 }
 
