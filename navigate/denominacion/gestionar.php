@@ -50,9 +50,6 @@ $denominacion =  $dtDenominacion->listarDenominaciones();
                                 case 2:
                                     echo "<td>Modificado</td>";
                                 break;
-                                case 3:
-                                    echo "<td>Inactivo/Eliminado</td>";
-                                break;
                             }
                         ?>
                         <td>
