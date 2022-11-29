@@ -44,7 +44,7 @@ $rolUsuarios = $dtRolUsuario->listarVwRolUsuario();
                             echo "<td>$value->rol</td>";
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar">
+                            <a href="ver.php?varEnter=<?php echo $value->id;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
                             <a href="editar.php?varEnter=<?php echo $value->id;?>" title="Modificar">

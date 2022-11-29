@@ -1,0 +1,86 @@
+<?php
+$title = "Ver Rol Usuario";
+$direct = "../../";
+include '../../partials/top.php';
+include_once("{$direct}entidades/tbl_rol.php");
+include_once("{$direct}entidades/tbl_usuario.php");
+
+include_once("{$direct}datos/Dt_tbl_rol.php");
+include_once("{$direct}datos/Dt_tbl_usuario.php");
+
+include_once("{$direct}datos/Dt_rol_usuario.php");
+
+$dtRol = new Dt_tbl_rol();
+$dtUsr = new Dt_tbl_usuario();
+$dtRolUsr = new Dt_rol_usuario();
+
+$varIdU = 0;
+if (isset($varIdU)) {
+    $varIdU = $_GET['varEnter'];
+}
+
+$rolUsr = $dtRolUsr->getRolUsrById($varIdU);
+echo $rolUsr->id_rol_usuario;
+echo $rolUsr->tbl_usuario_id_usuario;
+
+?>
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Ver Rol Usuario</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.php">Index</a></li>
+        <li class="breadcrumb-item">Gestión de Rol Usuario</li>
+        <li class="breadcrumb-item active">Ver Rol Usuario</li>
+
+    </ol>
+    <div id="layoutAuthentication_content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card shadow p-3 border-0 rounded-lg mt-5">
+                        <div class="card-body">
+                            <form>
+                                <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="id" name="id" type="text" title="ID de usuario" value="<?php echo $varIdU?>" disabled/>
+                                    <input class="form-control" id="idRolU" name="idRolU" type="hidden" title="ID Rol Usuario" value="<?php echo $varIdU?>"/>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-control" id="usuario" name="usuario"
+                                        title="Seleccione una Región" disabled>
+                                        <?php
+                                        foreach ($dtUsr->listarUsuarios() as $usr):
+                                            if ($usr->id_usuario == $rolUsr->tbl_usuario_id_usuario):
+                                        ?>
+                                        <option value="<?php echo $usr->id_usuario?>">
+                                        <?php echo $usr->usuario ?>
+                                        </option>
+                                        <?php
+                                            endif;
+                                        endforeach;
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-control" id="rol" name="rol" title="Seleccione una Región"
+                                        disabled>
+                                        <?php
+                                        foreach ($dtRol->listarRoles() as $rol):
+                                        ?>
+                                        <option <?php if($rol->id_rol == $rolUsr->tbl_rol_id_rol){ echo "selected";}; ?> value="<?php echo $rol->id_rol?>"> <?php echo $rol->rol_descripcion?> </option>
+                                        <?php
+                                        endforeach;
+                                        ?>  
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+include '../../partials/bottom.php';
+?>
