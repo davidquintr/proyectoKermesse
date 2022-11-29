@@ -3,6 +3,8 @@ include_once "{$direct}entidades/tbl_usuario.php";
 include_once "{$direct}datos/Dt_rol_usuario.php";
 include_once "{$direct}datos/Dt_rol_opciones.php";
 
+error_reporting(0);
+
 $usuario = new Tbl_Usuario();
 $dtRolUsr = new Dt_rol_usuario();
 $dtRolOpc = new Dt_rol_opciones();
