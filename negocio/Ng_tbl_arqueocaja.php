@@ -7,7 +7,10 @@ include_once("../datos/Dt_tbl_arqueocaja_det.php");
 $direct = "../";
 
 $arqueoCaja = new Tbl_Arqueocaja();
+$arqueoCajaDet = new Tbl_Arqueocaja_Det();
+
 $dtArq = new Dt_tbl_Arqueocaja();
+$dtArqDet = new Dt_Tbl_arqueocaja_det();
 
 date_default_timezone_set("America/Managua");
 $date = date('Y/m/d', time());
@@ -25,9 +28,18 @@ if ($_POST) {
                 $arqueoCaja->__SET('fecha_creacion', $date);
                 $arqueoCaja->__SET('granTotal', 0.0);
                 $dtArq->insertarArqueo($arqueoCaja);
-                header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=1");
+
+                $allArq = $dtArq->listarArqueoCaja();
+                $arqueoCajaDet->__SET('idArqueoCaja',$allArq[count($allArq) - 1]->__GET('id_ArqueoCaja'));
+                $arqueoCajaDet->__SET('idMoneda', $_POST['moneda']);
+                $arqueoCajaDet->__SET('idDenominacion', $_POST['denom']);
+                $arqueoCajaDet->__SET('cantidad', $_POST['cantidad']);
+                $arqueoCajaDet->__SET('subtotal', 0.0);
+                $dtArqDet->insertarArqCajaDet($arqueoCajaDet);
+
+                header("Location: /proyectoKermesse/navigate/arqueocaja/gestionar.php?msj=1");
             } catch (Exception $ex) {
-                header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=2");
+                header("Location: /proyectoKermesse/navigate/arqueocaja/gestionar.php?msj=2");
                 die($e->getMessage());
             }
 

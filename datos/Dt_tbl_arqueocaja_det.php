@@ -34,6 +34,28 @@ class Dt_Tbl_arqueocaja_det extends Conexion{
 			die($e->getMessage());
 		}
 	}
+
+    public function insertarArqCajaDet(Tbl_Arqueocaja_Det $arqCajaDet){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "INSERT INTO tbl_arqueocaja_det (idArqueoCaja, idMoneda, idDenominacion, cantidad, subtotal)
+                VALUES(?,?,?,?,?)";
+
+            $this->myCon->prepare($sql)
+                ->execute(array(
+                    $arqCajaDet->__GET('idArqueoCaja'),
+                    $arqCajaDet->__GET('idMoneda'),
+                    $arqCajaDet->__GET('idDenominacion'),
+                    $arqCajaDet->__GET('cantidad'),
+                    $arqCajaDet->__GET('subtotal')
+                ));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
 
 /*

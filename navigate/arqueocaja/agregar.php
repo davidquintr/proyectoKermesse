@@ -46,7 +46,7 @@ $dtDenom = new Dt_tbl_Denominacion();
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <select class="form-control" id="rol" name="rol" title="Seleccione una Región" required>
+                                    <select class="form-control" id="moneda" name="moneda" title="Seleccione una Región" required>
                                         <option value="">Seleccione una Moneda</option>
                                         <?php
                                             foreach($dtMoneda->listarMonedas() as $money):
@@ -58,7 +58,7 @@ $dtDenom = new Dt_tbl_Denominacion();
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <select class="form-control" id="rol" name="rol" title="Seleccione una Región" required>
+                                    <select class="form-control" id="denom" name="denom" title="Seleccione una Región" required>
                                         <option value="">Seleccione una Denominación</option>
                                         <?php
                                             foreach($dtDenom->listarDenominaciones() as $denom):
@@ -70,7 +70,7 @@ $dtDenom = new Dt_tbl_Denominacion();
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="username" name="username" type="number" title="Nombre de usuario" placeholder="Ingrese una cantidad" min="0" required/>
+                                    <input class="form-control" id="cantidad" name="cantidad" type="number" title="Cantidad" placeholder="Ingrese una cantidad" min="0" required/>
                                 </div>
                                 <div class="mt-4 mb-0 row">
                                     <button type="submit" class="btn btn-primary btn-block">Agregar Arqueo Caja</button>
