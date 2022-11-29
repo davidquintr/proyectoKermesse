@@ -1,7 +1,7 @@
 <?php
+$direct = "../";
 include_once("../entidades/tbl_denominacion.php");
 include_once("../datos/Dt_tbl_denominacion.php");
-$direct = "../";
 
 $denominacion = new Tbl_denominacion();
 $dtDenominacion = new Dt_tbl_denominacion();
@@ -27,7 +27,7 @@ if ($_POST) {
 
         case '2':
             try {
-                $denominacion->__SET('id_Denominacion', $_POST['idU']);
+                $denominacion->__SET('id_Denominacion', $_POST['idDen']);
                 $denominacion->__SET('idMoneda', $_POST['moneda']);
                 $denominacion->__SET('valor', $_POST['valor']);
                 $denominacion->__SET('valor_letras', $_POST['valorlet']);

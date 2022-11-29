@@ -10,7 +10,7 @@ class Dt_tbl_tasacambio_det extends Conexion{
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "SELECT * FROM dbkermesse.tasacambio_det;";
+			$querySQL = "SELECT * FROM dbkermesse.tbl_tasacambio_det;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();
@@ -36,7 +36,7 @@ class Dt_tbl_tasacambio_det extends Conexion{
 	public function insertarTasaCambio_det(Tasacambio_Det $tasDet){
 		try{
 			$this->myCon = parent::conectar();
-			$querySQL = "INSERT INTO dbkermesse.tasacambio_det (id_tasaCambio, fecha, tipoCambio) VALUES (?,?,?);";
+			$querySQL = "INSERT INTO dbkermesse.tbl_tasacambio_det (id_tasaCambio, fecha, tipoCambio) VALUES (?,?,?);";
 
 			$this->myCon->prepare($querySQL)
 			->execute(
@@ -44,6 +44,49 @@ class Dt_tbl_tasacambio_det extends Conexion{
 					$tasDet->__GET('id_tasaCambio'),
 					$tasDet->__GET('fecha'),
 					$tasDet->__GET('tipoCambio')
+				)
+			);
+			$this->myCon = parent::desconectar(); 
+		}
+		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
+	public function getTasaCambio_det($id){
+		try{
+			$this->myCon = parent::conectar();
+			$querySQL = "SELECT * FROM dbkermesse.tbl_tasacambio_det WHERE id_tasaCambio_det = ?;";
+
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($id));
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+
+			$c = new Tasacambio_Det();
+
+			$c->__SET('id_tasaCambio_det', $r->id_tasaCambio_det);
+			$c->__SET('id_tasaCambio', $r->id_tasaCambio);
+			$c->__SET('fecha', $r->fecha);
+			$c->__SET('tipoCambio', $r->tipoCambio);
+			$this->myCon = parent::desconectar(); 
+			return $c;
+		}
+		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+	public function editarTasaCambio_det(Tasacambio_Det $tasDet){
+		try{
+			$this->myCon = parent::conectar();
+			$querySQL = "UPDATE dbkermesse.tbl_tasacambio_det SET id_tasaCambio = ?, fecha = ?, tipoCambio = ? WHERE id_tasaCambio_det = ?;";
+
+			$this->myCon->prepare($querySQL)
+			->execute(
+				array(
+					$tasDet->__GET('id_tasaCambio'),
+					$tasDet->__GET('fecha'),
+					$tasDet->__GET('tipoCambio'),
+					$tasDet->__GET('id_tasaCambio_det')
 				)
 			);
 			$this->myCon = parent::desconectar(); 

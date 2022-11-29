@@ -62,7 +62,7 @@ $monedas =  $dtMoneda->listarMonedas();
                             <a href="editar.php?varEnter=<?php echo $value->id_moneda;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a onclick="deleteObject('<?php echo $value->id_moneda;?>','3');" target="_blank" title="Dar de baja">
+                            <a onclick="deleteObject('<?php echo $value->id_moneda;?>','70');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>

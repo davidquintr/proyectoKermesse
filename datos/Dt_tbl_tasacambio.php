@@ -85,23 +85,63 @@ class Dt_tbl_Tasacambio extends Conexion{
             die($e->getMessage());
         }
     }
+
+    public function getTasaCambio($id){
+        try{
+            $this->myCon = parent::conectar();
+            $querySQL = "SELECT * FROM dbkermesse.tbl_tasacambio WHERE id_tasaCambio = ?;";
+
+            $stm = $this->myCon->prepare($querySQL);
+            $stm->execute(array($id));
+            $r = $stm->fetch(PDO::FETCH_OBJ);
+
+            $c = new Tbl_TasaCambio();
+
+            $c->__SET('id_tasaCambio', $r->id_tasaCambio);
+            $c->__SET('id_monedaO', $r->id_monedaO);
+            $c->__SET('id_monedaC', $r->id_monedaC);
+            $c->__SET('mes', $r->mes);
+            $c->__SET('anio', $r->anio);
+            $c->__SET('estado', $r->estado);
+
+            $this->myCon = parent::desconectar();
+            return $c;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function editTasaCambio(Tbl_TasaCambio $data){
+        try{
+            $this->myCon = parent::conectar();
+            $querySQL = "UPDATE dbkermesse.tbl_tasacambio SET id_monedaO = ?, id_monedaC = ?, mes = ?, anio = ?, estado = ? WHERE id_tasaCambio = ?;";
+
+            $this->myCon->prepare($querySQL)
+            ->execute(
+                array(
+                    $data->__GET('id_monedaO'),
+                    $data->__GET('id_monedaC'),
+                    $data->__GET('mes'),
+                    $data->__GET('anio'),
+                    $data->__GET('estado'),
+                    $data->__GET('id_tasaCambio')
+                )
+            );
+            $this->myCon = parent::desconectar();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function deleteTasaCambio($id){
+        try{
+            $this->myCon = parent::conectar();
+            $querySQL = "UPDATE dbkermesse.tbl_tasacambio WHERE id_tasaCambio = ?;";
+
+            $this->myCon->prepare($querySQL)->execute(array($id));
+            $this->myCon = parent::desconectar();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
-
-/*
-$prueba = new Dt_tbl_Tasacambio();
-$element = $prueba->listarTasaCambio();
-
-foreach($element as $value){
-    echo "<br>";
-    echo $value->id_tasaCambio;
-    echo "<br>";
-    echo $value->id_monedaO;
-    echo "<br>";
-    echo $value->id_monedaC;
-    echo "<br>";
-    echo $value->mes;
-    echo "<br>";
-    echo $value->anio;
-    echo "<br>";
-    echo $value->estado;
-}*/

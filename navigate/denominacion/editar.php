@@ -8,14 +8,15 @@ include_once '../../entidades/tbl_denominacion.php';
 include_once("{$direct}entidades/tbl_moneda.php");
 include_once("{$direct}datos/Dt_tbl_moneda.php");
 
+$dtMoneda = new Dt_tbl_Moneda();
+$dtDenominacion = new Dt_tbl_Denominacion();
+
 $varIdU = 0;
 if(isset($varIdU)){ 
   $varIdU = $_GET['varEnter'];
 }
 
-$dtDenominacion = new Dt_tbl_Denominacion();
 $denominacion = $dtDenominacion->getDenominacion($varIdU);
-$dtMoneda = new Dt_tbl_Moneda();
 
 ?>
     <div class="container-fluid px-4">
@@ -36,7 +37,7 @@ $dtMoneda = new Dt_tbl_Moneda();
                                 <input type="hidden" value="2" name="txtaccion" id="txtaccion"/>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="ID" name="ID" type="text" title="ID" value="<?php echo $denominacion->id_denominacion;?>" disabled/>
-                                    <input class="form-control" id="idU" name="idU" type="hidden" title="ID" value="<?php echo $denominacion->id_denominacion;?>"/>
+                                    <input class="form-control" id="idDen" name="idDen" type="hidden" title="ID" value="<?php echo $denominacion->id_denominacion;?>"/>
                                     <label for="ID">ID</label>
                                 <div class="form-floating mb-3">
                                     <select class="form-control" id="moneda" name="moneda"
