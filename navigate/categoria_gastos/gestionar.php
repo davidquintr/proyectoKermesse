@@ -61,7 +61,7 @@ $catGastos = $dtCatGastos->listarCatGastos();
                             <a href="editar.php?varEnter=<?php echo $value->id_categoria_gastos;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a onclick="deleteObject('<?php echo $value->id_categoria_gastos;?>','3');" target="_blank" title="Dar de baja">
+                            <a onclick="deleteObject('<?php echo $value->id_categoria_gastos;?>','5');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -84,7 +84,8 @@ $catGastos = $dtCatGastos->listarCatGastos();
         </div>
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
-    <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/tablesSetters.js"></script>
+    <script src="../../dependencies/js/deleteScripts.js"></script>  
 <?php
 include 'partials/bottom.php';
 ?>

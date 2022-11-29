@@ -67,7 +67,7 @@ if ($_POST) {
 if ($_GET) {
     try {
         $kermesse->__SET('id_kermesse', $_GET['delKer']);
-        $dtKermesse->deleteRol($kermesse->__GET('id_kermesse'));
+        $dtKermesse->deleteKermesse($kermesse->__GET('id_kermesse'));
         header("Location: /proyectoKermesse/navigate/kermesse/gestionar.php?msj=6");
 
     } catch (Exception $e) {

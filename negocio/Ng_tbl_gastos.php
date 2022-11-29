@@ -70,7 +70,7 @@ if ($_POST) {
 if ($_GET) {
     try {
         $gastos->__SET('id_registro_gastos', $_GET['delGas']);
-        $dtGastos->deleteRol($gastos->__GET('id_registro_gastos'));
+        $dtGastos->deleteGastos($gastos->__GET('id_registro_gastos'));
         header("Location: /proyectoKermesse/navigate/gastos/gestionar.php?msj=6");
 
     } catch (Exception $e) {
