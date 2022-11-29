@@ -67,12 +67,12 @@ if ($_POST) {
 
 if ($_GET) {
     try {
-        $usr->__SET('id_usuario', $_GET['delU']);
-        $dtUsr->deleteUser($usr->__GET('id_usuario'));
-        header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=6");
+        $listP->__SET('id_lista_precio', $_GET['delList']);
+        $dtlistp->deleteListPrecio($listP->__GET('id_lista_precio'));
+        header("Location: /proyectoKermesse/navigate/listaPrecios/gestionar.php?msj=6");
 
     } catch (Exception $e) {
-        header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=4");
+        header("Location: /proyectoKermesse/navigate/listaPrecios/gestionar.php?msj=4");
         die($e->getMessage());
 
     }

@@ -16,6 +16,12 @@ function deleteObject(idObj, option){
             case '4':
                 window.location.href = "../../negocio/Ng_rol_usuario.php?delRu="+idObj;
             break;
+            case 'listprod':
+                window.location.href = "../../negocio/Ng_tbl_listaPrecios.php?delList="+idObj;
+            break;
+            case 'prod':
+                window.location.href = "../../negocio/Ng_tbl_listaPrecios.php?delprod="+idObj;
+            break;
         }
     }, 
     

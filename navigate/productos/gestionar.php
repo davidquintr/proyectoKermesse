@@ -58,13 +58,13 @@ $producto = $dtproducto->listarVwProductos();
                             echo "<td>$value->estado</td>";
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de los productos">
+                            <a href="ver.php?varEnter=<?php echo $value->id;?>" title="Visualizar los datos de los productos">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
                             <a href="editar.php?varEnter=<?php echo $value->id;?>"title="Modificar los datos de los productos">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja de productos">
+                            <a onclick="deleteObject('<?php echo $value->id;?>','prod');" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -91,7 +91,8 @@ $producto = $dtproducto->listarVwProductos();
         </div>
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
-    <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/tablesSetters.js"></script>
+    <script src="../../dependencies/js/deleteScripts.js"></script>
 <?php
 include 'partials/bottom.php';
 ?>

@@ -51,17 +51,16 @@ $ListPrecio = $dtListPrecio->listarVwPrecio();
                             echo "<td>$value->nombre</td>";
                             echo "<td>$value->descripcion</td>";
                             echo "<td>$value->precio_venta</td>";
-                            echo "<td>$value->estado</td>";
-                            
+                            echo "<td>$value->estado</td>"
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de una lista de productos">
+                            <a href="ver.php?varEnter=<?php echo $value->id?>" title="Visualizar los datos de una lista de productos">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="editar.php?varEnter=<?php echo $value->id?>" target="_blank" title="Modificar los datos de una lista de productos">
+                            <a href="editar.php?varEnter=<?php echo $value->id?>" title="Modificar los datos de una lista de productos">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja a una lista de productos">
+                            <a onclick="deleteObject('<?php echo $value->id;?>','listprod');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -88,6 +87,7 @@ $ListPrecio = $dtListPrecio->listarVwPrecio();
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
     <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/deleteScripts.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>

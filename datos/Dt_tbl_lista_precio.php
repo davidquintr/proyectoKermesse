@@ -140,5 +140,24 @@ class Dt_tbl_lista_precio extends Conexion
 		}
 	}
 
+	public function deleteListPrecio($id){
+
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_listaprecio SET
+						estado = 3
+				    WHERE (id_lista_precio = ?)";
+
+			$stm = $this->myCon->prepare($sql);
+			$stm->execute(array($id));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
 
 }

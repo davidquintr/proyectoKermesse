@@ -1,38 +1,33 @@
 <?php
-$direct = "../../";
-$title = "Ver Productos";
 error_reporting(0);
+$title = "Ver Productos";
+$direct = "../../";
 include '../../partials/top.php';
-
 include_once '../../datos/Dt_tbl_Productos.php';
 include_once '../../entidades/tbl_productos.php';
-
 include_once("{$direct}entidades/tbl_comunidad.php");
 include_once("{$direct}datos/Dt_tbl_comunidad.php");
 
 include_once("{$direct}entidades/tbl_categoria_producto.php");
 include_once("{$direct}datos/Dt_tbl_categoria_producto.php");
 
-
-$dtprod = new Dt_tbl_productos();
 $dtComun = new Dt_tbl_comunidad();
 $dtCatProd = new Dt_tbl_categoria_producto();
 
 $varIdU = 0;
-if (isset($varIdU)) {
-    $varIdU = $_GET['varEnter'];
+if(isset($varIdU)){ 
+  $varIdU = $_GET['varEnter'];
 }
-
+$dtprod = new Dt_tbl_productos();
 $prod = $dtprod->getProdByID($varIdU);
 
 ?>
-<div class="container-fluid px-4">
+    <div class="container-fluid px-4">
     <h1 class="mt-4">Ver Productos</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="index.php">Index</a></li>
-        <li class="breadcrumb-item">Ver Productos</li>
+        <li class="breadcrumb-item"><a href= "<?php echo $direct;?>index.php">Index</a></li>
+        <li class="breadcrumb-item">Gestión de Productos</li>
         <li class="breadcrumb-item active">Ver Productos</li>
-
     </ol>
     <div id="layoutAuthentication_content">
         <div class="container">
@@ -40,35 +35,26 @@ $prod = $dtprod->getProdByID($varIdU);
                 <div class="col-lg-7">
                     <div class="card shadow p-3 border-0 rounded-lg mt-5">
                         <div class="card-body">
-                            <form>
+
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="id" name="id" type="text" title="ID de Productos" value="<?php echo $varIdU?>" disabled/>
+
+                                <div class="form-floating mb-3">
+                                <input class="form-control" id="id" name="id" type="text" title="ID de producto" value="<?php echo $varIdU?>" disabled/>
+                                    <input class="form-control" id="prodID" name="prodID" type="hidden" title="ID de Producto" value="<?php echo $varIdU?>"/>
+                                    <label for="prodID">prodID</label>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <select class="form-control" id="comun" name="comun"
-                                        title="Seleccione una Comunidad" disabled>
-                                        <option value="">Seleccione una Comunidad</option>
+                                <select class="form-control" id="comunidad" name="comunidad" title="Seleccione una comunidad" disabled>
                                         <?php
-                                        foreach ($dtComun->listarComunidad() as $kerm):
-                                            if ($kerm->__GET('id_comunidad') == $prod->id_comunidad):
+                                            foreach($dtComun->listarComunidad() as $comun):
                                         ?>
-                                        <option value="<?php echo $kerm->__GET('id_comunidad'); ?>" selected>
-                                            <?php echo $kerm->nombre ?>
-                                        </option>
-                                        <?php else:
-                                        ?>
-                                        <option value="<?php echo $kerm->__GET('id_comunidad'); ?>">
-                                            <?php echo $kerm->nombre ?>
-                                        </option>
+                                            <option value="<?php echo $comun->__GET('id_comunidad');?>"><?php echo $comun->nombre?></option>
                                         <?php
-                                            endif;
                                         endforeach;
                                         ?>
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">
-                                <select class="form-control" id="catProd" name="catProd" title="Seleccione la categoria del producto" required>
-                                        <option value="">Seleccione una Categoria</option>
+                                <select class="form-control" id="catProd" name="catProd" title="Seleccione la categoria del producto" disabled>
                                         <?php
                                             foreach($dtCatProd->listarCatProducto() as $catprod):
                                         ?>
@@ -79,19 +65,17 @@ $prod = $dtprod->getProdByID($varIdU);
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="nombre" name="nombre" type="text" title="Nombre" placeholder="Ingrese el nombre del producto" value="<?php echo $prod->nombre;?>" required/>
+                                    <input class="form-control" id="nombre" name="nombre" type="text" title="Nombre" placeholder="Ingrese el nombre del producto" value="<?php echo $prod->nombre;?>" disabled/>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="descripcion" name="descripcion" type="text" title="Descripcion" placeholder="Ingrese una descripcion para el producto" value="<?php echo $prod->descripcion;?>" required/>
+                                    <input class="form-control" id="descripcion" name="descripcion" type="text" title="Descripcion" placeholder="Ingrese una descripcion para el producto" value="<?php echo $prod->descripcion;?>" disabled/>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="cantidad" name="cantidad" type="number" title="Cantidad" placeholder="Ingrese una cantidad" min="0" value="<?php echo $prod->cantidad;?>" required/>
+                                    <input class="form-control" id="cantidad" name="cantidad" type="number" title="Cantidad" placeholder="Ingrese una cantidad" min="0" value="<?php echo $prod->cantidad;?>" disabled/>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="precioS" name="precioS" type="number" title="PrecioS" placeholder="Ingrese un precio" min="0" value="<?php echo $prod->preciov_sugerido;?>" required/>
-                                </div> />
-                                </div>
-                            </form>
+                                    <input class="form-control" id="precioS" name="precioS" type="number" title="PrecioS" placeholder="Ingrese un precio" min="0" value="<?php echo $prod->preciov_sugerido;?>" disabled/>
+                            
                         </div>
                     </div>
                 </div>
@@ -99,6 +83,7 @@ $prod = $dtprod->getProdByID($varIdU);
         </div>
     </div>
 </div>
+<script src="../../dependencies/js/messageSetters.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>
