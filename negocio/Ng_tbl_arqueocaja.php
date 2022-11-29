@@ -2,9 +2,18 @@
 $direct = "../";
 
 include_once("../entidades/tbl_arqueocaja.php");
+include_once("../entidades/tbl_usuario.php");
 include_once("../datos/Dt_tbl_arqueocaja.php");
 include_once("../entidades/tbl_arqueocaja_det.php");
 include_once("../datos/Dt_tbl_arqueocaja_det.php");
+
+session_start();
+
+if (empty($_SESSION['acceso'])) {
+    header("Location: /proyectoKermesse/navigate/arqueocaja/gestionar.php?msj=4");
+} 
+
+$usuario = $_SESSION['acceso'];
 
 $arqueoCaja = new Tbl_Arqueocaja();
 $arqueoCajaDet = new Tbl_Arqueocaja_Det();
@@ -24,7 +33,7 @@ if ($_POST) {
                 $arqueoCaja->__SET('idKermesse', $_POST['kermesse']);
                 $arqueoCaja->__SET('fechaArqueo', $date);
                 $arqueoCaja->__SET('estado',1);
-                $arqueoCaja->__SET('usuario_creacion', 1);
+                $arqueoCaja->__SET('usuario_creacion', $usuario[0]->id_usuario);
                 $arqueoCaja->__SET('fecha_creacion', $date);
                 $arqueoCaja->__SET('granTotal', 0.0);
                 $dtArq->insertarArqueo($arqueoCaja);
@@ -49,7 +58,7 @@ if ($_POST) {
                 $arqueoCaja->__SET('id_ArqueoCaja',$_POST['idArq']);
                 $arqueoCaja->__SET('idKermesse', $_POST['kermesse']);
                 $arqueoCaja->__SET('estado',2);
-                $arqueoCaja->__SET('usuario_modificacion', 1);
+                $arqueoCaja->__SET('usuario_modificacion', $usuario[0]->id_usuario);
                 $arqueoCaja->__SET('fecha_modificacion', $date);
                 $dtArq->editArqueoCaja($arqueoCaja);
 
