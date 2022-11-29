@@ -2,6 +2,7 @@
 
 include_once("../entidades/tbl_rol.php");
 include_once("../datos/Dt_tbl_rol.php");
+$direct = "../";
 
 $rol = new Tbl_Rol();
 $dtRol = new Dt_tbl_rol();

@@ -44,13 +44,13 @@ $rolUsuarios = $dtRolUsuario->listarVwRolUsuario();
                             echo "<td>$value->rol</td>";
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de un rol-usuario">
+                            <a href="#" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="editar.php?varEnter=<?php echo $value->id;?>" target="_blank" title="Modificar los datos de un rol-usuario">
+                            <a href="editar.php?varEnter=<?php echo $value->id;?>" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja al rol-usuario">
+                            <a onclick="deleteObject('<?php echo $value->id;?>','4');" title="Eliminar">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -74,6 +74,7 @@ $rolUsuarios = $dtRolUsuario->listarVwRolUsuario();
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
     <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/deleteScripts.js"></script> 
 <?php
 include '../../partials/bottom.php';
 ?>

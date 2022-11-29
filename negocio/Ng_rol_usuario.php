@@ -26,6 +26,7 @@ if ($_POST) {
 
             case '2':
                 try {              
+                    $rolUsr->__SET('id_rol_usuario', $_POST['idRolU']);
                     $rolUsr->__SET('tbl_usuario_id_usuario', $_POST['usuario']);
                     $rolUsr->__SET('tbl_rol_id_rol', $_POST['rol']);
                     $dtRolUsr->editRolUsr($rolUsr);
@@ -42,13 +43,13 @@ if ($_POST) {
 
 if ($_GET) {
     try {
-        $usr->__SET('id_usuario', $_GET['delU']);
-        $dtUsr->deleteUser($usr->__GET('id_usuario'));
-        header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=6");
+        $rolUsr->__SET('id_rol_usuario', $_GET['delRu']);
+        $dtRolUsr->deleteRolUsr($rolUsr->__GET('id_rol_usuario'));
+        echo $rolUsr->id_rol_usuario;
+        header("Location: /proyectoKermesse/navigate/rolUsuario/gestionar.php?msj=6");
 
     } catch (Exception $e) {
-        header("Location: /proyectoKermesse/navigate/usuarios/gestionar.php?msj=4");
+        header("Location: /proyectoKermesse/navigate/rolUsuario/gestionar.php?msj=4");
         die($e->getMessage());
-
     }
 }

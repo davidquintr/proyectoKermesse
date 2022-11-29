@@ -169,6 +169,20 @@ class Dt_rol_usuario extends Conexion
 			die($e->getMessage());
 		}
 	}
+
+	public function deleteRolUsr($idRolUsr){
+		try{
+			$this->myCon = parent::conectar();
+			$querySQL = "DELETE FROM dbkermesse.rol_usuario where id_rol_usuario = :idRolUsr";
+			$stm = $this->myCon->prepare($querySQL);
+            $stm->bindParam(':idRolUsr', $idRolUsr, PDO::PARAM_INT);
+			$stm->execute();
+			$this->myCon = parent::desconectar();
+		}
+		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
 }
 /*
 $prueba = new Dt_rol_usuario();

@@ -20,6 +20,8 @@ if (isset($varIdU)) {
 }
 
 $rolUsr = $dtRolUsr->getRolUsrById($varIdU);
+echo $rolUsr->id_rol_usuario;
+echo $rolUsr->tbl_usuario_id_usuario;
 
 ?>
 <div class="container-fluid px-4">
@@ -39,13 +41,17 @@ $rolUsr = $dtRolUsr->getRolUsrById($varIdU);
                             <form method="POST" action="../../negocio/Ng_rol_usuario.php">
                                 <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
                                 <div class="form-floating mb-3">
+                                    <input class="form-control" id="id" name="id" type="text" title="ID de usuario" value="<?php echo $varIdU?>" disabled/>
+                                    <input class="form-control" id="idRolU" name="idRolU" type="hidden" title="ID Rol Usuario" value="<?php echo $varIdU?>"/>
+                                </div>
+                                <div class="form-floating mb-3">
                                     <select class="form-control" id="usuario" name="usuario"
                                         title="Seleccione una Región">
                                         <?php
                                         foreach ($dtUsr->listarUsuarios() as $usr):
-                                            if ($usr->id_usuario == $varIdU):
+                                            if ($usr->id_usuario == $rolUsr->tbl_usuario_id_usuario):
                                         ?>
-                                        <option value="<?php echo $usr->id_usuario ?>">
+                                        <option value="<?php echo $usr->id_usuario?>">
                                         <?php echo $usr->usuario ?>
                                         </option>
                                         <?php
