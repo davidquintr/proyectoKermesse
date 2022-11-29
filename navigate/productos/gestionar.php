@@ -5,9 +5,11 @@ error_reporting(0);
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_productos.php';
 include_once '../../entidades/tbl_productos.php';
+include_once '../../entidades/vw_productos.php';
 
 $dtproducto = new Dt_tbl_productos();
-$producto = $dtproducto->listarProductos();
+$producto = $dtproducto->listarVwProductos();
+
 
 ?>
 <div class="container-fluid px-4">
@@ -18,6 +20,9 @@ $producto = $dtproducto->listarProductos();
         </ol>
         <div class="alert alert-primary text-center">
             En esta pantalla se pueden visualizar y gestionar los datos de los productos.
+        </div>
+        <div class="alert alert-secondary">
+        <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar un nuevo Producto</button></a>
         </div>
         <div class="card mb-4">
             <div class="card-header">
@@ -43,30 +48,20 @@ $producto = $dtproducto->listarProductos();
                         <?php 
                         foreach($producto as $value):
                             echo "<tr>";
-                            echo "<td>$value->id_producto</td>";
-                            echo "<td>$value->id_comunidad</td>";
-                            echo "<td>$value->id_cat_producto</td>";
+                            echo "<td>$value->id</td>";
+                            echo "<td>$value->comunidad</td>";
+                            echo "<td>$value->categoria_producto</td>";
                             echo "<td>$value->nombre</td>";
                             echo "<td>$value->descripcion</td>";
                             echo "<td>$value->cantidad</td>";
                             echo "<td>$value->preciov_sugerido</td>";
-                            switch($value->estado){
-                                case 1:
-                                    echo "<td>Activo</td>";
-                                break;
-                                case 2:
-                                    echo "<td>Modificado</td>";
-                                break;
-                                case 3:
-                                    echo "<td>Inactivo/Eliminado</td>";
-                                break;
-                            }
+                            echo "<td>$value->estado</td>";
                         ?>
                         <td>
                             <a href="#" target="_blank" title="Visualizar los datos de los productos">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de los productos">
+                            <a href="editar.php?varEnter=<?php echo $value->id;?>"title="Modificar los datos de los productos">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
                             <a href="#" target="_blank" title="Dar de baja de productos">
