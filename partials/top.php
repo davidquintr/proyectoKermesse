@@ -96,13 +96,13 @@ if(empty($respRol)){
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Seguridad
+                Panel
             </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="<?php echo $direct ?>index.php" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
                     <span>Seguridad</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -118,7 +118,7 @@ if(empty($respRol)){
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                     aria-expanded="true" aria-controls="collapseThree">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fa-solid fa-coins"></i>
                     <span>Finanzas</span>
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -142,7 +142,7 @@ if(empty($respRol)){
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
                     aria-expanded="true" aria-controls="collapseFour">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fa-solid fa-sitemap"></i>
                     <span>Organización</span>
                 </a>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

@@ -8,9 +8,9 @@ include_once("{$direct}entidades/tbl_kermesse.php");
 include_once("{$direct}datos/Dt_tbl_kermesse.php");
 
 include_once("{$direct}datos/Dt_tbl_arqueocaja.php");
-include_once("{$direct}datos/tbl_arqueocaja.php");
+include_once("{$direct}entidades/tbl_arqueocaja.php");
 
-include_once("{$direct}datos/tbl_arqueocaja_det.php");
+include_once("{$direct}entidades/tbl_arqueocaja_det.php");
 include_once("{$direct}datos/Dt_tbl_arqueocaja_det.php");
 
 include_once("{$direct}entidades/tbl_moneda.php");
