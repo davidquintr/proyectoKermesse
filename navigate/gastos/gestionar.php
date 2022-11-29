@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar gastos";
+$title = "Gestionar Gastos";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
@@ -73,13 +73,13 @@ $gastos = $dtGastos->listarGastos();
                             }
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de los gastos">
+                            <a href="ver.php?varEnter=<?php echo $value->id_registro_gastos;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de los gastos">
+                            <a href="editar.php?varEnter=<?php echo $value->id_registro_gastos;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja de gastos">
+                            <a onclick="deleteObject('<?php echo $value->id_registro_gastos;?>','6');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -111,7 +111,8 @@ $gastos = $dtGastos->listarGastos();
         </div>
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
-    <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/tablesSetters.js"></script>
+    <script src="../../dependencies/js/deleteScripts.js"></script>  
 <?php
 include 'partials/bottom.php';
 ?>

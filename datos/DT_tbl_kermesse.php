@@ -6,6 +6,35 @@ class Dt_tbl_kermesse extends Conexion
 {
     private $myCon;
 
+	public function listarVwKermesse()
+    {
+        try {
+            $this->myCon = parent::conectar();
+            $result = array();
+            $querySQL = "SELECT * FROM dbkermesse.vw_kermesse;";
+
+            $stm = $this->myCon->prepare($querySQL);
+            $stm->execute();
+
+            foreach ($stm->fetchAll(PDO::FETCH_OBJ) as $r) {
+                $c = new Vw_kermesse();
+		
+                $c->__SET('id', $r->id);
+                $c->__SET('parroquia', $r->parroquia);
+                $c->__SET('nombre', $r->nombre);
+                $c->__SET('fInicio', $r->fInicio);
+                $c->__SET('fFinal', $r->fFinal);
+                $c->__SET('descripcion', $r->descripcion);
+                $c->__SET('estado', $r->estado);
+                $result[] = $c;
+            }
+            $this->myCon = parent::desconectar();
+            return $result;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function listarKermesse(){
 		
         try{
@@ -17,7 +46,7 @@ class Dt_tbl_kermesse extends Conexion
 			$stm->execute();
 
 			foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r){
-				$c = new tbl_kermesse();
+				$c = new Tbl_kermesse();
 
 				//_SET(CAMPOBD, atributoEntidad)			
 				$c->__SET('id_kermesse', $r->id_kermesse);
@@ -43,7 +72,38 @@ class Dt_tbl_kermesse extends Conexion
 		}
 	}
 
+<<<<<<< HEAD
     public function getKermByID($id){
+=======
+    public function insertarKermesse(Tbl_kermesse $kermesse){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "INSERT INTO dbkermesse.tbl_kermesse (idParroquia, nombre, fInicio, fFinal, descripcion, estado, usuario_creacion, fecha_creacion)
+					VALUES(?,?,?,?,?,?,?,?)";
+
+			$this->myCon->prepare($sql)->execute(
+				array(
+                    $kermesse->__GET('idParroquia'),
+					$kermesse->__GET('nombre'),
+                    $kermesse->__GET('fInicio'),
+                    $kermesse->__GET('fFinal'),
+                    $kermesse->__GET('descripcion'),
+					$kermesse->__GET('estado'),
+                    $kermesse->__GET('usuario_creacion'),
+                    $kermesse->__GET('fecha_creacion'),
+				)
+			);
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getKermesseByID($id)
+	{
+>>>>>>> riuskeFInal-branch
 		try {
 			$this->myCon = parent::conectar();
 			$querySQL = "SELECT * FROM dbkermesse.tbl_kermesse WHERE id_kermesse = ?;";
@@ -51,6 +111,7 @@ class Dt_tbl_kermesse extends Conexion
 			$stm->execute(array($id));
 
 			$r = $stm->fetch(PDO::FETCH_OBJ);
+<<<<<<< HEAD
 			$u = new Tbl_Kermesse();
 
             $u->__SET('id_kermesse', $r->id_kermesse);
@@ -66,6 +127,17 @@ class Dt_tbl_kermesse extends Conexion
             $u->__SET('fecha_modificacion', $r->fecha_modificacion);
             $u->__SET('usuario_eliminacion', $r->usuario_eliminacion);
             $u->__SET('fecha_eliminacion', $r->fecha_eliminacion);
+=======
+			$u = new Tbl_kermesse();
+
+			$u->__SET('id_kermesse', $r->id_kermesse);
+			$u->__SET('idParroquia', $r->idParroquia);
+            $u->__GET('nombre', $r->nombre);
+            $u->__GET('fInicio', $r->fInicio);
+            $u->__GET('fFinal', $r->fFinal);
+            $u->__GET('descripcion', $r->descripcion); 
+			$u->__SET('estado', $r->estado);
+>>>>>>> riuskeFInal-branch
 
 			$this->myCon = parent::desconectar();
 			return $u;
@@ -73,6 +145,60 @@ class Dt_tbl_kermesse extends Conexion
 			die($e->getMessage());
 		}
 	}
+<<<<<<< HEAD
+=======
+
+	public function editKermesse(Tbl_kermesse $tr){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_kermesse SET
+						idParroquia = ?,
+						nombre = ?,
+                        fInicio = ?,
+                        fFinal = ?,
+						descripcion = ?,
+						estado = ?
+				    WHERE id_kermesse = ?";
+
+			$this->myCon->prepare($sql)
+				->execute(
+					array(
+						$tr->nombre,
+						$tr->fInicio,
+						$tr->fFinal,
+						$tr->descripcion,
+						$tr->estado,
+						$tr->id
+					)
+				);
+				
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
+	public function deleteKermesse($id){
+
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_kermesse SET
+						estado = 3
+				    WHERE id_kermesse = ?";
+
+			$stm = $this->myCon->prepare($sql);
+			$stm->execute(array($id));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+>>>>>>> riuskeFInal-branch
 }
 /*
 $prueba = new Dt_tbl_kermesse();

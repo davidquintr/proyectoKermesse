@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar categorias de gastos";
+$title = "Gestionar Categoria Gastos";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
@@ -55,13 +55,13 @@ $catGastos = $dtCatGastos->listarCatGastos();
                             }
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de una categoria de gastos">
+                            <a href="ver.php?varEnter=<?php echo $value->id_categoria_gastos;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de una categoria de gastos">
+                            <a href="editar.php?varEnter=<?php echo $value->id_categoria_gastos;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja a la categoria de gastos">
+                            <a onclick="deleteObject('<?php echo $value->id_categoria_gastos;?>','5');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -84,7 +84,8 @@ $catGastos = $dtCatGastos->listarCatGastos();
         </div>
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
-    <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/tablesSetters.js"></script>
+    <script src="../../dependencies/js/deleteScripts.js"></script>  
 <?php
 include 'partials/bottom.php';
 ?>

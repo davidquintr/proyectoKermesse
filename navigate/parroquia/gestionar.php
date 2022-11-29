@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar parroquia";
+$title = "Gestionar Parroquia";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
@@ -51,13 +51,13 @@ $parroquia = $dtParroquia->listarParroquia();
                             echo "<td>$value->sitio_web</td>";
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de parroquia">
+                            <a href="ver.php?varEnter=<?php echo $value->idParroquia;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de parroquia">
+                            <a href="editar.php?varEnter=<?php echo $value->idParroquia;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja a la parroquia">
+                            <a onclick="deleteObject('<?php echo $value->idParroquia;?>','7');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -83,7 +83,8 @@ $parroquia = $dtParroquia->listarParroquia();
         </div>
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
-    <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/tablesSetters.js"></script>
+    <script src="../../dependencies/js/deleteScripts.js"></script>  
 <?php
 include 'partials/bottom.php';
 ?>

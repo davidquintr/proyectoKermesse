@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar kermesse";
+$title = "Gestionar Kermesse";
 $direct = "../../";
 error_reporting(0);
 include '../../partials/top.php';
@@ -73,13 +73,13 @@ $kermesse = $dtKermesse->listarKermesse();
                             }
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de la kermesse">
+                            <a href="ver.php?varEnter=<?php echo $value->id_kermesse;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de la kermesse">
+                            <a href="editar.php?varEnter=<?php echo $value->id_kermesse;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja la kermesse">
+                            <a onclick="deleteObject('<?php echo $value->id_kermesse;?>','8');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -111,7 +111,8 @@ $kermesse = $dtKermesse->listarKermesse();
         </div>
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
-    <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/tablesSetters.js"></script>
+    <script src="../../dependencies/js/deleteScripts.js"></script>  
 <?php
 include 'partials/bottom.php';
 ?>
