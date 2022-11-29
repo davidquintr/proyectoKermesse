@@ -132,7 +132,7 @@ class Dt_tbl_kermesse extends Conexion
 						nombre = ?,
                         fInicio = ?,
                         fFinal = ?,
-						descripcion,
+						descripcion = ?,
 						estado = ?
 				    WHERE id_kermesse = ?";
 

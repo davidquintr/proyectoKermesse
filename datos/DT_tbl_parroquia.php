@@ -65,14 +65,14 @@ class Dt_tbl_parroquia extends Conexion
 	{
 		try {
 			$this->myCon = parent::conectar();
-			$querySQL = "SELECT * FROM dbkermesse.tbl_parroquia WHERE id_parroquia = ?;";
+			$querySQL = "SELECT * FROM dbkermesse.tbl_parroquia WHERE idParroquia = ?;";
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute(array($id));
 
 			$r = $stm->fetch(PDO::FETCH_OBJ);
 			$u = new Tbl_parroquia();
 
-			$u->__SET('id_parroquia', $r->id_parroquia);
+			$u->__SET('idParroquia', $r->idParroquia);
 			$u->__SET('nombre', $r->nombre);
             $u->__GET('direccion', $r->direccion);
             $u->__GET('telefono', $r->ftelefono);
@@ -97,7 +97,7 @@ class Dt_tbl_parroquia extends Conexion
 						parroco = ?,
 						logo = ?,
 						sitio_web = ?
-				    WHERE id_parroquia = ?";
+				    WHERE idParroquia = ?";
 
 			$this->myCon->prepare($sql)
 				->execute(
@@ -108,7 +108,7 @@ class Dt_tbl_parroquia extends Conexion
 						$tr->parroco,
 						$tr->logo,
 						$tr->sitio_web,
-						$tr->id_parroquia
+						$tr->idParroquia
 					)
 				);
 				
@@ -126,7 +126,7 @@ class Dt_tbl_parroquia extends Conexion
 			$this->myCon = parent::conectar();
 			$sql = "UPDATE dbkermesse.tbl_parroquia SET
 						estado = 3
-				    WHERE id_parroquia = ?";
+				    WHERE idParroquia = ?";
 
 			$stm = $this->myCon->prepare($sql);
 			$stm->execute(array($id));

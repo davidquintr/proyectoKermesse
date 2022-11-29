@@ -45,7 +45,7 @@ if ($_POST) {
 
         case '2':
             try {              
-                $kermesse->__SET('id_kermesse', $_POST['idU']);
+                $kermesse->__SET('id_kermesse', $_POST['idKermesse']);
                 $kermesse->__SET('idParroquia', $_POST['parroquia']);
                 $kermesse->__SET('fInicio', $_POST['fInicio']);
                 $kermesse->__SET('fFinal', $_POST['fFinal']);

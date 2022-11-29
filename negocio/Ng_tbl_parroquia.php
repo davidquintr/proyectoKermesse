@@ -44,10 +44,10 @@ if ($_POST) {
                 $parroquia->__SET('direccion', $_POST['direccion']);
                 $parroquia->__SET('telefono', $_POST['telefono']);
                 $parroquia->__SET('parroco', $_POST['parroco']);
-                $parroquia->__SET('logo', $_POST['LOGO']);
+                $parroquia->__SET('logo', $_POST['logo']);
                 $parroquia->__SET('sitio_web', $_POST['sitio_web']);
 
-                $dtKermesse->editParroquia($parroquia);
+                $dtParroquia->editParroquia($parroquia);
 
                 header("Location: /proyectoKermesse/navigate/parroquia/gestionar.php?msj=3");
             } catch (Exception $e) {

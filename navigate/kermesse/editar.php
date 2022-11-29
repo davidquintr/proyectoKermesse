@@ -6,9 +6,9 @@ include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_kermesse.php';
 include_once '../../entidades/tbl_kermesse.php';
 
-$varIdK = 0;
-if (isset($varIdK)) {
-    $varIdK = $_GET['varEnter'];
+$varIdU = 0;
+if (isset($varIdU)) {
+    $varIdU = $_GET['varEnter'];
 }
 
 $dtKermesse = new Dt_tbl_kermesse();
@@ -31,13 +31,13 @@ $kermesse = $dtKermesse->getKermesseByID($varIdK);
                         <div class="card-body">
                             <form method="POST" action="../../negocio/Ng_tbl_kermesse.php">
                                 <input type="hidden" value="2" name="txtaccion" id="txtaccion"/>
-                            
 
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="kerm" name="kerm" type="text" title="ID" value="<?php echo $kermesse->id_kermesse;?>" disabled/>
-                                    <input class="form-control" id="id_Kermesse" name="id_Kermesse" type="hidden" title="ID" value="<?php echo $kermesse->id_kermesse;?>"/>
+                                    <input class="form-control" id="id" name="id" type="text" title="ID de Kermess" value="<?php echo $varIdU?>" disabled/>
+                                    <input class="form-control" id="idKermesse" name="idKermesse" type="hidden" title="id de Kermesse" value="<?php echo $varIdU?>"/>
                                     <label for="kermesseID">ID</label>
                                 </div>
+
                                 <input class="form-control" id="kermessename" name="kermessename" type="text" title="Nombre de la kermesse" value="<?php echo $kermesse->nombre ?>" required/>
                                     <label for="username">Nombre de la kermesse</label>
                                 </div>
