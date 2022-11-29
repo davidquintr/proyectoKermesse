@@ -107,7 +107,7 @@ class Dt_tbl_ingreso_comunidad extends Conexion
 	}
 
 
-	public function getArqueoByID($id){
+	public function getIngrByID($id){
 		try {
 			$this->myCon = parent::conectar();
 			$querySQL = "SELECT * FROM dbkermesse.tbl_ingreso_comunidad WHERE id_kermesse = ?;";
@@ -137,32 +137,32 @@ class Dt_tbl_ingreso_comunidad extends Conexion
 		}
 	}
 
-    public function editIngresoComunidad(Tbl_Ingreso_Comunidad $ac){
+	public function editIngCom(Tbl_Ingreso_Comunidad $ic, int $kerm){
 		try {
 			$this->myCon = parent::conectar();
 			$sql = "UPDATE dbkermesse.tbl_ingreso_comunidad SET
 						id_kermesse = ?,
-						id_comunidad = ?,
-						id_producto = ?,
-						cant_productos = ?,
+						id_comunidad = ?, 
+						id_producto = ?, 
+						cant_productos = ?, 
 						total_bonos = ?,
-						usuario_modificacion = ?, 
-						fecha_modificacion = ?, 
-						estado = ?
+						estado = ?,
+						usuario_creacion = ?,
+						fecha_creacion = ?
 				    WHERE id_ingreso_comunidad = ?";
 
 			$this->myCon->prepare($sql)
 				->execute(
 					array(
-						$ac->__GET('idKermesse'),
-						$ac->__GET('id_comunidad'),
-						$ac->__GET('id_producto'),
-						$ac->__GET('cant_productos'),
-						$ac->__GET('total_bonos'),
-						$ac->__GET('usuario_modificacion'),
-						$ac->__GET('fecha_modificacion'),
-						$ac->__GET('estado'),
-						$ac->__GET('id_ingreso_comunidad')
+						$kerm,
+						$ic->__GET('id_comunidad'),
+						$ic->__GET('id_producto'),
+						$ic->__GET('cant_productos'),
+						$ic->__GET('total_bonos'),
+						$ic->__GET('estado'),
+						$ic->__GET('usuario_creacion'),
+						$ic->__GET('fecha_creacion'),
+						$ic->__GET('id_ingreso_comunidad')
 					)
 				);
 
@@ -174,6 +174,8 @@ class Dt_tbl_ingreso_comunidad extends Conexion
 			die($e->getMessage());
 		}
 	}
+
+   
 
     public function deleteIngresoCom($id){
 

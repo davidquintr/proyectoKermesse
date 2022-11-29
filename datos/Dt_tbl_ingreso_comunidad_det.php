@@ -67,7 +67,7 @@ class Dt_tbl_ingreso_comunidad_det extends Conexion
 			$stm->execute(array($id));
 
 			$r = $stm->fetch(PDO::FETCH_OBJ);
-			$u = new Tbl_Arqueocaja_Det();
+			$u = new Tbl_Ingreso_Comunidad_Det();
 
 			$u->__SET('id_ingreso_comunidad_det', $r->id_ingreso_comunidad_det);
 			$u->__SET('id_ingreso_comunidad', $r->id_ingreso_comunidad);
@@ -86,6 +86,7 @@ class Dt_tbl_ingreso_comunidad_det extends Conexion
 	public function editIngresoComDet (Tbl_Ingreso_Comunidad_Det $ac){
 		try {
 			$this->myCon = parent::conectar();
+
 			$sql = "UPDATE dbkermesse.tbl_ingreso_comunidad_det SET
 						id_ingreso_comunidad = ?,
 						id_bono = ?, 
@@ -101,7 +102,8 @@ class Dt_tbl_ingreso_comunidad_det extends Conexion
 						$ac->__GET('id_bono'),
 						$ac->__GET('denominacion'),
 						$ac->__GET('cantidad'),
-						$ac->__GET('subtotal_bono')
+						$ac->__GET('subtotal_bono'),
+						$ac->__GET('id_ingreso_comunidad_det')
 					)
 				);
 

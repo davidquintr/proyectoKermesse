@@ -7,6 +7,8 @@ include_once("../entidades/tbl_usuario.php");
 
 $direct = "../";
 
+session_start();
+
 if (empty($_SESSION['acceso'])) {
     header("Location: /proyectoKermesse/navigate/ingresoComunidad/gestionar.php?msj=4");
 } 
@@ -28,7 +30,7 @@ if ($_POST) {
 
         case '1':
             try {
-                $ingresoComunidad->__SET('id_kermesse', $_POST['kermesse']);
+                $ingresoComunidad->__SET('id_kermesse', $_POST['ker']);
                 $ingresoComunidad->__SET('id_comunidad', $_POST['comunidad']);
                 $ingresoComunidad->__SET('id_producto', $_POST['comunidad']);
                 $ingresoComunidad->__SET('cant_productos', $_POST['cantProductos']);
@@ -57,7 +59,7 @@ if ($_POST) {
 
             case 2:
                 try {
-                    $ingresoComunidad->__SET('id_kermesse', $_POST['kermesse']);
+                    $ingresoComunidad->__SET('id_ingreso_comunidad', $_POST['idIng']);
                     $ingresoComunidad->__SET('id_comunidad', $_POST['comunidad']);
                     $ingresoComunidad->__SET('id_producto', $_POST['comunidad']);
                     $ingresoComunidad->__SET('cant_productos', $_POST['cantProductos']);
@@ -65,10 +67,11 @@ if ($_POST) {
                     $ingresoComunidad->__SET('estado', 1);
                     $ingresoComunidad->__SET('usuario_modificacion', $usuario[0]->id_usuario);
                     $ingresoComunidad->__SET('fecha_modificacion', $date);
-                    $dtIngCom->editIngresoComunidad($ingresoComunidad);
+                    $ingresoComunidad->id_kermesse = $_POST['ker'];
+                    $dtIngCom->editIngCom($ingresoComunidad, $_POST['ker']);
     
-                    $ingresoComunidadDet = $dtIngComDet->getIngresoDetByID($ingresoComunidad->id_ingreso_comunidad_det);
-                    $ingresoComunidadDet->__SET('id_ingreso_comunidad', $allCom[count($allCom) - 1]->__GET('id_ingreso_comunidad'));
+                    $ingresoComunidadDet->__SET('id_ingreso_comunidad_det',$dtIngComDet->getIngresoDetByID($ingresoComunidad->id_ingreso_comunidad_det));
+                    $ingresoComunidadDet->__SET('id_ingreso_comunidad', $ingresoComunidad->id_ingreso_comunidad);
                     $ingresoComunidadDet->__SET('id_bono', $_POST['bono']);
                     $ingresoComunidadDet->__SET('denominacion', $_POST['denom']);
                     $ingresoComunidadDet->__SET('cantidad', $_POST['cantidad']);
