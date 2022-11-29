@@ -6,29 +6,34 @@ include_once '../../datos/Dt_tbl_denominacion.php';
 include_once '../../entidades/tbl_denominacion.php';
 
 $dtDenominacion= new Dt_tbl_Denominacion();
-$denominacion =  $dtDenominacion->listarDenominaciones();
+$denominacion =  $dtDenominacion->listarVwDenominaciones();
 
 ?>
 <div class="container-fluid px-4">
         <h1 class="mt-4">Gestionar Denominaciones</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
-            <li class="breadcrumb-item active">Gestión de Usuarios</li>
+            <li class="breadcrumb-item active">Gestión de Denominaciones</li>
         </ol>
         <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
+            En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos.
         </div>
+
+        <div class="alert alert-secondary">
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar una nueva moneda</button></a>
+        </div>
+
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Usuarios Activos
+                Denominaciones Activas
             </div>
             <div class="card-body">
                 <table id="generic" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>idMoneda</th>
+                            <th>Moneda</th>
                             <th>Valor</th>
                             <th>Valor Letras</th>
                             <th>SubTotal</th>
@@ -40,26 +45,19 @@ $denominacion =  $dtDenominacion->listarDenominaciones();
                         foreach($denominacion as $value):
                             echo "<tr>";
                             echo "<td>$value->id_denominacion</td>";
-                            echo "<td>$value->idMoneda</td>";
+                            echo "<td>$value->moneda</td>";
                             echo "<td>$value->valor</td>";
                             echo "<td>$value->valor_letras</td>";
-                            switch($value->estado){
-                                case 1:
-                                    echo "<td>Activo</td>";
-                                break;
-                                case 2:
-                                    echo "<td>Modificado</td>";
-                                break;
-                            }
+                            echo "<td>$value->estado</td>";
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de un usuario">
+                            <a href="ver.php?varEnter=<?php echo $value->id_moneda;?>" target="_blank" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de un usuario">
+                            <a href="editar.php?varEnter=<?php echo $value->id_moneda;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja al usuario">
+                            <a onclick="deleteObject('<?php echo $value->id_moneda;?>','3');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -71,7 +69,7 @@ $denominacion =  $dtDenominacion->listarDenominaciones();
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>idMoneda</th>
+                            <th>Moneda</th>
                             <th>Valor</th>
                             <th>Valor Letras</th>
                             <th>SubTotal</th>
