@@ -11,8 +11,7 @@ class Conexion
     private $pwd;
 
     // Metodos
-    public function conectar()
-	{
+    public function conectar(){
         $serverName = 'localhost';
         $dbName = 'dbkermesse';
         $userName = 'root';                      

@@ -34,4 +34,27 @@ class Dt_tbl_categoria_producto extends Conexion
 			die($e->getMessage());
 		}
 	}
+
+	public function insertarCatProductos(Tbl_Categoria_Producto $prod){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "INSERT INTO tbl_categoria_producto (nombre,descripcion, estado)
+                VALUES(?,?,?)";
+
+            $this->myCon->prepare($sql)
+                ->execute(array(
+                    $prod->__GET('nombre'),
+                    $prod->__GET('descripcion'),
+                    $prod->__GET('estado')
+                ));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+
+
 }

@@ -1,16 +1,15 @@
 <?php
 
-class Vw_arqueocaja
+class Vw_productos
 {
     //Atributos
     private $id;
-    private $kermesse;  
-    private $moneda;
-    private $denominacion;
+    private $comunidad;
+    private $categoria_producto;
+    private $nombre;
+    private $descripcion;
     private $cantidad;
-    private $fechaArqueo;
-    private $subtotal;
-    private $granTotal;
+    private $preciov_sugerido;
     private $estado;
     //Metodos
     public function __GET($k){ return $this->$k; }
