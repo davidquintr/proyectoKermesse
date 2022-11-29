@@ -18,6 +18,9 @@ function deleteObject(idObj, option){
             case 'arqc':
                 window.location.href = "../../negocio/Ng_tbl_arqueocaja.php?delAc="+idObj;
             break;
+            case 'opc':
+                window.location.href = "../../negocio/Ng_tbl_opciones.php?delOc="+idObj;
+            break;
         }
     }, 
     
