@@ -16,7 +16,6 @@ function deleteObject(idObj, option){
             case '4':
                 window.location.href = "../../negocio/Ng_rol_usuario.php?delRu="+idObj;
             break;
-<<<<<<< HEAD
             case 'listprod':
                 window.location.href = "../../negocio/Ng_tbl_listaPrecios.php?delList="+idObj;
             break;
@@ -32,7 +31,6 @@ function deleteObject(idObj, option){
             case '71':
                 window.location.href = "../../negocio/Ng_tbl_denominacion.php?delTa="+idObj;
                 break;
-=======
             case '5':
                 window.location.href = "../../negocio/Ng_tbl_categoriaGastos.php?delCatGas="+idObj;
             break;
@@ -45,7 +43,6 @@ function deleteObject(idObj, option){
             case '8':
                 window.location.href = "../../negocio/Ng_tbl_kermesse.php?delKer="+idObj;
             break;
->>>>>>> riuskeFInal-branch
         }
     }, 
     

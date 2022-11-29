@@ -72,10 +72,8 @@ class Dt_tbl_kermesse extends Conexion
 		}
 	}
 
-<<<<<<< HEAD
-    public function getKermByID($id){
-=======
-    public function insertarKermesse(Tbl_kermesse $kermesse){
+
+	public function insertarKermesse(Tbl_kermesse $kermesse){
 		try {
 			$this->myCon = parent::conectar();
 			$sql = "INSERT INTO dbkermesse.tbl_kermesse (idParroquia, nombre, fInicio, fFinal, descripcion, estado, usuario_creacion, fecha_creacion)
@@ -103,7 +101,6 @@ class Dt_tbl_kermesse extends Conexion
 
 	public function getKermesseByID($id)
 	{
->>>>>>> riuskeFInal-branch
 		try {
 			$this->myCon = parent::conectar();
 			$querySQL = "SELECT * FROM dbkermesse.tbl_kermesse WHERE id_kermesse = ?;";
@@ -111,23 +108,6 @@ class Dt_tbl_kermesse extends Conexion
 			$stm->execute(array($id));
 
 			$r = $stm->fetch(PDO::FETCH_OBJ);
-<<<<<<< HEAD
-			$u = new Tbl_Kermesse();
-
-            $u->__SET('id_kermesse', $r->id_kermesse);
-            $u->__SET('idParroquia', $r->idParroquia);
-            $u->__SET('nombre', $r->nombre);
-            $u->__SET('fInicio', $r->fInicio);
-            $u->__SET('fFinal', $r->fFinal);
-            $u->__SET('descripcion', $r->descripcion);
-            $u->__SET('estado', $r->estado);
-            $u->__SET('usuario_creacion', $r->usuario_creacion);
-            $u->__SET('fecha_creacion', $r->fecha_creacion);
-            $u->__SET('usuario_modificacion', $r->usuario_modificacion);
-            $u->__SET('fecha_modificacion', $r->fecha_modificacion);
-            $u->__SET('usuario_eliminacion', $r->usuario_eliminacion);
-            $u->__SET('fecha_eliminacion', $r->fecha_eliminacion);
-=======
 			$u = new Tbl_kermesse();
 
 			$u->__SET('id_kermesse', $r->id_kermesse);
@@ -137,7 +117,6 @@ class Dt_tbl_kermesse extends Conexion
             $u->__GET('fFinal', $r->fFinal);
             $u->__GET('descripcion', $r->descripcion); 
 			$u->__SET('estado', $r->estado);
->>>>>>> riuskeFInal-branch
 
 			$this->myCon = parent::desconectar();
 			return $u;
@@ -145,8 +124,6 @@ class Dt_tbl_kermesse extends Conexion
 			die($e->getMessage());
 		}
 	}
-<<<<<<< HEAD
-=======
 
 	public function editKermesse(Tbl_kermesse $tr){
 		try {
@@ -198,7 +175,6 @@ class Dt_tbl_kermesse extends Conexion
 			die($e->getMessage());
 		}
 	}
->>>>>>> riuskeFInal-branch
 }
 /*
 $prueba = new Dt_tbl_kermesse();
