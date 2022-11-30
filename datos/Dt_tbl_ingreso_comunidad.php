@@ -11,7 +11,7 @@ class Dt_tbl_ingreso_comunidad extends Conexion
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "SELECT * FROM dbkermesse.vw_ingreso_comunidad;";
+			$querySQL = "SELECT * FROM dbkermesse.vw_ingreso_comunidad where estado <> 3;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();

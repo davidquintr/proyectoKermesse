@@ -45,7 +45,7 @@ if ($_POST) {
 
 if ($_GET) {
     try {
-        $bonos->__SET('id_bonos', $_GET['delRo']);
+        $bonos->__SET('id_bonos', $_GET['delBonos']);
         $dtbonos->deleteBono($bonos->__GET('id_bonos'));
         header("Location: /proyectoKermesse/navigate/bonos/gestionar.php?msj=6");
 

@@ -90,8 +90,8 @@ if ($_POST) {
 
 if ($_GET) {
     try {
-        $usr->__SET('id_usuario', $_GET['delU']);
-        $dtUsr->deleteUser($usr->__GET('id_usuario'));
+        $ingresoComunidad->__SET('id_ingresoComunidad', $_GET['delIngCom']);
+        $dtIngCom->deleteIngresoCom($ingresoComunidad->__GET('id_ingresoComunidad'));
         header("Location: /proyectoKermesse/navigate/ingresoComunidad/gestionar.php?msj=6");
 
     } catch (Exception $e) {

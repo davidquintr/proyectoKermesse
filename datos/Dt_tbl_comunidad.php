@@ -12,7 +12,7 @@ class Dt_tbl_comunidad extends Conexion
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "select * from dbkermesse.tbl_comunidad;";
+			$querySQL = "select * from dbkermesse.tbl_comunidad where estado <> 3; ";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();

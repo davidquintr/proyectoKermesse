@@ -103,6 +103,7 @@ $ingresosComunidad = $dtIngresoComunidad->listarVwIngresoComunidad();
     </div>
     <script src="../../dependencies/js/messageSetters.js"></script>
     <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="../../dependencies/js/deleteScripts.js"></script>
 <?php
 include '../../partials/bottom.php';
 ?>

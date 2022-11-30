@@ -47,7 +47,7 @@ if ($_POST) {
 
 if ($_GET) {
     try {
-        $comunidad->__SET('id_comunidad', $_GET['delRo']);
+        $comunidad->__SET('id_comunidad', $_GET['delCom']);
         $dtComunidad->deleteComunidad($comunidad->__GET('id_comunidad'));
         header("Location: /proyectoKermesse/navigate/comunidad/gestionar.php?msj=6");
 

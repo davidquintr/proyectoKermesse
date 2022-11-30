@@ -12,7 +12,7 @@ class Dt_tbl_control_bonos extends Conexion
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "select * from dbkermesse.tbl_control_bonos;";
+			$querySQL = "select * from dbkermesse.tbl_control_bonos where estado <> 3;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();
