@@ -1,7 +1,7 @@
 <?php
 include_once("conexion.php");
-include_once("../../entidades/tbl_arqueocaja.php");
-include_once("../../entidades/vw_arqueocaja.php");
+include_once("{$direct}entidades/tbl_arqueocaja.php");
+include_once("{$direct}entidades/vw_arqueocaja.php");
 
 
 class Dt_tbl_Arqueocaja extends Conexion
@@ -93,6 +93,85 @@ class Dt_tbl_Arqueocaja extends Conexion
 			die($e->getMessage());
 		}
 	}
+
+    public function getArqueoByID($id){
+		try {
+			$this->myCon = parent::conectar();
+			$querySQL = "SELECT * FROM dbkermesse.tbl_arqueocaja WHERE id_ArqueoCaja = ?;";
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($id));
+
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+			$u = new Tbl_Arqueocaja();
+
+			$u->__SET('id_ArqueoCaja', $r->id_ArqueoCaja);
+			$u->__SET('idKermesse', $r->idKermesse);
+			$u->__SET('fechaArqueo', $r->fechaArqueo);
+			$u->__SET('granTotal', $r->granTotal);
+			$u->__SET('usuario_creacion', $r->usuario_creacion);
+			$u->__SET('fecha_creacion', $r->fecha_creacion);
+			$u->__SET('usuario_modificacion', $r->usuario_modificacion);
+			$u->__SET('fecha_modificacion', $r->fecha_modificacion);
+			$u->__SET('usuario_eliminacion', $r->usuario_eliminacion);
+			$u->__SET('fecha_eliminacion', $r->fecha_eliminacion);
+			$u->__SET('estado', $r->estado);
+
+			$this->myCon = parent::desconectar();
+			return $u;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+    public function editArqueoCaja(Tbl_Arqueocaja $ac){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_arqueocaja SET
+						idKermesse = ?,
+						usuario_modificacion = ?, 
+						fecha_modificacion = ?, 
+						estado = ?
+				    WHERE id_ArqueoCaja = ?";
+
+			$this->myCon->prepare($sql)
+				->execute(
+					array(
+						$ac->__GET('idKermesse'),
+						$ac->__GET('usuario_modificacion'),
+						$ac->__GET('fecha_modificacion'),
+						$ac->__GET('estado'),
+						$ac->__GET('id_ArqueoCaja')
+					)
+				);
+
+			$this->myCon = parent::desconectar();
+		
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
+    public function deleteArqueo($id){
+
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_arqueocaja SET
+						estado = 3
+				    WHERE id_ArqueoCaja = ?";
+
+			$stm = $this->myCon->prepare($sql);
+			$stm->execute(array($id));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
 }
 
 /*

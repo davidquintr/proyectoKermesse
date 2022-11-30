@@ -2,7 +2,6 @@
 function deleteObject(idObj, option){
     confirm(function(e,btn){
         e.preventDefault();
-
         switch(option){
             case '1':
                 window.location.href = "../../negocio/Ng_tbl_usuario.php?delU="+idObj;
@@ -16,6 +15,7 @@ function deleteObject(idObj, option){
             case '4':
                 window.location.href = "../../negocio/Ng_rol_usuario.php?delRu="+idObj;
             break;
+<<<<<<< HEAD
             case 'listprod':
                 window.location.href = "../../negocio/Ng_tbl_listaPrecios.php?delList="+idObj;
             break;
@@ -42,6 +42,13 @@ function deleteObject(idObj, option){
             break;
             case '8':
                 window.location.href = "../../negocio/Ng_tbl_kermesse.php?delKer="+idObj;
+=======
+            case 'arqc':
+                window.location.href = "../../negocio/Ng_tbl_arqueocaja.php?delAc="+idObj;
+            break;
+            case 'opc':
+                window.location.href = "../../negocio/Ng_tbl_opciones.php?delOc="+idObj;
+>>>>>>> deibi-part
             break;
         }
     }, 

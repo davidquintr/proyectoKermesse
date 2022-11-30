@@ -12,7 +12,7 @@ class Dt_tbl_opciones extends Conexion
         try{
             $this->myCon = parent::conectar();
 			$result = array();
-			$querySQL = "select * from dbkermesse.tbl_opciones;";
+			$querySQL = "select * from dbkermesse.tbl_opciones where estado <> 3;";
 
 			$stm = $this->myCon->prepare($querySQL);
 			$stm->execute();
@@ -30,6 +30,91 @@ class Dt_tbl_opciones extends Conexion
 			return $result;
 		}
 		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+	public function insertarOpcion(Tbl_Opciones $opc){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "INSERT INTO dbkermesse.tbl_opciones (opcion_descripcion, estado)
+					VALUES(?,?)";
+
+			$this->myCon->prepare($sql)->execute(
+				array(
+					$opc->__GET('opcion_descripcion'),
+					$opc->__GET('estado'),
+				)
+			);
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+	
+	public function getOpcByID($id){
+		try {
+			$this->myCon = parent::conectar();
+			$querySQL = "SELECT * FROM dbkermesse.tbl_opciones WHERE id_opciones = ?;";
+			$stm = $this->myCon->prepare($querySQL);
+			$stm->execute(array($id));
+
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+			$u = new Tbl_Opciones();
+
+			$u->__SET('id_opciones', $r->id_opciones);
+			$u->__SET('opcion_descripcion', $r->opcion_descripcion);
+			$u->__SET('estado', $r->estado);
+
+			$this->myCon = parent::desconectar();
+			return $u;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function editOpcion(Tbl_Opciones $to){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_opciones SET
+						opcion_descripcion = ?,
+						estado = ?
+				    WHERE id_opciones = ?";
+
+			$this->myCon->prepare($sql)
+				->execute(
+					array(
+						$to->__GET('opcion_descripcion'),
+						$to->__GET('estado'),
+						$to->__GET('id_opciones')
+					)
+				);
+
+			$this->myCon = parent::desconectar();
+		
+
+		} catch (Exception $e) {
+			var_dump($e);
+			die($e->getMessage());
+		}
+	}
+
+	public function deleteOpc($id){
+		try {
+			$this->myCon = parent::conectar();
+			$sql = "UPDATE dbkermesse.tbl_opciones SET
+						estado = 3
+				    WHERE id_opciones = ?";
+
+			$stm = $this->myCon->prepare($sql);
+			$stm->execute(array($id));
+
+			$this->myCon = parent::desconectar();
+
+		} catch (Exception $e) {
+			var_dump($e);
 			die($e->getMessage());
 		}
 	}

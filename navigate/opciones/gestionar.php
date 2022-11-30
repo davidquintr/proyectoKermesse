@@ -1,5 +1,5 @@
 <?php
-$title = "Gestionar opciones";
+$title = "Gestionar Opciones";
 $direct = "../../";
 include '../../partials/top.php';
 include_once '../../datos/Dt_tbl_opciones.php';
@@ -10,13 +10,16 @@ $opciones = $dtOpciones->listarOpciones();
 
 ?>
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Gestionar Datos de Opciones</h1>
+        <h1 class="mt-4">Gestionar Opciones</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de Opciones</li>
         </ol>
         <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los datos de las opciones activas/inactivas.
+            En esta pantalla se pueden visualizar y gestionar los datos de las opciones activas.
+        </div>
+        <div class="alert alert-secondary">
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Crear una nueva opción</button></a>
         </div>
         <div class="card mb-4">
             <div class="card-header">
@@ -52,13 +55,13 @@ $opciones = $dtOpciones->listarOpciones();
                             }
                         ?>
                         <td>
-                            <a href="#" target="_blank" title="Visualizar los datos de una opción">
+                            <a href="ver.php?varEnter=<?php echo $value->id_opciones?>" title="Visualizar">
                                 <i class="fa-solid fa-eye"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Modificar los datos de una opción">
+                            <a href="editar.php?varEnter=<?php echo $value->id_opciones?>" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a href="#" target="_blank" title="Dar de baja a la opción">
+                            <a onclick="deleteObject('<?php echo $value->id_opciones;?>','opc');" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>
@@ -79,8 +82,9 @@ $opciones = $dtOpciones->listarOpciones();
             </div>
         </div>
     </div>
-    <script src="../../dependencies/js/messageSetters.js"></script>
-    <script src="../../dependencies/js/tablesSetters.js"></script> 
+    <script src="<?php echo $direct?>dependencies/js/messageSetters.js"></script>
+    <script src="<?php echo $direct?>dependencies/js/tablesSetters.js"></script> 
+    <script src="<?php echo $direct?>dependencies/js/deleteScripts.js"></script> 
 <?php
 include '../../partials/bottom.php';
 ?>

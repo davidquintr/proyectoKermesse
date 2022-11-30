@@ -11,8 +11,14 @@ class Conexion
     private $pwd;
 
     // Metodos
+<<<<<<< HEAD
     public function conectar(){
         $serverName = 'localhost';
+=======
+    public function conectar()
+	{
+        $serverName = 'localhost:3306';
+>>>>>>> deibi-part
         $dbName = 'dbkermesse';
         $userName = 'root';                      
         $pwd = 'Usuario123.!';
