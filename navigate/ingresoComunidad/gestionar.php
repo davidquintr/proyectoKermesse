@@ -17,6 +17,12 @@ $ingresosComunidad = $dtIngresoComunidad->listarVwIngresoComunidad();
             <li class="breadcrumb-item active">Gestión de Ingresos Comunidad</li>
         </ol>
 
+        <div class="alert alert-primary text-center">
+            En esta pantalla se pueden visualizar y gestionar los datos los ingresos de la comunidad.
+        </div>
+        <div class="alert alert-secondary">
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar ingreso comunidad</button></a>
+        </div>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -73,7 +79,7 @@ $ingresosComunidad = $dtIngresoComunidad->listarVwIngresoComunidad();
                             <a href="editar.php?varEnter=<?php echo $value->id;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a onclick="deleteObject('<?php echo $value->id;?>','3');" target="_blank" title="Dar de baja">
+                            <a onclick="deleteObject('<?php echo $value->id;?>','delIngCom');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
                         </td>

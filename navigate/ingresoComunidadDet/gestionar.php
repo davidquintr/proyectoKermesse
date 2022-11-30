@@ -16,9 +16,8 @@ $ingresosComunidadDet = $dtIngresoComunidadDet->listarIngresoComunidadDet();
             <li class="breadcrumb-item"><a href="index.php">Index</a></li>
             <li class="breadcrumb-item active">Gestión de Ingresos comunidad det</li>
         </ol>
-        <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
-        </div>
+
+        
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>

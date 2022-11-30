@@ -47,10 +47,10 @@ if ($_GET) {
     try {
         $bonos->__SET('id_bonos', $_GET['delBonos']);
         $dtbonos->deleteBono($bonos->__GET('id_bonos'));
-        header("Location: /proyectoKermesse/navigate/bonos/gestionar.php?msj=6");
+        header("Location: /proyectoKermesse/navigate/controlBonos/gestionar.php?msj=6");
 
     } catch (Exception $e) {
-        header("Location: /proyectoKermesse/navigate/bonos/gestionar.php?msj=4");
+        header("Location: /proyectoKermesse/navigate/controlBonos/gestionar.php?msj=4");
         die($e->getMessage());
 
     }

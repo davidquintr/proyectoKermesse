@@ -51,10 +51,10 @@ function deleteObject(idObj, option){
                 window.location.href = "../../negocio/Ng_tbl_comunidad.php?delCom="+idObj;
             break;
             case 'delBonos':
-                window.location.href = "../../negocio/Ng_tbl_control_bonos.php?delBon="+idObj;
+                window.location.href = "../../negocio/Ng_tbl_control_bonos.php?delBonos="+idObj;
             break;
             case 'delIngCom':
-                window.location.href = "../../negocio/Ng_tbl_ingreso_comunidad.php?delIngCo="+idObj;
+                window.location.href = "../../negocio/Ng_tbl_ingreso_comunidad.php?delIngCom="+idObj;
             break;
         }
     }, 

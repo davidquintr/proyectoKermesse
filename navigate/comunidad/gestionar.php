@@ -17,6 +17,12 @@ $comunidades = $dtComunidad->listarComunidad();
             <li class="breadcrumb-item active">Gestión de comunidad</li>
         </ol>
     
+        <div class="alert alert-primary text-center">
+            En esta pantalla se pueden visualizar y gestionar los datos de la comunidad.
+        </div>
+        <div class="alert alert-secondary">
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar comunidad</button></a>
+        </div>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>

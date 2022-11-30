@@ -17,7 +17,10 @@ $bonos = $dtControlBonos->listarControlBonos();
             <li class="breadcrumb-item active">Gestión de Bonos</li>
         </ol>
         <div class="alert alert-primary text-center">
-            En esta pantalla se pueden visualizar y gestionar los datos de los usuarios activos/inactivos.
+            En esta pantalla se pueden visualizar y gestionar los bonos.
+        </div>
+        <div class="alert alert-secondary">
+            <a href="agregar.php"><button type="button" class="btn btn-outline-primary"><i class="fas fa-user pr-4" aria-hidden="true"></i>Agregar control bonos</button></a>
         </div>
         <div class="card mb-4">
             <div class="card-header">
@@ -61,7 +64,7 @@ $bonos = $dtControlBonos->listarControlBonos();
                             <a href="editar.php?varEnter=<?php echo $value->id_bono;?>" target="_blank" title="Modificar">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>&nbsp;
-                            <a onclick="deleteObject('<?php echo $value->id_bono;?>','3');" target="_blank" title="Dar de baja">
+                            <a onclick="deleteObject('<?php echo $value->id_bono;?>','delBonos');" target="_blank" title="Dar de baja">
                                 <i class="fa-solid fa-user-minus"></i> 
                             </a>
 
